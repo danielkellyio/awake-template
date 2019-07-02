@@ -42,7 +42,7 @@ export default {
   components: {
     Card
   },
-  created(){
+  mounted() {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on('init', (user) => {
         if (!user) {
