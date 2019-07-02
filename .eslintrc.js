@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     "no-console": "off",
     "vue/no-v-html": "off",
-    "vue/html-self-closing": "off"
+    "vue/html-self-closing": "off",
+    "nuxt/no-globals-in-created": "off"
   }
 }
