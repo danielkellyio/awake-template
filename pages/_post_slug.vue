@@ -4,11 +4,13 @@
   </div>
 </template>
 <script>
+import showdown from 'showdown'
 export default {
   layout: 'main-with-sidebar',
   computed: {
     content() {
-      return this.$store.state.post.content
+      const converter = new showdown.Converter()
+      return converter.makeHtml(this.$store.state.post.content)
     }
   },
   fetch({ store, params }) {

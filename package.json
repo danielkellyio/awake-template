@@ -18,7 +18,8 @@
     "html-loader": "^0.5.5",
     "netlify-cms": "^2.9.5",
     "nuxt": "^2.0.0",
-    "nuxt-buefy": "^0.3.2"
+    "nuxt-buefy": "^0.3.2",
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

@@ -48,6 +48,9 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module'
   ],
+  markdownit: {
+    injected: true
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
