@@ -10,9 +10,7 @@
           <div class="column">
             <nuxt />
           </div>
-          <aside class="column is-one-quarter">
-            this is the widget column
-          </aside>
+          <aside class="column is-one-quarter"></aside>
         </div>
       </div>
     </main>

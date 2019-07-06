@@ -1,3 +1,4 @@
+import purgecss from '@fullhuman/postcss-purgecss'
 import { getDynamicPaths } from './helper'
 export default {
   mode: 'universal',
@@ -32,7 +33,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['assets/styles.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,8 +42,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -60,6 +59,23 @@ export default {
    ** Build configuration
    */
   build: {
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false
+        }
+      },
+      plugins: [
+        purgecss({
+          content: [
+            './pages/**/*.vue',
+            './layouts/**/*.vue',
+            './components/**/*.vue'
+          ],
+          whitelist: ['html', 'body']
+        })
+      ]
+    },
     /*
      ** You can extend webpack config here
      */

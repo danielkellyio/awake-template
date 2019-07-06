@@ -6,23 +6,27 @@
   >
     <div class="navbar-brand">
       <a class="navbar-item">
-        <img src="logo.png" alt="DanielKelly.io" class="logo" />
+        <img :src="logo" :alt="siteName" class="logo" />
       </a>
     </div>
 
     <div class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary" href="#hero">
-              <strong>Register</strong>
-            </a>
-            <a class="button is-light" href="#contact">
-              Contact Me
-            </a>
-          </div>
+          <div class="buttons"></div>
         </div>
       </div>
     </div>
   </nav>
 </template>
+<script>
+import siteGlobals from '~/content/global'
+export default {
+  data() {
+    return {
+      siteName: siteGlobals.siteName,
+      logo: siteGlobals.logo
+    }
+  }
+}
+</script>

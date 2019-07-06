@@ -5,6 +5,7 @@
 </template>
 <script>
 import showdown from 'showdown'
+
 export default {
   layout: 'main-with-sidebar',
   computed: {
@@ -18,3 +19,16 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.button-social {
+  font-size: 0.65rem;
+  filter: grayscale(1);
+  transition: 0.2s ease;
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+.social-wrapper {
+  margin-bottom: 40px;
+}
+</style>

@@ -11,6 +11,7 @@
         <h2 class="subtitle">
           {{ props.subtitle }}
         </h2>
+        <br />
         <div v-if="slots().default" class="under-subtitle">
           <slot />
         </div>
@@ -28,10 +29,35 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .hero {
   margin-top: 52px;
   background-size: cover !important;
-  background-color: #eee;
+  background-position: center;
+  * {
+    color: white;
+  }
+}
+.title,
+.subtitle,
+.under-subtitle {
+  padding: 0;
+  margin: 0;
+}
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 0 !important;
+}
+.under-subtitle {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: white;
+  border-top: 1px solid white;
+  padding-top: 5px;
+}
+</style>
+<style>
+.hero * {
+  color: white !important;
 }
 </style>

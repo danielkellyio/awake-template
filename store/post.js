@@ -24,15 +24,17 @@ export const state = () => ({
     `
 })
 export const mutations = {
-  set(state, { title, subtitle, content }) {
+  set(state, { title, subtitle, content, featureImage }) {
     state.title = title
     state.subtitle = subtitle
+    state.featureImage = featureImage
     state.content = content
   }
 }
 export const actions = {
   set({ commit }, postSlug) {
     const { data, content } = require(`~/content/posts/${postSlug}.md`).default
+    console.log(data)
     commit('set', {
       ...data,
       content
