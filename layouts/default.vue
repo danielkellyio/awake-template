@@ -1,16 +1,18 @@
 <template>
   <div>
     <nav-bar />
-    <main>
-      <nuxt />
-    </main>
+    <nuxt />
+    <site-footer></site-footer>
   </div>
 </template>
 
 <script>
+import 'animate.css/animate.min.css'
 import NavBar from '~/components/navbar'
+import SiteFooter from '~/components/footer'
 export default {
-  components: { NavBar },
+  components: { NavBar, SiteFooter },
+  transition: 'slide-fade',
   data() {
     return {
       items: [

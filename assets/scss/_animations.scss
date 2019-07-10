@@ -1,0 +1,11 @@
+@keyframes blurIn {
+  0%{
+    filter:blur(40px) grayscale(0);
+  }
+  30%{
+    filter:blur(0) grayscale(.5);
+  }
+  100%{
+    filter:blur(0) grayscale(1);
+  }
+}

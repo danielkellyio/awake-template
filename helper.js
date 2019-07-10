@@ -1,17 +1,13 @@
-import path from 'path'
-import glob from 'glob'
+export const setPageData = (store, { pageType, slug }) => {
+  if (process.browser) {
+    setTimeout(() => {
+      store.dispatch('set', { pageType: pageType, slug: slug })
+    }, 300)
+  } else {
+    store.dispatch('set', { pageType: pageType, slug: slug })
+  }
+}
 
-/**
- * Create an array of URLs from a list of files
- * @param {*} urlFilepathTable
- */
-export const getDynamicPaths = function (urlFilepathTable) {
-  return [].concat(
-    ...Object.keys(urlFilepathTable).map((url) => {
-      const filepathGlob = urlFilepathTable[url]
-      return glob
-        .sync(filepathGlob, { cwd: 'content' })
-        .map((filepath) => `${url}/${path.basename(filepath, '.md')}`)
-    })
-  )
+export const fullUrl = () => {
+  return `${window.location.protocol}//${window.location.host}/${window.location.pathname}`
 }

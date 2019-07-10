@@ -1,4 +1,12 @@
 {
   "siteName": "Bloxt",
-  "logo": "logo.png"
+  "tagline": "A Nuxt.js Theme for Netlify CMS",
+  "featureImage" : "/uploads/home-hero.jpg",
+  "logo": "logo.png",
+  "mainMenu": [
+    {
+      "name" : "About",
+      "path": "/about"
+    }
+  ]
 }
