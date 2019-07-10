@@ -19,7 +19,7 @@
         @keyup.enter="search"
       />
 
-      <ul v-if="matches" class="search-results">
+      <ul v-if="matches" class="search-results subtle-box-shadow">
         <div v-if="matches.length">
           <li
             v-for="match in matches"
@@ -166,7 +166,6 @@ export default {
   top: 100%;
   right: 0;
   width: 250px;
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .match-snippet {
   font-size: 0.7em;
