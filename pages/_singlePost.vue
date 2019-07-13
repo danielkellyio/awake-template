@@ -16,7 +16,11 @@
           <div class="column is-8 is-offset-2">
             <div class="post-wrapper">
               <markdown :markdown="$store.state.content" />
-              <disqus-comments />
+              <vue-disqus
+                v-if="$globals.disqus.siteShortName"
+                :shortname="$globals.disqus.siteShortName"
+                :identifier="$route.params.singlePost"
+              />
             </div>
           </div>
         </div>
@@ -30,11 +34,10 @@ import moment from 'moment'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
-import DisqusComments from '~/components/DisqusComments'
 import Markdown from '~/components/Markdown'
 
 export default {
-  components: { TheHero, DisqusComments, Markdown },
+  components: { TheHero, Markdown },
   head() {
     return {
       meta: [
