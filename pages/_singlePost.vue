@@ -1,7 +1,13 @@
 <template>
   <div>
     <the-hero :title="title" :subtitle="subtitle" :image="featureImage">
-      <strong>Author:</strong> {{ author }} <strong>Published on:</strong>
+      <span v-if="author && $globals.displayAuthor" class="author-wrapper">
+        <strong>Author:</strong> {{ author }}
+      </span>
+      <span v-if="date" class="date-wrapper">
+        <strong>Published on:</strong>
+      </span>
+
       {{ date }}
     </the-hero>
     <main class="section">
@@ -9,10 +15,7 @@
         <div class="columns">
           <div class="column is-8 is-offset-2">
             <div class="post-wrapper">
-              <nuxt-link to="my-second-post">
-                Hello
-              </nuxt-link>
-              <article class="content" v-html="content" />
+              <markdown :markdown="$store.state.content" />
               <disqus-comments />
             </div>
           </div>
@@ -24,15 +27,14 @@
 <script>
 import { mapState } from 'vuex'
 import moment from 'moment'
-import MarkdownIt from 'markdown-it'
-import hljs from 'highlight.js'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
 import DisqusComments from '~/components/DisqusComments'
+import Markdown from '~/components/Markdown'
 
 export default {
-  components: { TheHero, DisqusComments },
+  components: { TheHero, DisqusComments, Markdown },
   head() {
     return {
       meta: [
@@ -88,26 +90,6 @@ export default {
     },
     url() {
       return `${process.env.URL}/${this.$route.fullPath}`
-    },
-    content() {
-      const md = new MarkdownIt({
-        linkify: true,
-        typographer: true,
-        highlight: (str, lang) => {
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return hljs.highlight(lang, str).value
-            } catch (__) {}
-          }
-
-          return '' // use external default escaping
-        }
-      })
-        .use(require('markdown-it-deflist'))
-        .use(require('markdown-it-sub'))
-        .use(require('markdown-it-sup'))
-        .use(require('markdown-it-footnote'))
-      return md.render(this.$store.state.content)
     }
   },
   fetch({ store, params }) {

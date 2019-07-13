@@ -13,7 +13,7 @@
         class="close"
         @click="toggle()"
       />
-      <p>Subscribe to Our Newsletter</p>
+      <p>{{ header }}</p>
     </div>
     <div class="message-body">
       <div class="field has-addons">
@@ -26,7 +26,7 @@
         </p>
         <div class="control">
           <a class="button is-primary">
-            Subscribe
+            {{ $globals.newsLetter.btnText || 'Subscribe' }}
           </a>
         </div>
       </div>
@@ -39,6 +39,11 @@ export default {
   data() {
     return {
       active: true
+    }
+  },
+  computed: {
+    header() {
+      return this.$globals.newsLetter.heading || 'Subscribe to Our Newsletter'
     }
   },
   methods: {
@@ -61,6 +66,7 @@ export default {
     justify-content: start;
     .close {
       margin-right: 16px;
+      cursor: pointer;
     }
   }
 

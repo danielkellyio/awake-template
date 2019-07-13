@@ -13,5 +13,21 @@ export default {
       link: '/contact'
     }
   ],
-  disqusSiteShortName: 'blog-danielkelly-io'
+
+  // Post Listings
+  columns: 3,
+
+  // Disqus
+  disqus: {
+    siteShortName: 'blog-danielkelly-io'
+  },
+
+  // Newsletter Subscribe
+  newsLetter: {
+    heading: 'Subscribe to Our Newsletter',
+    btnText: 'Subscribe'
+  },
+
+  // Posts
+  displayAuthor: true
 }

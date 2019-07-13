@@ -8,7 +8,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "api-generate": "node ./build-tools/yml-files-to-json-index.js",
-    "dev": "nuxt && npm run api-generate",
+    "dev": "nuxt -o && npm run api-generate",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate && npm run api-generate"
@@ -32,13 +32,14 @@
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "nuxt-fontawesome": "^0.4.0",
-    "opti-image": "^0.2.0",
+    "opti-image": "^0.9.1",
     "react": "^16.8.6",
     "showdown": "^1.9.0",
     "vue-goodshare": "^1.3.2",
     "vue-social": "github:danielkellyio/vue-social"
   },
   "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",

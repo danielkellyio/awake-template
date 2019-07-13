@@ -1,5 +1,5 @@
 <template functional>
-  <section class="hero is-medium">
+  <section :class="`hero is-medium hero-theme-${props.theme}`">
     <opti-image
       class="hero-bg-img"
       :src="props.image"
@@ -31,7 +31,8 @@ export default {
     title: { type: String, default: '' },
     subtitle: { type: String, default: '' },
     image: { type: String, default: '' },
-    color: { type: String, default: '#469af0' }
+    color: { type: String, default: '#469af0' },
+    theme: { type: String, default: 'mist' }
   }
 }
 </script>
@@ -84,15 +85,57 @@ export default {
     right: 0;
     bottom: 0;
     object-fit: cover;
-    filter: grayscale(1);
     width: 100%;
   }
   .opti-image {
     opacity: 0;
   }
   .opti-image-loaded {
+    opacity: 1;
+  }
+}
+.hero-theme-mist {
+  .hero-bg-img {
+    filter: grayscale(1);
+  }
+  .opti-image-loaded {
     opacity: 0.12;
-    animation: blurIn 4.5s ease;
+    animation: blurInGrayscale 4.5s ease;
+  }
+}
+.hero-theme-bold,
+.hero-theme-light {
+  &.hero:after {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    position: absolute;
+  }
+  .hero-body {
+    position: relative;
+    z-index: 2;
+  }
+}
+.hero-theme-bold {
+  .title,
+  .subtitle,
+  .under-subtitle,
+  .under-subtitle strong {
+    color: white;
+  }
+}
+.hero-theme-light.hero {
+  &:after {
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .title,
+  .subtitle,
+  .under-subtitle,
+  .under-subtitle strong {
+    text-shadow: 1px 1px 2px white;
   }
 }
 </style>

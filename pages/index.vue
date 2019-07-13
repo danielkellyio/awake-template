@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <the-hero :title="title" :subtitle="subtitle" :image="featureImage" />
+  <div class="home-wrapper">
+    <the-hero :title="title" :subtitle="subtitle" :image="featureImage">
+      <button class="button is-primary">
+        Subscribe To Newsletter
+      </button>
+    </the-hero>
     <main class="section">
       <div class="container">
         <latest-posts></latest-posts>
@@ -40,3 +44,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.home-wrapper .under-subtitle {
+  border-top: none;
+}
+</style>
