@@ -56,17 +56,29 @@ export default {
 
 <style lang="scss" scoped>
 .subscribe-form-wrapper {
-  position: fixed;
-  bottom: 20px;
-  right: 0;
-  width: 350px;
-  transform: translateX(calc(100% - 42px));
-  transition: 0.6s ease all;
+  @media (min-width: 500px) {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    width: 350px;
+    transform: translateX(calc(100% - 42px));
+    transition: 0.6s ease all;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
   .message-header {
     justify-content: start;
     .close {
       margin-right: 16px;
       cursor: pointer;
+    }
+    @media (max-width: 500px) {
+      border-radius: 0;
+      .close {
+        display: none;
+      }
     }
   }
 

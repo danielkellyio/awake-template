@@ -5,10 +5,8 @@
         <strong>Author:</strong> {{ author }}
       </span>
       <span v-if="date" class="date-wrapper">
-        <strong>Published on:</strong>
+        <strong>Published on:</strong> {{ date }}
       </span>
-
-      {{ date }}
     </the-hero>
     <main class="section">
       <div class="container">

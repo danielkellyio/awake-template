@@ -36,6 +36,11 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  height: 100%;
+  @media (min-width: 768px) {
+    height: 100%;
+  }
+  .media-content {
+    overflow-x: initial;
+  }
 }
 </style>
