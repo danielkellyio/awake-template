@@ -13,5 +13,6 @@ export default {
       test: /\.md$/,
       use: [{ loader: 'gray-matter-loader' }]
     })
+    config.resolve.alias.vue = 'vue/dist/vue.common'
   }
 }

@@ -24,13 +24,11 @@ export const actions = {
   }
 }
 
-function setPostData(commit, slug) {
-  const { data, content } = require(`~/content/posts/${slug}.md`).default
-  commit('set', {
-    ...data,
-    content,
-    pageType: 'post'
-  })
+async function setPostData(commit, slug) {
+  const cmsName = global ? global.siteGlobals.cms : window.siteGlobals.cms
+  const cms = await import(`~/cms/${cmsName}/posts`)
+  const data = Object.assign(cms.default.getPost(slug), { pageType: 'post' })
+  commit('set', data)
 }
 function setOtherPageDate(commit) {
   const global = require('~/content/global.json')

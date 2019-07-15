@@ -27,6 +27,7 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
+    "md5": "^2.2.1",
     "moment": "^2.24.0",
     "netlify-cms": "^2.9.5",
     "nuxt": "^2.0.0",
@@ -35,6 +36,7 @@
     "opti-image": "0.9.3",
     "react": "^16.8.6",
     "showdown": "^1.9.0",
+    "v-runtime-template": "^1.10.0",
     "vue-disqus": "^3.0.5",
     "vue-goodshare": "^1.3.2"
   },

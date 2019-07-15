@@ -23,13 +23,17 @@ export default {
   components: { PostCard },
   data() {
     return {
-      posts: require('~/static/api/posts.json')
+      posts: []
     }
   },
   computed: {
     gridNumber() {
       return 12 / this.$globals.columns
     }
+  },
+  async created() {
+    const cms = await import(`~/cms/${this.$globals.cms}/posts`)
+    this.posts = await cms.default.getLatestPosts()
   }
 }
 </script>

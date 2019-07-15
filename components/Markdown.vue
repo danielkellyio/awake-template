@@ -1,12 +1,15 @@
 <template>
-  <component :is="tag" class="content" v-html="content" />
+  <v-runtime-template class="content" :template="content"></v-runtime-template>
 </template>
 
 <script>
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
+import VRuntimeTemplate from 'v-runtime-template'
+
 export default {
   name: 'Markdown',
+  components: { VRuntimeTemplate },
   props: {
     tag: { type: String, default: 'article' },
     markdown: { type: String, required: true }
@@ -30,7 +33,15 @@ export default {
         .use(require('markdown-it-sub'))
         .use(require('markdown-it-sup'))
         .use(require('markdown-it-footnote'))
-      return md.render(this.markdown)
+      let html = md.render(this.markdown)
+      const images = html.match(/<img(.*?)>/g)
+      images.forEach((image) => {
+        const optiImage = image
+          .replace('<img', '<opti-image')
+          .replace('>', '/>')
+        html = html.replace(image, optiImage)
+      })
+      return `<div class="content">${html}</div>`
     }
   }
 }

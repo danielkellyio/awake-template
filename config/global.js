@@ -1,6 +1,7 @@
 export default {
   siteName: 'Bloxt',
   tagline: 'A Nuxt.js Theme for Netlify CMS',
+  cms: 'netlify',
   featureImage: '/uploads/home-hero.jpg',
   logo: 'logo.png',
   mainMenu: [
@@ -19,7 +20,7 @@ export default {
 
   // Disqus
   disqus: {
-    siteShortName: 'blog-danielkelly-io'
+    siteShortName: '' // 'blog-danielkelly-io'
   },
 
   // Newsletter Subscribe
