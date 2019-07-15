@@ -25,7 +25,7 @@ export const actions = {
 }
 
 async function setPostData(commit, slug) {
-  const cmsName = global ? global.siteGlobals.cms : window.siteGlobals.cms
+  const cmsName = global ? global.siteConfig.cms : window.siteConfig.cms
   const cms = await import(`~/cms/${cmsName}/posts`)
   const data = Object.assign(cms.default.getPost(slug), { pageType: 'post' })
   commit('set', data)

@@ -35,12 +35,15 @@ export default {
         .use(require('markdown-it-footnote'))
       let html = md.render(this.markdown)
       const images = html.match(/<img(.*?)>/g)
-      images.forEach((image) => {
-        const optiImage = image
-          .replace('<img', '<opti-image')
-          .replace('>', '/>')
-        html = html.replace(image, optiImage)
-      })
+      if (images) {
+        images.forEach((image) => {
+          const optiImage = image
+            .replace('<img', '<opti-image')
+            .replace('>', '/>')
+          html = html.replace(image, optiImage)
+        })
+      }
+
       return `<div class="content">${html}</div>`
     }
   }

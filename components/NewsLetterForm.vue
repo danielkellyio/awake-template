@@ -26,7 +26,7 @@
         </p>
         <div class="control">
           <a class="button is-primary">
-            {{ $globals.newsLetter.btnText || 'Subscribe' }}
+            {{ $siteConfig.newsLetter.btnText || 'Subscribe' }}
           </a>
         </div>
       </div>
@@ -43,7 +43,9 @@ export default {
   },
   computed: {
     header() {
-      return this.$globals.newsLetter.heading || 'Subscribe to Our Newsletter'
+      return (
+        this.$siteConfig.newsLetter.heading || 'Subscribe to Our Newsletter'
+      )
     }
   },
   methods: {

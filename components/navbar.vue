@@ -6,7 +6,7 @@
   >
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
-        <img :src="$globals.logo" :alt="$globals.siteName" class="logo" />
+        <img :src="$siteConfig.logo" :alt="$siteConfig.siteName" class="logo" />
       </nuxt-link>
       <hamburger @click="active = !active"></hamburger>
     </div>
@@ -19,7 +19,7 @@
     >
       <ul class="navbar-end">
         <li
-          v-for="item in $globals.mainMenu"
+          v-for="item in $siteConfig.mainMenu"
           :key="item.link"
           class="navbar-item"
           @click="active = false"

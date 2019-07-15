@@ -6,8 +6,8 @@ export default {
       content
     }
   },
-  async getLatestPosts() {
-    const posts = await import('~/static/api/posts.json')
-    return posts.default
+  async getLatestPosts(axios) {
+    const posts = await axios.$get('api/posts.json')
+    return posts
   }
 }

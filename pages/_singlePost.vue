@@ -1,7 +1,10 @@
 <template>
   <div>
     <the-hero :title="title" :subtitle="subtitle" :image="featureImage">
-      <span v-if="author && $globals.displayAuthor" class="author-wrapper">
+      <span
+        v-if="author && $siteConfig.posts.displayAuthor"
+        class="author-wrapper"
+      >
         <strong>Author:</strong> {{ author }}
       </span>
       <span v-if="date" class="date-wrapper">
@@ -15,10 +18,18 @@
             <div class="post-wrapper">
               <markdown :markdown="$store.state.content" />
               <vue-disqus
-                v-if="$globals.disqus.siteShortName"
-                :shortname="$globals.disqus.siteShortName"
+                v-if="$siteConfig.disqus.on && $globals.disqus.siteShortName"
+                :shortname="$siteConfig.disqus.siteShortName"
                 :identifier="$route.params.singlePost"
               />
+              <div
+                v-if="
+                  $siteConfig.disqus.on && !$siteConfig.disqus.siteShortName
+                "
+                class="notification is-danger"
+              >
+                Disqus site short name is required!
+              </div>
             </div>
           </div>
         </div>

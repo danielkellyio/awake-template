@@ -28,12 +28,12 @@ export default {
   },
   computed: {
     gridNumber() {
-      return 12 / this.$globals.columns
+      return 12 / this.$siteConfig.columns
     }
   },
   async created() {
-    const cms = await import(`~/cms/${this.$globals.cms}/posts`)
-    this.posts = await cms.default.getLatestPosts()
+    const cms = await import(`~/cms/${this.$siteConfig.cms}/posts`)
+    this.posts = await cms.default.getLatestPosts(this.$axios)
   }
 }
 </script>

@@ -20,15 +20,20 @@ export default {
 
   // Disqus
   disqus: {
+    on: false,
     siteShortName: '' // 'blog-danielkelly-io'
   },
 
   // Newsletter Subscribe
   newsLetter: {
+    on: true,
     heading: 'Subscribe to Our Newsletter',
     btnText: 'Subscribe'
   },
 
   // Posts
-  displayAuthor: true
+  posts: {
+    on: true,
+    displayAuthor: true
+  }
 }

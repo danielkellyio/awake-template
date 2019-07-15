@@ -14,7 +14,7 @@
             <h3 class="title is-5 has-text-weight-light">{{ title }}</h3>
             <h4 class="subtitle is-6">
               <span
-                v-if="author && $globals.displayAuthor"
+                v-if="author && $siteConfig.posts.displayAuthor"
                 class="author-wrapper"
               >
                 <strong>Author:</strong> {{ author }} |
