@@ -1,7 +1,17 @@
+/**
+ * CMS Configuration
+ * Alter 'netlify' in the import statment below to one of the following:
+ * netlify
+ */
+import cms from '../cms/netlify/cms'
+
+/**
+ * General Site configurations
+ */
 export default {
   siteName: 'Bloxt',
   tagline: 'A Nuxt.js Theme for Netlify CMS',
-  cms: 'netlify',
+  cms: cms,
   featureImage: '/uploads/home-hero.jpg',
   logo: 'logo.png',
   mainMenu: [
@@ -34,6 +44,7 @@ export default {
   // Posts
   posts: {
     on: true,
-    displayAuthor: true
+    displayAuthor: true,
+    postsPerPage: 3
   }
 }

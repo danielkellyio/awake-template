@@ -1,5 +1,5 @@
 export default [
-  '~/plugins/SiteConfig.js',
+  '~/plugins/Globals.js',
   '~/plugins/OptiImage.js',
   '~/plugins/Disqus'
 ]

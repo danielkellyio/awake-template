@@ -15,21 +15,24 @@ export const mutations = {
   }
 }
 export const actions = {
+  nuxtServerInit(store, context) {
+    this.$cms = context.store.$cms
+  },
   set({ commit }, { pageType, slug }) {
+    console.log(this.$cms)
     if (pageType === 'post') {
-      setPostData(commit, slug)
+      setPostData(commit, slug, this.$cms)
     } else {
       setOtherPageDate(commit)
     }
   }
 }
 
-async function setPostData(commit, slug) {
-  const cmsName = global ? global.siteConfig.cms : window.siteConfig.cms
-  const cms = await import(`~/cms/${cmsName}/posts`)
-  const data = Object.assign(cms.default.getPost(slug), { pageType: 'post' })
+function setPostData(commit, slug, cms) {
+  const data = Object.assign(cms.getPost(slug), { pageType: 'post' })
   commit('set', data)
 }
+
 function setOtherPageDate(commit) {
   const global = require('~/content/global.json')
   commit('set', {

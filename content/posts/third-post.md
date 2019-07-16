@@ -1,8 +1,8 @@
 ---
-title: Edit This Post on Netlify
+title: Third Post
 subtitle: Yay!! One Cool Post on the Bloxt Theme
 author: Your Name Here
-date: '2019-7-4 11:59:59 -0800'
+date: '2019-07-03 11:59:59 -0800'
 featureImage: /uploads/images.jpg
 ---
 

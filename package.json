@@ -7,8 +7,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "api-generate": "node ./build-tools/yml-files-to-json-index.js",
-    "dev": "nuxt -o && npm run api-generate",
+    "api-generate": "node -r esm ./build-tools/yml-files-to-json-index.js",
+    "dev": "npm run api-generate && nuxt -o",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate && npm run api-generate"
@@ -19,9 +19,11 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
     "animate.css": "^3.7.2",
+    "esm": "^3.2.25",
     "gray-matter": "^4.0.2",
     "highlight.js": "^9.15.8",
     "html-loader": "^0.5.5",
+    "lodash": "^4.17.14",
     "markdown-it": "^8.4.2",
     "markdown-it-deflist": "^2.0.3",
     "markdown-it-footnote": "^3.0.1",
