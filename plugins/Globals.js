@@ -1,5 +1,6 @@
-import SiteConfig from '~/config/_siteConfig'
+import SiteConfig, { cms } from '~/config/_siteConfig'
+
 export default ({ app }, inject) => {
   inject('siteConfig', SiteConfig)
-  inject('cms', SiteConfig.cms)
+  inject('cms', cms)
 }

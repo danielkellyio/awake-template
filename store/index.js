@@ -19,7 +19,6 @@ export const actions = {
     this.$cms = context.store.$cms
   },
   set({ commit }, { pageType, slug }) {
-    console.log(this.$cms)
     if (pageType === 'post') {
       setPostData(commit, slug, this.$cms)
     } else {
