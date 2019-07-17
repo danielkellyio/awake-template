@@ -20,12 +20,16 @@
 </template>
 
 <script>
-import { range } from 'lodash'
+import { range, chunk } from 'lodash'
 import PostCard from '~/components/PostCard'
 import IntersectionObserver from '~/components/IntersectionObserver'
 
 export default {
   components: { PostCard, IntersectionObserver },
+  props: {
+    number: { type: Number, default: 0 },
+    order: { type: String, default: 'DESC' }
+  },
   data() {
     return {
       posts: [],
@@ -40,9 +44,14 @@ export default {
   },
   watch: {
     async page() {
+      if (this.noMorePosts) return
+      if (this.number && this.posts.length >= this.number) {
+        this.noMorePosts = true
+        return
+      }
       try {
-        const newPages = await this.$cms.getPostsByPage(this.$axios, this.page)
-        this.posts = this.posts.concat(newPages)
+        const morePosts = await this.$cms.getPostsByPage(this.$axios, this.page)
+        this.addPosts(morePosts)
       } catch (err) {
         this.noMorePosts = true
       }
@@ -50,15 +59,32 @@ export default {
   },
   async created() {
     this.initPlaceholders()
-    const newPages = await this.$cms.getPostsByPage(this.$axios, 1)
-    this.posts = this.posts = newPages
+    const morePosts = await this.$cms.getPostsByPage(this.$axios, 1)
+    this.addPosts(morePosts, true)
   },
   methods: {
     initPlaceholders() {
-      this.posts = range(this.$siteConfig.posts.postsPerPage).fill({})
+      const number = this.number || this.$siteConfig.posts.postsPerPage
+      this.posts = range(number).fill({})
     },
     loadMore() {
-      if (!this.noMorePosts) this.page++
+      if (!this.noMorePosts) {
+        this.page++
+      }
+    },
+    addPosts(posts, override = false) {
+      if (
+        this.number &&
+        (this.posts.length + posts.length > this.number || override) &&
+        this.number % posts.length !== 0
+      ) {
+        posts = chunk(posts, this.number - (this.number % this.posts.length))[0]
+      }
+      if (override) {
+        this.posts = this.posts = posts
+      } else {
+        this.posts = this.posts.concat(posts)
+      }
     }
   }
 }

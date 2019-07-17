@@ -35,6 +35,12 @@
               >
                 Disqus site short name is required!
               </div>
+              <div class="other-posts box">
+                <h6 class="subtitle is-size-4">
+                  Latest Posts
+                </h6>
+                <latest-posts :number="3"></latest-posts>
+              </div>
             </div>
           </div>
         </div>
@@ -49,9 +55,9 @@ import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-
+import LatestPosts from '~/components/PostsGrid'
 export default {
-  components: { TheHero, Markdown },
+  components: { TheHero, Markdown, LatestPosts },
   head() {
     return {
       meta: [
@@ -114,3 +120,8 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+.other-posts {
+  background: #eee;
+}
+</style>
