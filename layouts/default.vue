@@ -2,7 +2,7 @@
   <div>
     <nav-bar />
     <nuxt />
-    <news-letter-form v-if="$siteConfig.newsLetter.on" />
+    <news-letter-form v-if="$siteConfig.newsletter.on" />
     <site-footer></site-footer>
   </div>
 </template>

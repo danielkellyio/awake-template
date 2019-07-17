@@ -17,7 +17,7 @@
       </div>
     </div>
     <intersection-observer @view="loadMore()" />
-    <div v-if="!noMorePosts" class="loading-posts">
+    <div v-if="!noMorePosts && firstPageLoaded" class="loading-posts">
       <spinner />
     </div>
   </div>
@@ -39,7 +39,8 @@ export default {
     return {
       posts: [],
       page: 1,
-      noMorePosts: false
+      noMorePosts: false,
+      firstPageLoaded: false
     }
   },
   watch: {
@@ -82,6 +83,7 @@ export default {
       }
       if (override) {
         this.posts = this.posts = posts
+        this.firstPageLoaded = true
       } else {
         this.posts = this.posts.concat(posts)
       }

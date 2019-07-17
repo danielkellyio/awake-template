@@ -16,41 +16,73 @@
       <p>{{ header }}</p>
     </div>
     <div class="message-body">
-      <div class="field has-addons">
-        <p class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="Email" />
-          <span class="icon is-small is-left">
-            <font-awesome-icon icon="envelope" />
-            <i class="fas fa-envelope"></i>
-          </span>
-        </p>
-        <div class="control">
-          <a class="button is-primary">
-            {{ $siteConfig.newsLetter.btnText || 'Subscribe' }}
-          </a>
+      <form
+        v-if="!submitted"
+        target="_blank"
+        method="post"
+        :action="formAction"
+      >
+        <div class="field has-addons">
+          <p class="control has-icons-left has-icons-right">
+            <input
+              v-model="email"
+              class="input"
+              type="email"
+              name="EMAIL"
+              placeholder="Email"
+            />
+            <span class="icon is-small is-left">
+              <font-awesome-icon icon="envelope" />
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+          <div class="control">
+            <button type="submit" class="button is-primary">
+              {{ $siteConfig.newsletter.btnText || 'Subscribe' }}
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
+      <p v-if="submitted">
+        {{ $siteConfig.newsletter.successMessage }}
+      </p>
     </div>
   </article>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
-      active: true
+      active: true,
+      email: '',
+      submitted: false
     }
   },
   computed: {
     header() {
       return (
-        this.$siteConfig.newsLetter.heading || 'Subscribe to Our Newsletter'
+        this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
       )
+    },
+    formAction() {
+      if (this.$siteConfig.newsletter.mailchimp.on) {
+        return this.$siteConfig.newsletter.mailchimp.formAction
+      }
+      return this.$siteConfig.newsletter.other.formAction
     }
   },
   methods: {
     toggle() {
       this.active = !this.active
+    },
+    async submitForm() {
+      const res = await axios.post(this.$siteConfig.newsletter.postURL, {
+        email: this.email
+      })
+      console.log(res)
+      this.submitted = true
     }
   }
 }
