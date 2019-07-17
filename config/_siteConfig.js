@@ -23,9 +23,9 @@ export default {
       link: '/contact'
     }
   ],
-
-  // Post Listings
-  columns: 3,
+  hero: {
+    theme: 'dark' // options: mist, light, dark
+  },
 
   // Disqus
   disqus: {

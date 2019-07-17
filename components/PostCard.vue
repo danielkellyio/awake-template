@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-image">
       <nuxt-link :to="link">
-        <figure class="image">
-          <opti-image :src="image" width="800" height="400" />
+        <figure class="image is-2by1">
+          <opti-image v-if="image" :src="image" width="800" height="400" />
         </figure>
       </nuxt-link>
     </div>
@@ -11,8 +11,23 @@
       <div class="media">
         <div class="media-content">
           <a :href="link">
-            <h3 class="title is-5 has-text-weight-light">{{ title }}</h3>
-            <h4 class="subtitle is-6">
+            <h3
+              :class="
+                `title
+                is-5
+                has-text-weight-light
+                ${title ? '' : 'empty-content-placeholder'}`
+              "
+            >
+              {{ title }}
+            </h3>
+            <h4
+              :class="{
+                subtitle: true,
+                'is-6': true,
+                'empty-content-placeholder': !author && !date
+              }"
+            >
               <span
                 v-if="author && $siteConfig.posts.displayAuthor"
                 class="author-wrapper"
@@ -62,5 +77,24 @@ export default {
 .subtitle {
   opacity: 0.5;
   font-size: 0.8rem;
+}
+.empty-content-placeholder {
+  background: transparent;
+  color: transparent;
+  position: relative;
+  height: 1em;
+  &:before {
+    transform-origin: left;
+    content: '';
+    background: #eee;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    animation: fillHorizontal 2s linear infinite;
+  }
+  &.subtitle {
+    width: 70%;
+  }
 }
 </style>

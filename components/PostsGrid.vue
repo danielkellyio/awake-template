@@ -2,28 +2,30 @@
   <div class="posts">
     <div class="columns posts is-multiline">
       <div
-        v-for="post in posts"
-        :key="post.data.title"
+        v-for="(post, index) in posts"
+        :key="post.data ? post.data.title : index"
         :class="`column posts is-${gridNumber}`"
       >
         <post-card
-          :title="post.data.title"
-          :link="post.data.slug"
-          :image="post.data.featureImage"
-          :author="post.data.author"
-          :date="post.data.date"
+          :title="post.data ? post.data.title : ''"
+          :link="post.data ? post.data.slug : ''"
+          :image="post.data ? post.data.featureImage : ''"
+          :author="post.data ? post.data.author : ''"
+          :date="post.data ? post.data.date : ''"
         />
       </div>
     </div>
-    <div class="load-more-posts"></div>
+    <intersection-observer @view="loadMore()" />
   </div>
 </template>
 
 <script>
+import { range } from 'lodash'
 import PostCard from '~/components/PostCard'
+import IntersectionObserver from '~/components/IntersectionObserver'
 
 export default {
-  components: { PostCard },
+  components: { PostCard, IntersectionObserver },
   data() {
     return {
       posts: [],
@@ -33,7 +35,7 @@ export default {
   },
   computed: {
     gridNumber() {
-      return 12 / this.$siteConfig.columns
+      return 12 / this.$siteConfig.posts.postsPerPage
     }
   },
   watch: {
@@ -47,14 +49,17 @@ export default {
     }
   },
   async created() {
+    this.initPlaceholders()
     const newPages = await this.$cms.getPostsByPage(this.$axios, 1)
-    this.posts = this.posts.concat(newPages)
+    this.posts = this.posts = newPages
   },
-  mounted() {
-    const observer = new IntersectionObserver(() => {
+  methods: {
+    initPlaceholders() {
+      this.posts = range(this.$siteConfig.posts.postsPerPage).fill({})
+    },
+    loadMore() {
       if (!this.noMorePosts) this.page++
-    })
-    observer.observe(this.$el.querySelector('.load-more-posts'))
+    }
   }
 }
 </script>

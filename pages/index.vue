@@ -1,6 +1,11 @@
 <template>
-  <div class="home-wrapper">
-    <the-hero :title="title" :subtitle="subtitle" :image="featureImage">
+  <div class="home-wrapper page-wrapper">
+    <the-hero
+      :title="title"
+      :subtitle="subtitle"
+      :image="featureImage"
+      :theme="$siteConfig.hero.theme"
+    >
       <button class="button is-primary">
         Subscribe To Newsletter
       </button>
@@ -17,7 +22,7 @@
 import { mapState } from 'vuex'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
-import LatestPosts from '~/components/LatestPosts'
+import LatestPosts from '~/components/PostsGrid'
 
 export default {
   name: 'HomePage',

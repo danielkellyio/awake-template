@@ -8,7 +8,6 @@ export const state = () => ({
   author: '',
   date: ''
 })
-
 export const mutations = {
   set(state, data) {
     state = Object.assign(state, data)
@@ -20,16 +19,12 @@ export const actions = {
   },
   set({ commit }, { pageType, slug }) {
     if (pageType === 'post') {
-      setPostData(commit, slug, this.$cms)
+      const data = Object.assign(this.$cms.getPost(slug), { pageType: 'post' })
+      commit('set', data)
     } else {
       setOtherPageDate(commit)
     }
   }
-}
-
-function setPostData(commit, slug, cms) {
-  const data = Object.assign(cms.getPost(slug), { pageType: 'post' })
-  commit('set', data)
 }
 
 function setOtherPageDate(commit) {

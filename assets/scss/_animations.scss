@@ -9,3 +9,13 @@
     filter:blur(0) grayscale(1);
   }
 }
+
+@keyframes fillHorizontal {
+  0%{
+    transform-origin: left;
+    transform:scaleX(0)
+  }
+  100%{
+    transform:scaleX(1)
+  }
+}

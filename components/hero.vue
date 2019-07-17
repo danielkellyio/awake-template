@@ -104,7 +104,7 @@ export default {
     animation: blurInGrayscale 4.5s ease;
   }
 }
-.hero-theme-bold,
+.hero-theme-dark,
 .hero-theme-light {
   &.hero:after {
     content: '';
@@ -120,7 +120,7 @@ export default {
     z-index: 2;
   }
 }
-.hero-theme-bold {
+.hero-theme-dark {
   .title,
   .subtitle,
   .under-subtitle,

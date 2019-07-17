@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <the-hero :title="title" :subtitle="subtitle" :image="featureImage">
+  <div class="page-wrapper">
+    <the-hero
+      :title="title"
+      :subtitle="subtitle"
+      :image="featureImage"
+      :theme="$siteConfig.hero.theme"
+    >
       <span
         v-if="author && $siteConfig.posts.displayAuthor"
         class="author-wrapper"
