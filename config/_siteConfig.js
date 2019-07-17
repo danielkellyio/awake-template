@@ -44,7 +44,8 @@ export default {
   posts: {
     on: true,
     displayAuthor: true,
-    postsPerPage: 3
+    perRow: 3,
+    perPage: 10
   }
 }
 

@@ -60,6 +60,7 @@ export default {
   components: { TheHero, Markdown, LatestPosts },
   head() {
     return {
+      title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
       meta: [
         {
           hid: 'description',

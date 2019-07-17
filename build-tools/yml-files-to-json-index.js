@@ -2,6 +2,7 @@ import siteConfig from '../config/_siteConfig'
 const fs = require('fs')
 const matter = require('gray-matter')
 const _ = require('lodash')
+const rimraf = require('rimraf')
 
 const contentDir = `${__dirname}/../content/posts`
 const apiDir = `${__dirname}/../static/api`
@@ -48,7 +49,12 @@ fs.readdir(contentDir, (err, files) => {
     return 0
   }
   function createPagination(posts) {
-    const paginated = _.chunk(posts, siteConfig.posts.postsPerPage)
+    const paginationDir = `${apiDir}/pagination`
+    if (fs.existsSync(paginationDir)) {
+      rimraf.sync(paginationDir) // Delete all previous pagination endpoints
+    }
+    fs.mkdirSync(paginationDir)
+    const paginated = _.chunk(posts, siteConfig.posts.perPage)
     let currentPage = 0
     for (let i = 0; i < paginated.length; i++) {
       currentPage = i + 1

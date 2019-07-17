@@ -64,6 +64,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0"
   }
 }

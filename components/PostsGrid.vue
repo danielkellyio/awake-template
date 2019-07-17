@@ -4,7 +4,8 @@
       <div
         v-for="(post, index) in posts"
         :key="post.data ? post.data.title : index"
-        :class="`column posts is-${gridNumber}`"
+        :class="`column posts`"
+        :style="`width: ${100 / $siteConfig.posts.perRow}%`"
       >
         <post-card
           :title="post.data ? post.data.title : ''"
@@ -16,6 +17,9 @@
       </div>
     </div>
     <intersection-observer @view="loadMore()" />
+    <div v-if="!noMorePosts" class="loading-posts">
+      <spinner />
+    </div>
   </div>
 </template>
 
@@ -23,9 +27,10 @@
 import { range, chunk } from 'lodash'
 import PostCard from '~/components/PostCard'
 import IntersectionObserver from '~/components/IntersectionObserver'
+import spinner from '~/components/spinner'
 
 export default {
-  components: { PostCard, IntersectionObserver },
+  components: { PostCard, IntersectionObserver, spinner },
   props: {
     number: { type: Number, default: 0 },
     order: { type: String, default: 'DESC' }
@@ -35,11 +40,6 @@ export default {
       posts: [],
       page: 1,
       noMorePosts: false
-    }
-  },
-  computed: {
-    gridNumber() {
-      return 12 / this.$siteConfig.posts.postsPerPage
     }
   },
   watch: {
@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     initPlaceholders() {
-      const number = this.number || this.$siteConfig.posts.postsPerPage
+      const number = this.number || this.$siteConfig.posts.perRow
       this.posts = range(number).fill({})
     },
     loadMore() {
@@ -91,6 +91,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.column {
+  flex-basis: auto;
+  flex-grow: 0;
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
+}
 .card {
   @media (min-width: 768px) {
     height: 100%;
@@ -98,5 +105,10 @@ export default {
   .media-content {
     overflow-x: initial;
   }
+}
+</style>
+<style>
+.loading-posts .spinner-wrapper {
+  margin: 30px auto 0 auto;
 }
 </style>

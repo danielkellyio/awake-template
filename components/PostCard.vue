@@ -4,6 +4,7 @@
       <nuxt-link :to="link">
         <figure class="image is-2by1">
           <opti-image v-if="image" :src="image" width="800" height="400" />
+          <spinner position="absolute" />
         </figure>
       </nuxt-link>
     </div>
@@ -47,7 +48,9 @@
 
 <script>
 import moment from 'moment'
+import spinner from '~/components/spinner'
 export default {
+  components: { spinner },
   props: {
     title: {
       type: String,
@@ -96,5 +99,10 @@ export default {
   &.subtitle {
     width: 70%;
   }
+}
+</style>
+<style>
+.opti-image-loaded + .spinner-wrapper {
+  display: none;
 }
 </style>
