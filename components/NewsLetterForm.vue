@@ -90,6 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 .subscribe-form-wrapper {
+  z-index: 3;
   @media (min-width: 500px) {
     position: fixed;
     bottom: 20px;

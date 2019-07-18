@@ -1,5 +1,5 @@
 <template>
-  <div class="posts">
+  <div :class="`posts posts-theme-${$siteConfig.posts.theme}`">
     <div class="columns posts is-multiline">
       <div
         v-for="(post, index) in posts"
@@ -16,15 +16,15 @@
         />
       </div>
     </div>
-    <intersection-observer @view="loadMore()" />
     <div v-if="!noMorePosts && firstPageLoaded" class="loading-posts">
       <spinner />
     </div>
+    <intersection-observer @view="loadMore()" />
   </div>
 </template>
 
 <script>
-import { range, chunk } from 'lodash'
+import { range } from 'lodash'
 import PostCard from '~/components/PostCard'
 import IntersectionObserver from '~/components/IntersectionObserver'
 import spinner from '~/components/spinner'
@@ -33,7 +33,9 @@ export default {
   components: { PostCard, IntersectionObserver, spinner },
   props: {
     number: { type: Number, default: 0 },
-    order: { type: String, default: 'DESC' }
+    order: { type: String, default: 'DESC' },
+    category: { type: String, default: '' },
+    exclude: { type: String, default: '' }
   },
   data() {
     return {
@@ -44,24 +46,18 @@ export default {
     }
   },
   watch: {
-    async page() {
+    page() {
       if (this.noMorePosts) return
       if (this.number && this.posts.length >= this.number) {
         this.noMorePosts = true
         return
       }
-      try {
-        const morePosts = await this.$cms.getPostsByPage(this.$axios, this.page)
-        this.addPosts(morePosts)
-      } catch (err) {
-        this.noMorePosts = true
-      }
+      this.addPosts()
     }
   },
-  async created() {
+  created() {
     this.initPlaceholders()
-    const morePosts = await this.$cms.getPostsByPage(this.$axios, 1)
-    this.addPosts(morePosts, true)
+    this.addPosts(true)
   },
   methods: {
     initPlaceholders() {
@@ -73,20 +69,52 @@ export default {
         this.page++
       }
     },
-    addPosts(posts, override = false) {
-      if (
-        this.number &&
-        (this.posts.length + posts.length > this.number || override) &&
-        this.number % posts.length !== 0
-      ) {
-        posts = chunk(posts, this.number - (this.number % this.posts.length))[0]
+    async addPosts(override = false) {
+      let posts = []
+      try {
+        posts = await this.$cms.posts.getByPage(
+          this.$axios,
+          this.page,
+          this.postsFilters
+        )
+      } catch (er) {
+        this.noMorePosts = true
+        return
       }
+
       if (override) {
-        this.posts = this.posts = posts
+        if (this.number) {
+          posts = await this.getPostsByNumber()
+          this.noMorePosts = true
+        }
+        this.posts = posts
         this.firstPageLoaded = true
       } else {
         this.posts = this.posts.concat(posts)
       }
+    },
+    async getPostsByNumber() {
+      const posts = await this.$cms.posts.getByNumber(
+        this.$axios,
+        this.number,
+        this.postsFilters
+      )
+      return posts
+    },
+    postsFilters(post) {
+      if (this.exclude && this.category) {
+        return (
+          post.data.category === this.category &&
+          post.data.slug !== this.exclude
+        )
+      }
+      if (this.category) {
+        return post.data.category === this.category
+      }
+      if (this.exclude) {
+        return post.data.slug !== this.exclude
+      }
+      return post
     }
   }
 }
@@ -109,8 +137,50 @@ export default {
   }
 }
 </style>
-<style>
+<style lang="scss">
 .loading-posts .spinner-wrapper {
   margin: 30px auto 0 auto;
+}
+.posts-theme-grid,
+.posts-theme-image-grid {
+  .column {
+    padding: 0;
+  }
+}
+.posts-theme-image-grid {
+  .card-content {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    opacity: 0;
+    transition: 0.4s ease all;
+  }
+  .card-content div,
+  .card-content a {
+    display: block;
+    height: 100%;
+  }
+  a {
+    transition: 0.5s ease all;
+    transform: translateY(-15px);
+  }
+  .title,
+  .subtitle,
+  strong {
+    color: white;
+  }
+  .card:hover {
+    .card-content {
+      opacity: 1;
+    }
+    a {
+      transform: translateY(0);
+    }
+  }
 }
 </style>

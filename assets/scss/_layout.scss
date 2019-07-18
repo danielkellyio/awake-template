@@ -1,0 +1,13 @@
+.site-layout-width-full{
+  .container{
+    max-width:100% !important;
+    margin:0;
+    padding:0;
+  }
+}
+.site-layout-width-full:not(.posts-theme-columns){
+  .section{
+    margin:0;
+    padding:0;
+  }
+}

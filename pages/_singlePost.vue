@@ -19,7 +19,14 @@
     <main class="section">
       <div class="container">
         <div class="columns">
-          <div class="column is-8 is-offset-2">
+          <div
+            :class="{
+              column: true,
+              'is-offset-2': !$siteConfig.posts.withSidebar,
+              'is-8': !$siteConfig.posts.withSidebar,
+              'is-9': $siteConfig.posts.withSidebar
+            }"
+          >
             <div class="post-wrapper">
               <markdown :markdown="$store.state.content" />
               <vue-disqus
@@ -35,14 +42,31 @@
               >
                 Disqus site short name is required!
               </div>
-              <div class="other-posts box">
+              <div
+                :class="
+                  `other-posts ${
+                    $siteConfig.posts.withSidebar ||
+                    $siteConfig.posts.theme !== 'columns'
+                      ? ''
+                      : 'box'
+                  }`
+                "
+              >
                 <h6 class="subtitle is-size-4">
-                  Latest Posts
+                  Related Posts
                 </h6>
-                <latest-posts :number="3"></latest-posts>
+                <latest-posts
+                  :number="3"
+                  :category="category"
+                  :exclude="slug"
+                ></latest-posts>
               </div>
             </div>
           </div>
+          <post-sidebar
+            v-if="$siteConfig.posts.withSidebar"
+            class="column is-3"
+          ></post-sidebar>
         </div>
       </div>
     </main>
@@ -50,14 +74,14 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import moment from 'moment'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
 import LatestPosts from '~/components/PostsGrid'
+import PostSidebar from '~/components/PostSidebar'
 export default {
-  components: { TheHero, Markdown, LatestPosts },
+  components: { TheHero, Markdown, LatestPosts, PostSidebar },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
@@ -107,10 +131,13 @@ export default {
       'featureImage',
       'featureColor',
       'underSubtitle',
-      'author'
+      'author',
+      'category',
+      'slug'
     ]),
     date() {
-      return moment(this.$store.state.date).format('MMMM Do, YYYY')
+      const date = new Date(this.$store.state.date)
+      return `${date.getMonth()} ${date.getDay()}, ${date.getFullYear()}`
     },
     url() {
       return `${process.env.URL}/${this.$route.fullPath}`
@@ -121,8 +148,3 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
-.other-posts {
-  background: #eee;
-}
-</style>

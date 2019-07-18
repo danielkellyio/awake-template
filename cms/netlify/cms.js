@@ -1,4 +1,6 @@
 import posts from './posts'
 export default {
-  ...posts
+  posts: {
+    ...posts
+  }
 }

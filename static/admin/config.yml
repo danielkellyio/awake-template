@@ -13,8 +13,17 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: "name", valueField: "name", multiple: true}
       - {label: "Author", name: "author", widget: "string", default: "Daniel Kelly"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "featureImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
-
+  - name: "categories"
+    label: "Categories"
+    folder: "content/posts"
+    create: true,
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "markdown"}

@@ -2,8 +2,13 @@
   <div class="card">
     <div class="card-image">
       <nuxt-link :to="link">
-        <figure class="image is-2by1">
-          <opti-image v-if="image" :src="image" width="800" height="400" />
+        <figure :class="`image is-${imageRatioClass}`">
+          <opti-image
+            v-if="image"
+            :src="image"
+            :width="imageRatio[0]"
+            :height="imageRatio[1]"
+          />
           <spinner position="absolute" />
         </figure>
       </nuxt-link>
@@ -72,6 +77,19 @@ export default {
   computed: {
     datePretty() {
       return moment(this.date).format('MMMM Do, YYYY')
+    },
+    imageRatioClass() {
+      return this.$siteConfig.posts.imageDimensions
+        .toLowerCase()
+        .replace('x', 'by')
+    },
+    imageRatio() {
+      return this.$siteConfig.posts.imageDimensions
+        .toLowerCase()
+        .split('x')
+        .map((size) => {
+          return size * 2000
+        })
     }
   }
 }
@@ -101,8 +119,14 @@ export default {
   }
 }
 </style>
-<style>
+<style lang="scss">
 .opti-image-loaded + .spinner-wrapper {
   display: none;
+}
+.card img {
+  transition: 0.8s ease-in-out all;
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 </style>

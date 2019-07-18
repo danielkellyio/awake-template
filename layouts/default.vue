@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div
+    :class="
+      `site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`
+    "
+  >
     <nav-bar />
     <nuxt />
     <news-letter-form v-if="$siteConfig.newsletter.on" />

@@ -19,7 +19,10 @@ export const actions = {
   },
   set({ commit }, { pageType, slug }) {
     if (pageType === 'post') {
-      const data = Object.assign(this.$cms.getPost(slug), { pageType: 'post' })
+      const data = Object.assign(this.$cms.posts.getOne(slug), {
+        pageType: 'post'
+      })
+      data.slug = slug
       commit('set', data)
     } else {
       setOtherPageDate(commit)
