@@ -60,6 +60,10 @@ export default {
     theme: 'boxes', // Options: boxes, grid, image-grid
     imageDimensions: '2x1', // Options: 1x1, 5x4, 4x3, 3x2, 5x3, 16x9, 2x1, 3x1, 4x5, 3x4, 2x3, 3x5, 9x16
     displayAuthor: true,
+    date: {
+      display: true,
+      format: 'MMMM Do, YYYY' // See https://momentjs.com/ for available formats
+    },
     perRow: 3,
     perPage: 6,
     withSidebar: false // Customize sidebar contents in ~/components/PostSidebar.vue

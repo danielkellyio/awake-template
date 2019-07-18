@@ -34,6 +34,11 @@ export default {
         }
       ]
     }
+  },
+  watch: {
+    $route(to, from) {
+      this.$eventBus.$emit('route-changed', this.$route)
+    }
   }
 }
 </script>

@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <div v-if="!noMorePosts && firstPageLoaded" class="loading-posts">
+    <div v-if="!allPostsLoaded && firstPageLoaded" class="loading-posts">
       <spinner />
     </div>
     <intersection-observer @view="loadMore()" />
@@ -40,58 +40,67 @@ export default {
   data() {
     return {
       posts: [],
-      page: 1,
-      noMorePosts: false,
-      firstPageLoaded: false
-    }
-  },
-  watch: {
-    page() {
-      if (this.noMorePosts) return
-      if (this.number && this.posts.length >= this.number) {
-        this.noMorePosts = true
-        return
-      }
-      this.addPosts()
+      page: 0,
+      allPostsLoaded: false,
+      firstPageLoaded: false,
+      loading: false
     }
   },
   created() {
-    this.initPlaceholders()
-    this.addPosts(true)
+    this.$eventBus.$on('route-changed', () => this.reset())
   },
   methods: {
+    reset() {
+      this.$cms.posts.reset()
+      this.initPlaceholders()
+      this.page = 0
+      this.allPostsLoaded = false
+      this.firstPageLoaded = false
+      this.loading = false
+      console.log('resseting')
+    },
     initPlaceholders() {
       const number = this.number || this.$siteConfig.posts.perRow
       this.posts = range(number).fill({})
     },
     loadMore() {
-      if (!this.noMorePosts) {
-        this.page++
-      }
-    },
-    async addPosts(override = false) {
-      let posts = []
-      try {
-        posts = await this.$cms.posts.getByPage(
-          this.$axios,
-          this.page,
-          this.postsFilters
-        )
-      } catch (er) {
-        this.noMorePosts = true
+      if (this.loading) {
         return
       }
-
-      if (override) {
-        if (this.number) {
-          posts = await this.getPostsByNumber()
-          this.noMorePosts = true
+      if (!this.firstPageLoaded) {
+        this.reset()
+      }
+      if (!this.allPostsLoaded) {
+        this.page++
+        this.addPosts()
+      }
+    },
+    async addPosts() {
+      this.loading = true
+      let posts = []
+      if (this.number) {
+        posts = await this.getPostsByNumber()
+        this.allPostsLoaded = true
+      } else {
+        try {
+          posts = await this.$cms.posts.getByPage(
+            this.$axios,
+            this.page,
+            this.postsFilters
+          )
+        } catch (er) {
+          this.allPostsLoaded = true
+          return
         }
+      }
+
+      if (!this.firstPageLoaded) {
         this.posts = posts
         this.firstPageLoaded = true
       } else {
         this.posts = this.posts.concat(posts)
       }
+      this.loading = false
     },
     async getPostsByNumber() {
       const posts = await this.$cms.posts.getByNumber(
@@ -121,6 +130,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.posts {
+  min-height: 150px;
+}
 .column {
   flex-basis: auto;
   flex-grow: 0;

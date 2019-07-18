@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import spinner from '~/components/spinner'
 export default {
   components: { spinner },
@@ -75,8 +76,9 @@ export default {
   },
   computed: {
     datePretty() {
-      const date = new Date(this.date)
-      return `${date.getMonth()} ${date.getDay()}, ${date.getFullYear()}`
+      return moment(this.date.split(' -').shift()).format(
+        this.$siteConfig.posts.date.format
+      )
     },
     imageRatioClass() {
       return this.$siteConfig.posts.imageDimensions

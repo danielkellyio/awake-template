@@ -55,11 +55,11 @@
                 <h6 class="subtitle is-size-4">
                   Related Posts
                 </h6>
-                <latest-posts
+                <related-posts
                   :number="3"
                   :category="category"
                   :exclude="slug"
-                ></latest-posts>
+                />
               </div>
             </div>
           </div>
@@ -74,14 +74,15 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import moment from 'moment'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import LatestPosts from '~/components/PostsGrid'
+import RelatedPosts from '~/components/PostsGrid'
 import PostSidebar from '~/components/PostSidebar'
 export default {
-  components: { TheHero, Markdown, LatestPosts, PostSidebar },
+  components: { TheHero, Markdown, RelatedPosts, PostSidebar },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
@@ -136,8 +137,9 @@ export default {
       'slug'
     ]),
     date() {
-      const date = new Date(this.$store.state.date)
-      return `${date.getMonth()} ${date.getDay()}, ${date.getFullYear()}`
+      return moment(this.$store.state.date.split(' -').shift()).format(
+        this.$siteConfig.posts.date.format
+      )
     },
     url() {
       return `${process.env.URL}/${this.$route.fullPath}`

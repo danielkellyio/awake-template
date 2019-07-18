@@ -2,7 +2,10 @@
 .page-leave-active {
   transition-property: opacity;
   transition-timing-function: ease-in-out;
-  transition-duration: .3s;
+  transition-duration: 0.5s;
+  & + * + .site-footer{
+    opacity:0;
+  }
 }
 
 .page-enter,

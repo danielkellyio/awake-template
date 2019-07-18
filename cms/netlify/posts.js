@@ -15,8 +15,12 @@ export default {
     number,
     filter = (post) => {
       return post
-    }
+    },
+    firstTime = true
   ) {
+    if (firstTime) {
+      this.reset()
+    }
     this.gottenPage++
     const posts = await this.getByPage(axios, this.gottenPage)
     const filtered = posts.filter(filter)
@@ -26,7 +30,8 @@ export default {
         const more = await this.getByNumber(
           axios,
           number - numbered.length,
-          filter
+          filter,
+          false
         )
         numbered = numbered.concat(more)
       } catch {
@@ -48,5 +53,9 @@ export default {
   async getAll(axios) {
     const posts = await axios.$get('api/posts.json')
     return posts
+  },
+  reset() {
+    this.gottenCount = 0
+    this.gottenPage = 0
   }
 }

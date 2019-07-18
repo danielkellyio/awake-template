@@ -12,7 +12,7 @@
     </the-hero>
     <main class="section">
       <div class="container">
-        <latest-posts :number="8" category="category-1"></latest-posts>
+        <latest-posts></latest-posts>
       </div>
     </main>
   </div>
