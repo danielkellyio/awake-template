@@ -21,6 +21,10 @@ export default {
     {
       name: 'Contact',
       link: '/contact'
+    },
+    {
+      name: 'Categories',
+      link: '/categories'
     }
   ],
   hero: {
@@ -54,10 +58,15 @@ export default {
     }
   },
 
+  // Categories
+  categories: {
+    on: true,
+    perPage: 6
+  },
   // Posts
   posts: {
     on: true,
-    theme: 'boxes', // Options: boxes, grid, image-grid
+    theme: 'image-grid', // Options: boxes, grid, image-grid
     imageDimensions: '2x1', // Options: 1x1, 5x4, 4x3, 3x2, 5x3, 16x9, 2x1, 3x1, 4x5, 3x4, 2x3, 3x5, 9x16
     displayAuthor: true,
     date: {

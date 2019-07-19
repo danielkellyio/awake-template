@@ -153,13 +153,13 @@ export default {
 .loading-posts .spinner-wrapper {
   margin: 30px auto 0 auto;
 }
-.posts-theme-grid,
-.posts-theme-image-grid {
+.posts-theme-grid .posts,
+.posts-theme-image-grid .posts {
   .column {
     padding: 0;
   }
 }
-.posts-theme-image-grid {
+.posts-theme-image-grid .posts {
   .card-content {
     position: absolute;
     z-index: 2;

@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "api-generate": "node -r esm ./build-tools/yml-files-to-json-index.js",
+    "api-generate": "node -r esm ./build-tools/generate-api.js",
     "dev": "npm run api-generate && nuxt -o",
     "build": "nuxt build",
     "start": "nuxt start",

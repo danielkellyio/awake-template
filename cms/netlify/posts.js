@@ -47,7 +47,7 @@ export default {
       return post
     }
   ) {
-    const posts = await axios.$get(`api/pagination/page-${page}.json`)
+    const posts = await axios.$get(`api/posts/page-${page}.json`)
     return posts.filter(filter)
   },
   async getAll(axios) {
