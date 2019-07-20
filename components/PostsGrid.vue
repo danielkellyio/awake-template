@@ -57,7 +57,6 @@ export default {
       this.allPostsLoaded = false
       this.firstPageLoaded = false
       this.loading = false
-      console.log('resseting')
     },
     initPlaceholders() {
       const number = this.number || this.$siteConfig.posts.perRow
