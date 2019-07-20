@@ -16,7 +16,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <a :href="link">
+          <nuxt-link :to="link">
             <h3
               :class="
                 `title
@@ -44,7 +44,7 @@
                 <strong>Published on:</strong> {{ datePretty }}
               </span>
             </h4>
-          </a>
+          </nuxt-link>
         </div>
       </div>
     </div>
