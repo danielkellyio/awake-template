@@ -1,5 +1,5 @@
 <template>
-  <div :class="`grid grid-theme-${theme}`">
+  <div :class="`grid grid-theme-${theme || 'blocks'}`">
     <div class="columns items is-multiline">
       <div
         v-for="(item, index) in itemsComputed"
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div v-if="bottomLoader" class="loading-posts">
-      <spinner />
+      <loading-spinner />
     </div>
     <intersection-observer @view="$emit('atEnd')" />
   </div>
@@ -20,9 +20,9 @@
 <script>
 import { range } from 'lodash'
 import IntersectionObserver from '~/components/IntersectionObserver'
-import Spinner from '~/components/spinner'
+import LoadingSpinner from '~/components/LoadingSpinner'
 export default {
-  components: { IntersectionObserver, Spinner },
+  components: { IntersectionObserver, LoadingSpinner },
   props: {
     items: {
       type: Array,

@@ -1,6 +1,6 @@
 <template>
   <div class="home-wrapper page-wrapper">
-    <the-hero
+    <site-hero
       :title="title"
       :subtitle="subtitle"
       :image="featureImage"
@@ -9,10 +9,10 @@
       <button class="button is-primary">
         Subscribe To Newsletter
       </button>
-    </the-hero>
+    </site-hero>
     <main class="section">
       <div class="container">
-        <latest-posts :resource="$cms.posts"></latest-posts>
+        <latest-posts></latest-posts>
       </div>
     </main>
   </div>
@@ -21,13 +21,13 @@
 <script>
 import { mapState } from 'vuex'
 import { setPageData } from '../helper'
-import TheHero from '~/components/hero'
-import LatestPosts from '~/components/ResourceGrid'
+import SiteHero from '~/components/SiteHero'
+import LatestPosts from '~/components/grids/PostsGrid'
 
 export default {
   name: 'HomePage',
   components: {
-    TheHero,
+    SiteHero,
     LatestPosts
   },
   fetch({ store, params }) {

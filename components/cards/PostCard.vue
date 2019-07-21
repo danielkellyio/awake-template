@@ -1,5 +1,14 @@
 <template>
-  <generic-card :title="title" :image="image" :link="link">
+  <generic-card
+    :title="title"
+    :image="image"
+    :link="link"
+    :image-dimensions="
+      $siteConfig.posts.imageDimensions ||
+        $siteConfig.cards.imageDimensions ||
+        null
+    "
+  >
     <span
       v-if="author && $siteConfig.posts.displayAuthor"
       class="author-wrapper"

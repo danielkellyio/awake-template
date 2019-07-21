@@ -8,7 +8,7 @@
       <nuxt-link class="navbar-item" to="/">
         <img :src="$siteConfig.logo" :alt="$siteConfig.siteName" class="logo" />
       </nuxt-link>
-      <hamburger @click="active = !active"></hamburger>
+      <hamburger-button @click="active = !active" />
     </div>
 
     <div
@@ -28,18 +28,18 @@
             {{ item.name }}
           </nuxt-link>
         </li>
-        <li class="navbar-item search-box-wrapper">
-          <search-box />
+        <li class="navbar-item site-search-wrapper">
+          <site-search />
         </li>
       </ul>
     </div>
   </nav>
 </template>
 <script>
-import SearchBox from '~/components/search'
-import Hamburger from '~/components/hamburger'
+import SiteSearch from '~/components/SiteSearch'
+import HamburgerButton from '~/components/HamburgerButton'
 export default {
-  components: { SearchBox, Hamburger },
+  components: { SiteSearch, HamburgerButton },
   data() {
     return {
       active: false
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.search-box-wrapper {
+.site-search-wrapper {
   transform: translateX(5px);
   @media (max-width: 1023px) {
     display: none;

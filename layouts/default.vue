@@ -4,7 +4,7 @@
       `site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`
     "
   >
-    <nav-bar />
+    <site-nav />
     <nuxt />
     <news-letter-form v-if="$siteConfig.newsletter.on" />
     <site-footer></site-footer>
@@ -13,11 +13,11 @@
 
 <script>
 import 'animate.css/animate.min.css'
-import NavBar from '~/components/navbar'
-import SiteFooter from '~/components/footer'
+import SiteNav from '~/components/SiteNav'
+import SiteFooter from '~/components/SiteFooter'
 import NewsLetterForm from '~/components/NewsLetterForm'
 export default {
-  components: { NavBar, SiteFooter, NewsLetterForm },
+  components: { SiteNav, SiteFooter, NewsLetterForm },
   transition: 'slide-fade',
   data() {
     return {

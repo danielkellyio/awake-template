@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Spinner',
+  name: 'LoadingSpinner',
   props: {
     position: { type: String, default: 'relative' }
   }

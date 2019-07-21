@@ -9,7 +9,7 @@
             :width="imageRatio[0]"
             :height="imageRatio[1]"
           />
-          <spinner position="absolute" />
+          <loading-spinner position="absolute" />
         </figure>
       </nuxt-link>
     </div>
@@ -44,22 +44,24 @@
 </template>
 
 <script>
-import spinner from '~/components/spinner'
+import LoadingSpinner from '~/components/LoadingSpinner'
+const imageDimensionDefault = '16x9'
 export default {
-  components: { spinner },
+  components: { LoadingSpinner },
   props: {
     title: { type: String, default: '' },
     image: { type: String, default: '' },
-    link: { type: String, default: '' }
+    link: { type: String, default: '' },
+    imageDimensions: { type: String, default: imageDimensionDefault }
   },
   computed: {
     imageRatioClass() {
-      return this.$siteConfig.posts.imageDimensions
-        .toLowerCase()
-        .replace('x', 'by')
+      const imageDimensions = this.imageDimensions || imageDimensionDefault
+      return imageDimensions.toLowerCase().replace('x', 'by')
     },
     imageRatio() {
-      return this.$siteConfig.posts.imageDimensions
+      const imageDimensions = this.imageDimensions || imageDimensionDefault
+      return imageDimensions
         .toLowerCase()
         .split('x')
         .map((size) => {

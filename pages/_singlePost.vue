@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <the-hero
+    <site-hero
       :title="title"
       :subtitle="subtitle"
       :image="featureImage"
@@ -15,7 +15,7 @@
       <span v-if="date" class="date-wrapper">
         <strong>Published on:</strong> {{ date }}
       </span>
-    </the-hero>
+    </site-hero>
     <main class="section">
       <div class="container">
         <div class="columns">
@@ -56,7 +56,6 @@
                   Related Posts
                 </h6>
                 <related-posts
-                  resource="posts"
                   :number="3"
                   :category="category"
                   :exclude="slug"
@@ -77,13 +76,13 @@
 import { mapState } from 'vuex'
 import moment from 'moment'
 import { setPageData } from '../helper'
-import TheHero from '~/components/hero'
+import SiteHero from '~/components/SiteHero'
 import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RelatedPosts from '~/components/ResourceGrid'
+import RelatedPosts from '~/components/grids/PostsGrid'
 import PostSidebar from '~/components/PostSidebar'
 export default {
-  components: { TheHero, Markdown, RelatedPosts, PostSidebar },
+  components: { SiteHero, Markdown, RelatedPosts, PostSidebar },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,

@@ -21,10 +21,12 @@
 
 <script>
 import { isString } from 'lodash'
-import PresentationalGrid from '~/components/PresentationalGrid'
+import PresentationalGrid from './PresentationalGrid'
 import PostCard from '~/components/cards/PostCard'
+import CategoryCard from '~/components/cards/CategoryCard'
+
 export default {
-  components: { PostCard, PresentationalGrid },
+  components: { PostCard, PresentationalGrid, CategoryCard },
   props: {
     // eslint-disable-next-line vue/require-prop-types
     resource: { required: true },

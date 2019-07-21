@@ -1,11 +1,11 @@
 <template>
   <div id="categories-page">
-    <hero title="Categories" />
+    <site-hero title="Categories" />
   </div>
 </template>
 <script>
-import Hero from '~/components/hero'
+import SiteHero from '~/components/SiteHero'
 export default {
-  components: { Hero }
+  components: { SiteHero }
 }
 </script>
