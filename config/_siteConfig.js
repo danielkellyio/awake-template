@@ -3,7 +3,7 @@
  * Alter 'netlify' in the import statment below to one of the following:
  * netlify
  */
-import CMS from '../cms/netlify/cms'
+import theCMS from '../cms/netlify/cms'
 
 /**
  * General Site configurations
@@ -79,4 +79,4 @@ export default {
   }
 }
 
-export const cms = CMS
+export const CMS = theCMS

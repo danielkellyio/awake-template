@@ -1,6 +1,7 @@
-import posts from './posts'
-export default {
-  posts: {
-    ...posts
+import Posts from './posts'
+class CMS {
+  constructor(axios) {
+    this.posts = new Posts(axios)
   }
 }
+export default CMS

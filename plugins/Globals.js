@@ -1,6 +1,6 @@
-import SiteConfig, { cms } from '~/config/_siteConfig'
+import SiteConfig, { CMS } from '~/config/_siteConfig'
 
 export default ({ app }, inject) => {
   inject('siteConfig', SiteConfig)
-  inject('cms', cms)
+  inject('cms', new CMS(app.$axios))
 }

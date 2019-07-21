@@ -70,11 +70,7 @@ export default {
         this.allPostsLoaded = true
       } else {
         try {
-          posts = await this.$cms.posts.getByPage(
-            this.$axios,
-            this.page,
-            this.postsFilters
-          )
+          posts = await this.$cms.posts.getByPage(this.page, this.postsFilters)
         } catch (er) {
           this.allPostsLoaded = true
           return
@@ -91,7 +87,6 @@ export default {
     },
     async getPostsByNumber() {
       const posts = await this.$cms.posts.getByNumber(
-        this.$axios,
         this.number,
         this.postsFilters
       )

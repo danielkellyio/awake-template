@@ -1,34 +1,32 @@
 import { chunk } from 'lodash'
-export default {
-  gottenCount: 0,
-  gottenPage: 0,
-
+class Posts {
+  constructor(axios) {
+    this.gottenPage = 0
+    this.axios = axios
+  }
   getOne(slug) {
     const { data, content } = require(`~/content/posts/${slug}.md`).default
     return {
       ...data,
       content
     }
-  },
-  async getByNumber(
-    axios,
-    number,
-    filter = (post) => {
-      return post
-    },
-    firstTime = true
-  ) {
+  }
+  async getByNumber(number, filter = false, firstTime = true) {
+    if (!filter) {
+      filter = (post) => {
+        return post
+      }
+    }
     if (firstTime) {
       this.reset()
     }
     this.gottenPage++
-    const posts = await this.getByPage(axios, this.gottenPage)
+    const posts = await this.getByPage(this.gottenPage)
     const filtered = posts.filter(filter)
     let numbered = chunk(filtered, number)[0]
     if (numbered.length < number) {
       try {
         const more = await this.getByNumber(
-          axios,
           number - numbered.length,
           filter,
           false
@@ -39,23 +37,22 @@ export default {
       }
     }
     return numbered
-  },
-  async getByPage(
-    axios,
-    page,
-    filter = (post) => {
-      return post
+  }
+  async getByPage(page, filter = false) {
+    if (!filter) {
+      filter = (post) => {
+        return post
+      }
     }
-  ) {
-    const posts = await axios.$get(`api/posts/page-${page}.json`)
+    const posts = await this.axios.$get(`api/posts/page-${page}.json`)
     return posts.filter(filter)
-  },
-  async getAll(axios) {
-    const posts = await axios.$get('api/posts.json')
+  }
+  static async getAll() {
+    const posts = await this.axios.$get('api/posts.json')
     return posts
-  },
+  }
   reset() {
-    this.gottenCount = 0
     this.gottenPage = 0
   }
 }
+export default Posts
