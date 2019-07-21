@@ -12,7 +12,7 @@
     </the-hero>
     <main class="section">
       <div class="container">
-        <latest-posts></latest-posts>
+        <latest-posts :resource="$cms.posts"></latest-posts>
       </div>
     </main>
   </div>
@@ -22,7 +22,7 @@
 import { mapState } from 'vuex'
 import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
-import LatestPosts from '~/components/PostsGrid'
+import LatestPosts from '~/components/ResourceGrid'
 
 export default {
   name: 'HomePage',

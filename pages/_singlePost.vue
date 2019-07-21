@@ -56,6 +56,7 @@
                   Related Posts
                 </h6>
                 <related-posts
+                  resource="posts"
                   :number="3"
                   :category="category"
                   :exclude="slug"
@@ -79,7 +80,7 @@ import { setPageData } from '../helper'
 import TheHero from '~/components/hero'
 import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RelatedPosts from '~/components/PostsGrid'
+import RelatedPosts from '~/components/ResourceGrid'
 import PostSidebar from '~/components/PostSidebar'
 export default {
   components: { TheHero, Markdown, RelatedPosts, PostSidebar },

@@ -1,5 +1,5 @@
 <template>
-  <general-card :title="title" :image="image" :link="link">
+  <generic-card :title="title" :image="image" :link="link">
     <span
       v-if="author && $siteConfig.posts.displayAuthor"
       class="author-wrapper"
@@ -9,14 +9,14 @@
     <span v-if="date" class="date-wrapper">
       <strong>Published on:</strong> {{ datePretty }}
     </span>
-  </general-card>
+  </generic-card>
 </template>
 
 <script>
 import moment from 'moment'
-import GeneralCard from './GeneralCard'
+import GenericCard from './GenericCard'
 export default {
-  components: { GeneralCard },
+  components: { GenericCard },
   props: {
     title: {
       type: String,

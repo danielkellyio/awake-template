@@ -1,6 +1,11 @@
 import { chunk } from 'lodash'
 class Posts {
   constructor(axios) {
+    this.slug = 'post'
+    this.slugPlural = 'posts'
+    this.pretty = 'Post'
+    this.plural = 'Posts'
+
     this.gottenPage = 0
     this.axios = axios
   }

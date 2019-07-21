@@ -19,8 +19,8 @@
 
 <script>
 import { range } from 'lodash'
-import IntersectionObserver from './IntersectionObserver'
-import Spinner from './spinner'
+import IntersectionObserver from '~/components/IntersectionObserver'
+import Spinner from '~/components/spinner'
 export default {
   components: { IntersectionObserver, Spinner },
   props: {
