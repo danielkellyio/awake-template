@@ -1,8 +1,8 @@
+import { isString } from 'lodash'
 export const state = () => ({
   pageType: '',
   title: '',
   subtitle: '',
-  featureColor: '#469af0',
   featureImage: '',
   content: '',
   author: '',
@@ -17,20 +17,21 @@ export const actions = {
   nuxtServerInit(store, context) {
     this.$cms = context.store.$cms
   },
-  set({ commit }, { pageType, slug }) {
-    if (pageType === 'post') {
-      const data = Object.assign(this.$cms.posts.getOne(slug), {
-        pageType: 'post'
+  set({ commit }, { resource, slug }) {
+    if (!resource) {
+      setOtherPageData(commit)
+    } else {
+      const theResource = isString(resource) ? this.$cms[resource] : resource
+      const data = Object.assign(theResource.getOne(slug), {
+        pageType: theResource.slug
       })
       data.slug = slug
       commit('set', data)
-    } else {
-      setOtherPageDate(commit)
     }
   }
 }
 
-function setOtherPageDate(commit) {
+function setOtherPageData(commit) {
   const global = require('~/content/global.json')
   commit('set', {
     title: global.siteName,

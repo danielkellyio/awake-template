@@ -12,7 +12,7 @@
     </site-hero>
     <main class="section">
       <div class="container">
-        <latest-posts></latest-posts>
+        <latest-posts />
       </div>
     </main>
   </div>
@@ -31,7 +31,7 @@ export default {
     LatestPosts
   },
   fetch({ store, params }) {
-    setPageData(store, { pageType: 'home', slug: 'home' })
+    setPageData(store, { slug: 'home' })
   },
   computed: {
     ...mapState(['title', 'subtitle', 'featureImage'])

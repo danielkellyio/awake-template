@@ -130,7 +130,6 @@ export default {
       'title',
       'subtitle',
       'featureImage',
-      'featureColor',
       'underSubtitle',
       'author',
       'category',
@@ -146,7 +145,7 @@ export default {
     }
   },
   fetch({ store, params }) {
-    setPageData(store, { pageType: 'post', slug: params.singlePost })
+    setPageData(store, { resource: 'posts', slug: params.singlePost })
   }
 }
 </script>
