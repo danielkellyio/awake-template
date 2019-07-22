@@ -1,5 +1,5 @@
 <template>
-  <div class="home-wrapper page-wrapper">
+  <div id="home-page" class="page-wrapper">
     <site-hero
       :title="title"
       :subtitle="subtitle"

@@ -7,14 +7,7 @@
     @atEnd="loadMore()"
   >
     <template v-slot:default="{ item }">
-      <component
-        :is="`${resourceController.slug}-card`"
-        :title="item.data ? item.data.title : ''"
-        :link="item.data ? item.data.slug : ''"
-        :image="item.data ? item.data.featureImage : ''"
-        :author="item.data && item.data.author ? item.data.author : ''"
-        :date="item.data ? item.data.date : ''"
-      />
+      <slot :item="item"></slot>
     </template>
   </presentational-grid>
 </template>
@@ -22,11 +15,9 @@
 <script>
 import { isString } from 'lodash'
 import PresentationalGrid from './PresentationalGrid'
-import PostCard from '~/components/cards/PostCard'
-import CategoryCard from '~/components/cards/CategoryCard'
 
 export default {
-  components: { PostCard, PresentationalGrid, CategoryCard },
+  components: { PresentationalGrid },
   props: {
     // eslint-disable-next-line vue/require-prop-types
     resource: { required: true },
@@ -87,7 +78,8 @@ export default {
             this.page,
             this.resourceFilters
           )
-        } catch (er) {
+        } catch (err) {
+          console.log(err)
           this.allLoaded = true
           return
         }

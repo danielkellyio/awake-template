@@ -42,7 +42,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import LoadingSpinner from '~/components/LoadingSpinner'
 const imageDimensionDefault = '16x9'

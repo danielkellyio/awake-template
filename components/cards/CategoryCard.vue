@@ -1,5 +1,7 @@
 <template>
-  <generic-card :title="title" :image="image" :link="link" />
+  <generic-card :title="title" :image="image" :link="link">
+    {{ description }}
+  </generic-card>
 </template>
 
 <script>
@@ -19,6 +21,10 @@ export default {
     link: {
       type: String,
       required: true
+    },
+    description: {
+      type: String,
+      default: ''
     }
   }
 }
