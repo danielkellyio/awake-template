@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div id="post-page" class="page-wrapper post-page">
     <site-hero
       :title="title"
       :subtitle="subtitle"

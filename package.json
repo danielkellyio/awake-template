@@ -33,6 +33,7 @@
     "markdown-it-sup": "^1.0.0",
     "md5": "^2.2.1",
     "moment": "^2.24.0",
+    "ncp": "^2.0.0",
     "netlify-cms": "^2.9.5",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",

@@ -1,5 +1,5 @@
 <template>
-  <div id="home-page" class="page-wrapper">
+  <div id="home-page" class="page-wrapper home-page">
     <site-hero
       :title="title"
       :subtitle="subtitle"
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style>
-.home-wrapper .under-subtitle {
+.home-page .under-subtitle {
   border-top: none;
 }
 </style>

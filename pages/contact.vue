@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="contact-page" class="page-wrapper contact-page">
     <br />
     <br />
     <br />

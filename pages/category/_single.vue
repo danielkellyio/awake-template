@@ -1,5 +1,5 @@
 <template>
-  <div id="home-page" class="page-wrapper">
+  <div id="category-page" class="page-wrapper category-page">
     <site-hero
       :title="$store.state.name"
       :subtitle="$store.state.content"
