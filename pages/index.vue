@@ -10,11 +10,14 @@
         Subscribe To Newsletter
       </button>
     </site-hero>
-    <main class="section">
-      <div class="container">
+    <main-section>
+      <template v-slot:content>
         <latest-posts />
-      </div>
-    </main>
+      </template>
+      <template v-slot:sidebar>
+        Nothing here
+      </template>
+    </main-section>
   </div>
 </template>
 
@@ -23,12 +26,14 @@ import { mapState } from 'vuex'
 import { setPageData } from '../helper'
 import SiteHero from '~/components/SiteHero'
 import LatestPosts from '~/components/grids/PostsGrid'
+import MainSection from '~/components/MainSection'
 
 export default {
   name: 'HomePage',
   components: {
     SiteHero,
-    LatestPosts
+    LatestPosts,
+    MainSection
   },
   fetch({ store, params }) {
     setPageData(store, { slug: 'home' })

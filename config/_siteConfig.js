@@ -33,7 +33,8 @@ export default {
 
   // Main Layout/Style
   layout: {
-    width: 'contained' // Options: contained, full
+    width: 'contained', // Options: contained, full
+    theme: 'one-column' // Options: one-column, sidebar-right, sidebar-left
   },
 
   // Card Layout
@@ -84,8 +85,7 @@ export default {
       format: 'MMMM Do, YYYY' // See https://momentjs.com/ for available formats
     },
     perRow: 3,
-    perPage: 6,
-    withSidebar: false // Customize sidebar contents in ~/components/PostSidebar.vue
+    perPage: 6
   }
 }
 

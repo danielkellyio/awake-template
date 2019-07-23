@@ -16,60 +16,42 @@
         <strong>Published on:</strong> {{ date }}
       </span>
     </site-hero>
-    <main class="section">
-      <div class="container">
-        <div class="columns">
+    <main-section one-column-constrained="true">
+      <template v-slot:content>
+        <div class="post-wrapper">
+          <markdown :markdown="$store.state.content" />
+          <vue-disqus
+            v-if="$siteConfig.disqus.on && $globals.disqus.siteShortName"
+            :shortname="$siteConfig.disqus.siteShortName"
+            :identifier="$route.params.singlePost"
+          />
           <div
-            :class="{
-              column: true,
-              'is-offset-2': !$siteConfig.posts.withSidebar,
-              'is-8': !$siteConfig.posts.withSidebar,
-              'is-9': $siteConfig.posts.withSidebar
-            }"
+            v-if="$siteConfig.disqus.on && !$siteConfig.disqus.siteShortName"
+            class="notification is-danger"
           >
-            <div class="post-wrapper">
-              <markdown :markdown="$store.state.content" />
-              <vue-disqus
-                v-if="$siteConfig.disqus.on && $globals.disqus.siteShortName"
-                :shortname="$siteConfig.disqus.siteShortName"
-                :identifier="$route.params.singlePost"
-              />
-              <div
-                v-if="
-                  $siteConfig.disqus.on && !$siteConfig.disqus.siteShortName
-                "
-                class="notification is-danger"
-              >
-                Disqus site short name is required!
-              </div>
-              <div
-                :class="
-                  `other-posts ${
-                    $siteConfig.posts.withSidebar ||
-                    $siteConfig.posts.theme !== 'columns'
-                      ? ''
-                      : 'box'
-                  }`
-                "
-              >
-                <h6 class="subtitle is-size-4">
-                  Related Posts
-                </h6>
-                <related-posts
-                  :number="3"
-                  :category="category"
-                  :exclude="slug"
-                />
-              </div>
-            </div>
+            Disqus site short name is required!
           </div>
-          <post-sidebar
-            v-if="$siteConfig.posts.withSidebar"
-            class="column is-3"
-          ></post-sidebar>
+          <div
+            :class="
+              `other-posts ${
+                $siteConfig.posts.withSidebar ||
+                $siteConfig.posts.theme !== 'columns'
+                  ? ''
+                  : 'box'
+              }`
+            "
+          >
+            <h6 class="subtitle is-size-4">
+              Related Posts
+            </h6>
+            <related-posts :number="3" :category="category" :exclude="slug" />
+          </div>
         </div>
-      </div>
-    </main>
+      </template>
+      <template v-slot:sidebar>
+        <post-sidebar />
+      </template>
+    </main-section>
   </div>
 </template>
 <script>
@@ -81,8 +63,9 @@ import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
 import RelatedPosts from '~/components/grids/PostsGrid'
 import PostSidebar from '~/components/PostSidebar'
+import MainSection from '~/components/MainSection'
 export default {
-  components: { SiteHero, Markdown, RelatedPosts, PostSidebar },
+  components: { SiteHero, Markdown, RelatedPosts, PostSidebar, MainSection },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
