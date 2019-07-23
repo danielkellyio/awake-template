@@ -1,8 +1,9 @@
-import siteConfig from '../config/_siteConfig'
+import siteConfig from '../../../config/_siteConfig'
 import { createPagination, createMeta, createAll } from './helper'
+const rootDir = `${__dirname}/../../..`
 const generateCategoryApi = () => {
-  const contentDir = `${__dirname}/../content/categories`
-  const apiDir = `${__dirname}/../static/api`
+  const contentDir = `${rootDir}/content/categories`
+  const apiDir = `${rootDir}/static/api`
   const allFile = `${apiDir}/categories.json`
   const metaFile = `${apiDir}/categories-meta.json`
   const pages = siteConfig.categories.perPage

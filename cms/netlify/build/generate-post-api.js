@@ -1,8 +1,9 @@
-import siteConfig from '../config/_siteConfig'
+import siteConfig from '../../../config/_siteConfig'
 import { createPagination, createMeta, createAll } from './helper'
+const rootDir = `${__dirname}/../../..`
 const generatePostApi = () => {
-  const contentDir = `${__dirname}/../content/posts`
-  const apiDir = `${__dirname}/../static/api`
+  const contentDir = `${rootDir}/content/posts`
+  const apiDir = `${rootDir}/static/api`
   const allFile = `${apiDir}/posts.json`
   const metaFile = `${apiDir}/posts-meta.json`
   const pages = siteConfig.posts.perPage

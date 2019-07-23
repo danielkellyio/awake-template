@@ -39,6 +39,30 @@ export default {
     $route(to, from) {
       this.$eventBus.$emit('route-changed', this.$route)
     }
+  },
+  mounted() {
+    this.$cms.lifeCycleHooks.mounted()
+  },
+  beforeCreate() {
+    this.$cms.lifeCycleHooks.beforeCreate()
+  },
+  created() {
+    this.$cms.lifeCycleHooks.created()
+  },
+  beforeMount() {
+    this.$cms.lifeCycleHooks.beforeMount()
+  },
+  beforeUpdate() {
+    this.$cms.lifeCycleHooks.beforeUpdate()
+  },
+  updated() {
+    this.$cms.lifeCycleHooks.updated()
+  },
+  beforeDestroy() {
+    this.$cms.lifeCycleHooks.beforeDestroy()
+  },
+  destroy() {
+    this.$cms.lifeCycleHooks.destroy()
   }
 }
 </script>

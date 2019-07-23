@@ -20,7 +20,7 @@ import PostsGrid from '~/components/grids/PostsGrid'
 export default {
   components: { PostsGrid, SiteHero },
   fetch({ store, params }) {
-    setPageData(store, { resource: 'categories', slug: params.slug })
+    setPageData(store, { resource: 'categories', slug: params.single })
   }
 }
 </script>

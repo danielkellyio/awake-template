@@ -7,11 +7,12 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "api-generate": "node -r esm ./build-tools/generate-api.js",
-    "dev": "npm run api-generate && nuxt -o",
-    "build": "nuxt build",
+    "before-build": "node -r esm ./build-tools/beforeBuild.js",
+    "after-build": "node -r esm ./build-tools/afterBuild.js",
+    "dev": "npm run before-build && nuxt -o && npm run after-build",
+    "build": "npm run before-build && nuxt build && npm run after-build",
     "start": "nuxt start",
-    "generate": "nuxt generate && npm run api-generate"
+    "generate": "npm run before-build && nuxt generate && npm run after-build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
