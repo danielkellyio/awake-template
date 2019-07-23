@@ -1,5 +1,9 @@
 import { chunk } from 'lodash'
 
+/**
+ * Get a single resource at a time
+ * @type {{getOne(*): function}}
+ */
 export const getOneMixin = {
   getOne(slug) {
     const {
@@ -13,6 +17,10 @@ export const getOneMixin = {
   }
 }
 
+/**
+ * Get n number of resources (can be filtered)
+ * @type {{getByNumber(*=, *=, *=): Promise}}
+ */
 export const getByNumberMixin = {
   async getByNumber(number, filter = false, firstTime = true) {
     if (!filter) {
@@ -47,6 +55,10 @@ export const getByNumberMixin = {
   }
 }
 
+/**
+ * Get resources by paginated page
+ * @type {{gottenPage: number, reset(): void, getByPage(*, *=): Promise}}
+ */
 export const getByPageMixin = {
   gottenPage: 0,
   async getByPage(page, filter = false) {
@@ -69,6 +81,10 @@ export const getByPageMixin = {
   }
 }
 
+/**
+ * Get all resources
+ * @type {{getAll(): Promise}}
+ */
 export const getAllMixin = {
   async getAll() {
     const resources = await this.axios.$get(`api/${this.slugPlural}.json`)
@@ -76,10 +92,12 @@ export const getAllMixin = {
   }
 }
 
+/**
+ * Bundle all the getter mixins for quicker composition
+ */
 let getMixinChain = Object.assign({}, getOneMixin)
 getMixinChain = Object.assign(getMixinChain, getOneMixin)
 getMixinChain = Object.assign(getMixinChain, getByNumberMixin)
 getMixinChain = Object.assign(getMixinChain, getByPageMixin)
 getMixinChain = Object.assign(getMixinChain, getAllMixin)
-
 export const getMixins = getMixinChain
