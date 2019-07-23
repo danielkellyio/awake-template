@@ -6,10 +6,10 @@
   >
     <template v-slot:default="{ item }">
       <category-card
-        :title="item.data ? item.data.name : ''"
-        :link="item.data ? `category/${item.data.slug}` : ''"
-        :image="item.data ? item.data.image : ''"
-        :description="item.data ? item.data.description : ''"
+        :title="item.name"
+        :link="`category/${item.slug}`"
+        :image="item.image"
+        :description="item.description"
       />
     </template>
   </resource-grid>

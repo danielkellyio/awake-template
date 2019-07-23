@@ -1,5 +1,5 @@
 <template>
-  <main class="section">
+  <main class="section page-main-section">
     <div class="container">
       <div class="columns">
         <div
@@ -11,18 +11,16 @@
         <div
           :class="{
             column: true,
-            'is-full':
-              $siteConfig.layout.theme === 'one-column' &&
-              !oneColumnConstrained,
+            'is-full': computedTheme === 'one-column' && !oneColumnConstrained,
             'is-offset-2': oneColumnConstrained,
             'is-8': oneColumnConstrained,
-            'is-three-quarters': $siteConfig.layout.theme !== 'one-column'
+            'is-three-quarters': computedTheme !== 'one-column'
           }"
         >
-          <slot name="content"></slot>
+          <slot></slot>
         </div>
         <div
-          v-if="$siteConfig.layout.theme === 'sidebar-right'"
+          v-if="computedTheme === 'sidebar-right'"
           class="column is-one-quarter"
         >
           <slot name="sidebar"></slot>
@@ -34,7 +32,28 @@
 <script>
 export default {
   props: {
-    oneColumnConstrained: { type: Boolean, default: false }
+    oneColumnConstrained: { type: Boolean, default: false },
+    theme: { type: String, default: '' }
+  },
+  computed: {
+    computedTheme() {
+      if (this.theme) {
+        return this.theme
+      }
+      if (this.$siteConfig.layout.theme) {
+        return this.$siteConfig.layout.theme
+      }
+      return 'one-column'
+    }
   }
 }
 </script>
+
+<style lang="scss">
+.page-main-section {
+  margin-top: 52px;
+}
+.hero + .page-main-section {
+  margin-top: initial;
+}
+</style>

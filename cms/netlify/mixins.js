@@ -6,14 +6,8 @@ import { chunk } from 'lodash'
  */
 export const getOneMixin = {
   getOne(slug) {
-    const {
-      data,
-      content
-    } = require(`~/content/${this.slugPlural}/${slug}.md`).default
-    return {
-      ...data,
-      content
-    }
+    const resource = require(`~/content/${this.slugPlural}/${slug}.md`).default
+    return flattenResource(resource)
   }
 }
 
@@ -36,6 +30,7 @@ export const getByNumberMixin = {
       const resources = await this.getByPage(this.gottenPage)
       const filtered = resources.filter(filter)
       let numbered = chunk(filtered, number)[0]
+      numbered = flattenResource(numbered)
       if (numbered.length < number) {
         try {
           const more = await this.getByNumber(
@@ -68,9 +63,10 @@ export const getByPageMixin = {
       }
     }
     try {
-      const categories = await this.axios.$get(
+      let categories = await this.axios.$get(
         `api/${this.slugPlural}/page-${page}.json`
       )
+      categories = flattenResource(categories)
       return categories.filter(filter)
     } catch (err) {
       throw err
@@ -88,7 +84,7 @@ export const getByPageMixin = {
 export const getAllMixin = {
   async getAll() {
     const resources = await this.axios.$get(`api/${this.slugPlural}.json`)
-    return resources
+    return flattenResource(resources)
   }
 }
 
@@ -101,3 +97,13 @@ getMixinChain = Object.assign(getMixinChain, getByNumberMixin)
 getMixinChain = Object.assign(getMixinChain, getByPageMixin)
 getMixinChain = Object.assign(getMixinChain, getAllMixin)
 export const getMixins = getMixinChain
+
+function flattenResource(resource) {
+  if (Array.isArray(resource)) {
+    return resource.map(flattenResource)
+  }
+  let local = resource
+  local = Object.assign(local, resource.data)
+  delete local.data
+  return local
+}

@@ -10,8 +10,8 @@
         Subscribe To Newsletter
       </button>
     </site-hero>
-    <main-section>
-      <template v-slot:content>
+    <main-section theme="one-column">
+      <template v-slot:default>
         <latest-posts />
       </template>
       <template v-slot:sidebar>

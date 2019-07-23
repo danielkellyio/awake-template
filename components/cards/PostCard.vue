@@ -28,24 +28,19 @@ export default {
   components: { GenericCard },
   props: {
     title: {
-      type: String,
-      required: true
+      type: String
     },
     image: {
-      type: String,
-      required: true
+      type: String
     },
     link: {
-      type: String,
-      required: true
+      type: String
     },
     date: {
-      type: String,
-      required: true
+      type: String
     },
     author: {
-      type: String,
-      required: true
+      type: String
     }
   },
   computed: {

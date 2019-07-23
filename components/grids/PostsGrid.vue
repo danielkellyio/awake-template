@@ -6,11 +6,11 @@
   >
     <template v-slot:default="{ item }">
       <post-card
-        :title="item.data ? item.data.title : ''"
-        :link="item.data ? `/${item.data.slug}` : ''"
-        :image="item.data ? item.data.featureImage : ''"
-        :author="item.data && item.data.author ? item.data.author : ''"
-        :date="item.data ? item.data.date : ''"
+        :title="item.title"
+        :link="`/${item.slug}`"
+        :image="item.featureImage"
+        :author="item.author"
+        :date="item.date"
       />
     </template>
   </resource-grid>

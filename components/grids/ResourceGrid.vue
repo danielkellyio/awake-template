@@ -103,15 +103,14 @@ export default {
     resourceFilters(resource) {
       if (this.exclude && this.category) {
         return (
-          resource.data.category === this.category &&
-          resource.data.slug !== this.exclude
+          resource.category === this.category && resource.slug !== this.exclude
         )
       }
       if (this.category) {
-        return resource.data.category === this.category
+        return resource.category === this.category
       }
       if (this.exclude) {
-        return resource.data.slug !== this.exclude
+        return resource.slug !== this.exclude
       }
       return resource
     }

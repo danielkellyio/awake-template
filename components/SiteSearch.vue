@@ -23,11 +23,11 @@
         <div v-if="matches.length">
           <li
             v-for="match in matches"
-            :key="match.data.slug"
+            :key="match.slug"
             @click="toggleSearchBar()"
           >
-            <nuxt-link :to="`/${match.data.slug}`">
-              {{ match.data.title }}
+            <nuxt-link :to="`/${match.slug}`">
+              {{ match.title }}
             </nuxt-link>
             <small class="match-snippet" v-html="match.snippet"></small>
           </li>

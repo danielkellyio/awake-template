@@ -16,8 +16,8 @@
         <strong>Published on:</strong> {{ date }}
       </span>
     </site-hero>
-    <main-section one-column-constrained="true">
-      <template v-slot:content>
+    <main-section :one-column-constrained="true">
+      <template v-slot:default>
         <div class="post-wrapper">
           <markdown :markdown="$store.state.content" />
           <vue-disqus
