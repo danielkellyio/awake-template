@@ -145,7 +145,7 @@ export default {
     }
   },
   fetch({ store, params }) {
-    setPageData(store, { resource: 'posts', slug: params.singlePost })
+    setPageData(store, { resource: 'post', slug: params.singlePost })
   }
 }
 </script>

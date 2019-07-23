@@ -1,6 +1,6 @@
 import { getMixins } from './mixins'
 
-class Categories {
+class Category {
   constructor(axios) {
     this.slug = 'category'
     this.slugPlural = 'categories'
@@ -11,5 +11,5 @@ class Categories {
 }
 
 // Mixins
-Object.assign(Categories.prototype, getMixins)
-export default Categories
+Object.assign(Category.prototype, getMixins)
+export default Category
