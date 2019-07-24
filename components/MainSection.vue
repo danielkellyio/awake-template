@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns">
         <div
-          v-if="$siteConfig.layout.theme === 'sidebar-left'"
+          v-if="computedTheme === 'sidebar-left'"
           class="column is-one-quarter"
         >
           <slot name="sidebar"></slot>
@@ -12,8 +12,9 @@
           :class="{
             column: true,
             'is-full': computedTheme === 'one-column' && !oneColumnConstrained,
-            'is-offset-2': oneColumnConstrained,
-            'is-8': oneColumnConstrained,
+            'is-offset-2':
+              oneColumnConstrained && computedTheme === 'one-column',
+            'is-8': oneColumnConstrained && computedTheme === 'one-column',
             'is-three-quarters': computedTheme !== 'one-column'
           }"
         >
