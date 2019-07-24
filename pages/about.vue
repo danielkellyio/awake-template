@@ -1,5 +1,5 @@
 <template>
-  <div id="about-page" class="page-wrapper about-page">
+  <div id="about-page" class="page-wrapper about-page content-page">
     <main-section>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
       eligendi impedit inventore ipsa laboriosam libero magnam modi odio, sunt

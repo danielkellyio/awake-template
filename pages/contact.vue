@@ -1,5 +1,5 @@
 <template>
-  <div id="contact-page" class="page-wrapper contact-page">
+  <div id="contact-page" class="page-wrapper contact-page content-page">
     <main-section>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
       eligendi impedit inventore ipsa laboriosam libero magnam modi odio, sunt
