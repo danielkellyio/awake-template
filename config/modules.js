@@ -32,6 +32,6 @@ export const modulesSettings = {
   axios: {
     https: url ? url.protocol === 'https:' : null,
     host: url ? url.hostname : null,
-    port: process.env.PORT ? process.env.PORT : null
+    port: url ? url.port : null
   }
 }
