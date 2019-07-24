@@ -26,6 +26,10 @@ Deploy to Netlify Button Here
 
 Site configuration is found in `/config/_siteConfig.js`. Here you can customize site settings such as the site name, layout, disqus and mailchimp setup, image sizes and more. 
 
+# Editing Content
+
+Posts and categories can be edited in Netlify CMS at \[your-site-url]/admin. At this time any new pages must be created in the code itself and committed to the repo
+
 # Local Development
 
 Since all content is store in the git repo with Netlify CMS, local development is a breeze. Simply install node, pull down the repo, and run `npm run dev`.
