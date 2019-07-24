@@ -1,9 +1,65 @@
 ---
-layout: blog
-title: Eighth Post
-subtitle: Hardy
-date: 2019-07-08 11:59:59 -0800
-featureImage: https://picsum.photos/1800/908
+title: Disqus
+subtitle: Awake Supports Commenting on Posts
 category: category-1
+author: Daniel Kelly
+date: 2019-07-24T19:59:59.000Z
+featureImage: 'https://picsum.photos/1800/908'
 ---
-This is the post body, where I write about our last chance to party before the Y2K bug destroys us all.
+Disqus brings the power of commenting to the Awake template. It provides features like moderation, reactions, filtering, and social sharing out of the box. Best of all, it's free and super easy to setup!
+
+## Step 1
+
+Go to disqus.com and click on "Get Started"
+
+![Screenshot of Disqus homepage](/uploads/disqus-get-started.jpg)
+
+## Step 2
+
+Choose "I want to install Disqus on my site"
+
+![Disqus button "I want to install Disqus on my site"](/uploads/disqus-add-to-website.jpg)
+
+## Step 3
+
+Sign-up or sign in
+
+## Step 4
+
+Enter site name, Disqus URL and select a category. The Disqus URL name is your site’s name in your account where you can access all the required settings.
+
+## Step 5
+
+Select a plan. There are several premium versions available, but don't worry the free one works just great too!
+
+## Step 6
+
+Disqus supports a number of different platforms but also works great in static sites like Awake. Scroll to the very bottom of the list and choose: "I don't see my platform listed, install manually with"
+
+![Disqus button "I don't see my platform listed, install manually with"](/uploads/disqus-platform-button.jpg)
+
+## Step 7
+
+You can ignore everything on this page, as the Awake template has already configured it for you. All you have to do is find your "Site Short Name" (it's the first part of the url) and add it to `config/_siteConfig.js`.
+
+Take it from here:
+
+![Site Short Name in url](/uploads/disqus-site-short-name.jpg)
+
+and put it here:
+
+```
+// config/_siteConfig.js
+export default {
+...
+// Disqus
+  disqus: {
+    on: false,
+    siteShortName: 'testing-bjsj2bjl0i'
+  },
+}
+```
+
+## Step 8
+
+That's it! You've got comments up and running on your site. Go checkout a post and see you new fancy comments section.
