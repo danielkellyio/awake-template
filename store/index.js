@@ -19,7 +19,7 @@ export const actions = {
   },
   set({ commit }, { resource, slug }) {
     if (!resource) {
-      setOtherPageData(commit)
+      setOtherPageData(commit, this.$siteConfig)
     } else {
       const theResource = isString(resource) ? this.$cms[resource] : resource
       const data = Object.assign(theResource.getOne(slug), {
@@ -31,11 +31,10 @@ export const actions = {
   }
 }
 
-function setOtherPageData(commit) {
-  const global = require('~/content/global.json')
+function setOtherPageData(commit, siteConfig) {
   commit('set', {
-    title: global.siteName,
-    subtitle: global.tagline,
-    featureImage: global.featureImage
+    title: siteConfig.siteName,
+    subtitle: siteConfig.tagline,
+    featureImage: siteConfig.featureImage
   })
 }
