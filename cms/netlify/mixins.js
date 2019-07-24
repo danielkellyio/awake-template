@@ -1,4 +1,5 @@
 import { chunk } from 'lodash'
+import { flattenResource } from './helper'
 
 /**
  * Get a single resource at a time
@@ -97,13 +98,3 @@ getMixinChain = Object.assign(getMixinChain, getByNumberMixin)
 getMixinChain = Object.assign(getMixinChain, getByPageMixin)
 getMixinChain = Object.assign(getMixinChain, getAllMixin)
 export const getMixins = getMixinChain
-
-function flattenResource(resource) {
-  if (Array.isArray(resource)) {
-    return resource.map(flattenResource)
-  }
-  let local = resource
-  local = Object.assign(local, resource.data)
-  delete local.data
-  return local
-}

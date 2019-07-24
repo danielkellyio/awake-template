@@ -2,6 +2,7 @@ import fs from 'fs'
 import rimraf from 'rimraf'
 import _ from 'lodash'
 import matter from 'gray-matter'
+import { flattenResource } from '../helper'
 
 export function compareDates(a, b) {
   const aParsed = Date.parse(a.data.date)
@@ -59,7 +60,8 @@ export function createAll(fromDir, toFile) {
 
           if (index.length === files.length) {
             const writeStream = fs.createWriteStream(toFile, 'UTF-8')
-            const sorted = index.sort(compareDates).reverse()
+            let sorted = index.sort(compareDates).reverse()
+            sorted = flattenResource(sorted)
             writeStream.write(JSON.stringify(sorted))
             resolve(sorted)
           }
