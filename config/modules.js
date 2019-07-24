@@ -1,3 +1,9 @@
+import URL from 'url-parse'
+let url = false
+if (process.env.URL && process.argv[2] === 'generate') {
+  url = new URL(process.env.URL)
+}
+
 export const modules = [
   // Doc: https://axios.nuxtjs.org/usage
   '@nuxtjs/axios',
@@ -24,7 +30,8 @@ export const modulesSettings = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    host: process.argv[2] === 'generate' ? process.env.URL : null,
-    port: process.argv[2] === 'generate' ? process.env.PORT : null
+    https: url ? url.protocol === 'https:' : null,
+    host: url ? url.hostname : null,
+    port: process.env.PORT ? process.env.PORT : null
   }
 }
