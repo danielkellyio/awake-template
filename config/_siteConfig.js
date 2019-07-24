@@ -45,8 +45,8 @@ export default {
 
   // Disqus
   disqus: {
-    on: false,
-    siteShortName: '' // 'blog-danielkelly-io'
+    on: true,
+    siteShortName: 'blog-danielkelly-io' // 'blog-danielkelly-io'
   },
 
   // Newsletter Subscribe

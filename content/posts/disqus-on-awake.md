@@ -1,10 +1,10 @@
 ---
 title: Disqus
 subtitle: Awake Supports Commenting on Posts
-category: category-1
+category: category 1
 author: Daniel Kelly
 date: 2019-07-24T19:59:59.000Z
-featureImage: 'https://picsum.photos/1800/908'
+featureImage: /uploads/disqus-hero.jpg
 ---
 Disqus brings the power of commenting to the Awake template. It provides features like moderation, reactions, filtering, and social sharing out of the box. Best of all, it's free and super easy to setup!
 

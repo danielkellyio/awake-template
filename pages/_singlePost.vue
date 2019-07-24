@@ -21,7 +21,7 @@
         <div class="post-wrapper">
           <markdown :markdown="$store.state.content" />
           <vue-disqus
-            v-if="$siteConfig.disqus.on && $globals.disqus.siteShortName"
+            v-if="$siteConfig.disqus.on && $siteConfig.disqus.siteShortName"
             :shortname="$siteConfig.disqus.siteShortName"
             :identifier="$route.params.singlePost"
           />
