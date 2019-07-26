@@ -10,7 +10,7 @@ Awake is a Nuxt.js template for generating a beautifully robust static site with
 
 # Features
 
-* Simple modern design based on the Bulma css framework
+* Simple modern design based on the Bulma css framework (with unused css purged via [purgecss](https://www.purgecss.com/))
 * Site search
 * Statically generated API for posts and categories
 * Disqus powered comments
@@ -18,6 +18,7 @@ Awake is a Nuxt.js template for generating a beautifully robust static site with
 * Highly customizable with out of the box configurations
 * Built with performance in mind
 * Isolated Netlify CMS driver (with more CMS drivers planned for future) for easily migrating between various headless cms'
+* Feature images automatically given srcsets and resized
 
 Deploy to Netlify Button Here
 
