@@ -1,22 +1,23 @@
-<template functional>
-  <section :class="`hero is-medium hero-theme-${props.theme}`">
+<template>
+  <section :class="`hero is-medium hero-theme-${theme}`">
     <opti-image
       class="hero-bg-img"
-      :src="props.image"
+      :src="responsiveImage.src"
       :lazy="false"
       :delay="100"
+      :srcset="responsiveImage.srcSet"
     />
     <div class="hero-body">
       <div class="container">
         <h1 class="title animated fadeInUp">
-          {{ props.title }}
+          {{ title }}
         </h1>
         <h2 class="subtitle animated fadeInUp slower">
-          {{ props.subtitle }}
+          {{ subtitle }}
         </h2>
         <br />
         <div
-          v-if="slots().default"
+          v-if="$slots.default"
           class="under-subtitle animated fadeInDown slower"
         >
           <slot />
@@ -33,6 +34,14 @@ export default {
     image: { type: String, default: '' },
     color: { type: String, default: '#469af0' },
     theme: { type: String, default: 'mist' }
+  },
+  computed: {
+    responsiveImage() {
+      if (this.image.indexOf('/uploads') === 0) {
+        return require(`~/assets${this.image}`)
+      }
+      return { src: this.image, srcSet: '' }
+    }
   }
 }
 </script>

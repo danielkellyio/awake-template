@@ -31,6 +31,7 @@ export const getByNumberMixin = {
       const resources = await this.getByPage(this.gottenPage)
       const filtered = resources.filter(filter)
       let numbered = chunk(filtered, number)[0]
+      numbered = numbered ? flattenResource(numbered) : []
       numbered = flattenResource(numbered)
       if (numbered.length < number) {
         try {

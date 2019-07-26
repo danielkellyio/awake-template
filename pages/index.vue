@@ -35,11 +35,11 @@ export default {
     LatestPosts,
     MainSection
   },
-  fetch({ store, params }) {
-    setPageData(store, { slug: 'home' })
-  },
   computed: {
     ...mapState(['title', 'subtitle', 'featureImage'])
+  },
+  fetch({ store, params }) {
+    setPageData(store, { slug: 'home' })
   }
 }
 </script>

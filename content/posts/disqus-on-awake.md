@@ -1,7 +1,7 @@
 ---
 title: Disqus
 subtitle: Awake Supports Commenting on Posts
-category: category 1
+category: none
 author: Daniel Kelly
 date: 2019-07-24T19:59:59.000Z
 featureImage: /uploads/disqus-hero.jpg

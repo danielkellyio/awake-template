@@ -5,9 +5,11 @@
         <figure :class="`image is-${imageRatioClass}`">
           <opti-image
             v-if="image"
-            :src="image"
+            :src="responsiveImage.src"
+            :srcset="responsiveImage.srcSet"
             :width="imageRatio[0]"
             :height="imageRatio[1]"
+            :sizes="`(min-width: 768px) ${100 / $siteConfig.posts.perRow}vw`"
           />
           <loading-spinner position="absolute" />
         </figure>
@@ -66,6 +68,12 @@ export default {
         .map((size) => {
           return size * 2000
         })
+    },
+    responsiveImage() {
+      if (this.image.indexOf('/uploads') === 0) {
+        return require(`~/assets${this.image}`)
+      }
+      return { src: this.image, srcSet: '' }
     }
   }
 }
