@@ -1,15 +1,17 @@
 <template>
-  <presentational-grid
-    :items="resources"
-    :bottom-loader="!allLoaded && firstPageLoaded"
-    :theme="theme"
-    :per-row="perRow"
-    @atEnd="loadMore()"
-  >
-    <template v-slot:default="{ item }">
-      <slot :item="item"></slot>
-    </template>
-  </presentational-grid>
+  <div>
+    <presentational-grid
+      :items="resources"
+      :bottom-loader="!allLoaded && firstPageLoaded"
+      :theme="theme"
+      :per-row="perRow"
+      @atEnd="loadMore()"
+    >
+      <template v-slot:default="{ item }">
+        <slot :item="item"></slot>
+      </template>
+    </presentational-grid>
+  </div>
 </template>
 
 <script>

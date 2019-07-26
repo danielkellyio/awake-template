@@ -1,5 +1,6 @@
 <template>
   <div :class="`grid grid-theme-${theme || 'blocks'}`">
+    <intersection-observer v-if="items.length === 0" @view="$emit('atEnd')" />
     <div class="columns items is-multiline">
       <div
         v-for="(item, index) in itemsComputed"

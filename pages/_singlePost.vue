@@ -20,32 +20,13 @@
       <template v-slot:default>
         <div class="post-wrapper">
           <markdown :markdown="$store.state.content" />
-          <vue-disqus
-            v-if="$siteConfig.disqus.on && $siteConfig.disqus.siteShortName"
-            :shortname="$siteConfig.disqus.siteShortName"
-            :identifier="$route.params.singlePost"
-          />
-          <div
-            v-if="$siteConfig.disqus.on && !$siteConfig.disqus.siteShortName"
-            class="notification is-danger"
-          >
-            Disqus site short name is required!
-          </div>
-          <div
-            :class="
-              `other-posts ${
-                $siteConfig.posts.withSidebar ||
-                $siteConfig.posts.theme !== 'columns'
-                  ? ''
-                  : 'box'
-              }`
-            "
-          >
+          <div class="other-posts">
             <h6 class="subtitle is-size-4">
               Related Posts
             </h6>
             <related-posts :number="3" :category="category" :exclude="slug" />
           </div>
+          <disqus-comments :identifier="$route.params.singlePost" />
         </div>
       </template>
       <template v-slot:sidebar>
@@ -64,8 +45,16 @@ import Markdown from '~/components/Markdown'
 import RelatedPosts from '~/components/grids/PostsGrid'
 import PostSidebar from '~/components/PostSidebar'
 import MainSection from '~/components/MainSection'
+import DisqusComments from '~/components/DisqusComments'
 export default {
-  components: { SiteHero, Markdown, RelatedPosts, PostSidebar, MainSection },
+  components: {
+    SiteHero,
+    Markdown,
+    RelatedPosts,
+    PostSidebar,
+    MainSection,
+    DisqusComments
+  },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,

@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .page-enter-active,
 .page-leave-active {
   transition-property: opacity;
@@ -27,4 +28,4 @@
   opacity:0;
   filter: blur(10px);
 }
-
+/* purgecss end ignore */

@@ -6,11 +6,16 @@
 export default {
   name: 'IntersectionObserver',
   mounted() {
-    const observer = new IntersectionObserver(() => {
-      this.$emit('view')
-      setTimeout(() => {
-        if (this.stillInViewport()) this.$emit('view')
-      }, 3000)
+    const observer = new IntersectionObserver((e) => {
+      if (e[0].isIntersecting) {
+        this.$emit('view')
+        let times = 0
+        const interval = setInterval(() => {
+          if (this.stillInViewport()) this.$emit('view')
+          if (times === 6) clearInterval(interval)
+          times++
+        }, 3000)
+      }
     })
     observer.observe(this.$el)
   },
