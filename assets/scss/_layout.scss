@@ -12,9 +12,23 @@
     padding:0;
   }
 }
+code{
+  color:#e7155a;
+  background: #f8f8f8;
+  border:1px solid #eee;
+  padding:1px;
+  border-radius:5px;
+  font-size:.9em;
+}
 pre{
   background: #eee;
   padding: 20px;
   overflow-x: auto;
+  code{
+    background:transparent;
+    color:initial;
+    border:none;
+    padding:0;
+  }
 }
 /* purgecss end ignore */
