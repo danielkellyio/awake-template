@@ -1,7 +1,7 @@
 ---
-title: Disqus
-subtitle: Awake Supports Commenting on Posts
-category: none
+title: Comments Support
+subtitle: Add Comments to Posts With Disqus
+category: third-party-integrations
 author: Daniel Kelly
 date: 2019-07-24T19:59:59.000Z
 featureImage: /uploads/disqus-hero.jpg
@@ -55,6 +55,7 @@ export default {
 // Disqus
   disqus: {
     on: false,
+    loadingStrategy: 'button', // Options: onload, lazy, button
     siteShortName: 'testing-bjsj2bjl0i'
   },
 }
@@ -62,4 +63,4 @@ export default {
 
 ## Step 8
 
-That's it! You've got comments up and running on your site. Go checkout a post and see you new fancy comments section.
+That's it! You've got comments up and running on your site. Go checkout a post and see your new fancy comments section.
