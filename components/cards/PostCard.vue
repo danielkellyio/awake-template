@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import moment from 'moment'
 import GenericCard from './GenericCard'
+import { getFormattedDate } from '~/helper'
 export default {
   components: { GenericCard },
   props: {
@@ -50,9 +50,7 @@ export default {
   },
   computed: {
     datePretty() {
-      return moment(this.date.split(' -').shift()).format(
-        this.$siteConfig.posts.date.format
-      )
+      return getFormattedDate(this.date)
     }
   }
 }

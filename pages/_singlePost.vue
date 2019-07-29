@@ -37,8 +37,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import moment from 'moment'
-import { setPageData } from '../helper'
+import { setPageData, getFormattedDate } from '../helper'
 import SiteHero from '~/components/SiteHero'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
@@ -66,9 +65,7 @@ export default {
       'slug'
     ]),
     date() {
-      return moment(this.$store.state.date.split(' -').shift()).format(
-        this.$siteConfig.posts.date.format
-      )
+      return getFormattedDate(this.$store.state.date)
     },
     url() {
       return `${process.env.URL}/${this.$route.fullPath}`

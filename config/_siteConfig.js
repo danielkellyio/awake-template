@@ -82,8 +82,7 @@ export default {
     imageDimensions: null, // See card.imageDimensions (can be unique for posts if set here)
     displayAuthor: true,
     date: {
-      display: true,
-      format: 'MMMM Do, YYYY' // See https://momentjs.com/ for available formats
+      display: true
     },
     perRow: 3,
     perPage: 6

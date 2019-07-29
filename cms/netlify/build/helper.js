@@ -1,6 +1,6 @@
 import fs from 'fs'
 import rimraf from 'rimraf'
-import _ from 'lodash'
+import { chunk } from 'lodash'
 import matter from 'gray-matter'
 import { flattenResource } from '../helper'
 
@@ -21,7 +21,7 @@ export function createPagination(numPages, items, dir) {
     rimraf.sync(paginationDir) // Delete all previous pagination endpoints
   }
   fs.mkdirSync(paginationDir)
-  const paginated = _.chunk(items, numPages)
+  const paginated = chunk(items, numPages)
   let currentPage = 0
   for (let i = 0; i < paginated.length; i++) {
     currentPage = i + 1

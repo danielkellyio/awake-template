@@ -20,15 +20,19 @@ code{
   border-radius:5px;
   font-size:.9em;
 }
-pre{
+pre {
   background: #eee;
   padding: 20px;
   overflow-x: auto;
-  code{
-    background:transparent;
-    color:initial;
-    border:none;
-    padding:0;
+  
+  code {
+    background: transparent;
+    color: initial;
+    border: none;
+    padding: 0;
   }
+}
+.home-page .under-subtitle {
+  border-top: none !important;
 }
 /* purgecss end ignore */
