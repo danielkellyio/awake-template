@@ -1,6 +1,10 @@
 <template>
   <div id="categories-page" class="page-wrapper categories-page">
-    <site-hero title="Categories" image="https://picsum.photos/1800/1801" />
+    <site-hero
+      title="Categories"
+      image="https://picsum.photos/1800/1801"
+      :theme="$siteConfig.hero.theme"
+    />
     <main-section theme="one-column">
       <all-categories />
     </main-section>
