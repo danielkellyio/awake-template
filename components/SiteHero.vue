@@ -1,5 +1,5 @@
 <template>
-  <section :class="`hero is-medium hero-theme-${theme}`">
+  <section :class="`hero is-medium hero-theme-${computedTheme}`">
     <opti-image
       class="hero-bg-img"
       :src="responsiveImage.src"
@@ -33,7 +33,7 @@ export default {
     subtitle: { type: String, default: '' },
     image: { type: String, default: '' },
     color: { type: String, default: '#469af0' },
-    theme: { type: String, default: 'mist' }
+    theme: { type: String, default: '' }
   },
   computed: {
     responsiveImage() {
@@ -41,6 +41,12 @@ export default {
         return require(`~/assets${this.image}`)
       }
       return { src: this.image, srcSet: '' }
+    },
+    computedTheme() {
+      if (this.theme === '' && this.$siteConfig.hero.theme) {
+        return this.$siteConfig.hero.theme
+      }
+      return this.theme || 'mist'
     }
   }
 }

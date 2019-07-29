@@ -4,7 +4,6 @@
       :title="$store.state.name"
       :subtitle="$store.state.content"
       :image="$store.state.image"
-      :theme="$siteConfig.hero.theme"
     />
     <main-section theme="one-column">
       <posts-grid :category="$store.state.slug" />
