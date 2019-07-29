@@ -1,6 +1,7 @@
 import purgecss from '@fullhuman/postcss-purgecss'
 import css from './css'
 export default {
+  analyze: true,
   postcss: {
     preset: {
       features: {

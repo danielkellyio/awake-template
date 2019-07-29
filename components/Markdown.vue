@@ -4,7 +4,6 @@
 
 <script>
 import MarkdownIt from 'markdown-it'
-import hljs from 'highlight.js'
 import VRuntimeTemplate from 'v-runtime-template'
 
 export default {
@@ -18,16 +17,7 @@ export default {
     content() {
       const md = new MarkdownIt({
         linkify: true,
-        typographer: true,
-        highlight: (str, lang) => {
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return hljs.highlight(lang, str).value
-            } catch (__) {}
-          }
-
-          return '' // use external default escaping
-        }
+        typographer: true
       })
         .use(require('markdown-it-deflist'))
         .use(require('markdown-it-sub'))

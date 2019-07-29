@@ -19,7 +19,7 @@ export const modulesSettings = {
     imports: [
       {
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
+        icons: ['faTimes', 'faSearch', 'faEnvelope']
       }
     ]
   },
