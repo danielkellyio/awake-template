@@ -1,6 +1,10 @@
 <template>
   <div>
+    <div v-if="firstPageLoaded && !resources.length">
+      No {{ resourceController.plural.toLowerCase() }} available
+    </div>
     <presentational-grid
+      v-else
       :items="resources"
       :bottom-loader="!allLoaded && firstPageLoaded"
       :theme="theme"
@@ -81,7 +85,6 @@ export default {
             this.resourceFilters
           )
         } catch (err) {
-          console.log(err)
           this.allLoaded = true
           return
         }
@@ -96,11 +99,16 @@ export default {
       this.loading = false
     },
     async getPostsByNumber() {
-      const resources = await this.resourceController.getByNumber(
-        this.number,
-        this.resourceFilters
-      )
-      return resources
+      try {
+        const resources = await this.resourceController.getByNumber(
+          this.number,
+          this.resourceFilters
+        )
+        return resources
+      } catch (err) {
+        console.log('hwat', err)
+        return []
+      }
     },
     resourceFilters(resource) {
       if (this.exclude && this.category) {
