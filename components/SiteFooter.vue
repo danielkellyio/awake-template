@@ -1,7 +1,7 @@
 <template>
   <footer class="site-footer">
-    {{ $siteConfig.siteName }} &copy; {{ new Date().getFullYear() }} - All
-    Rights Reserved
+    {{ $siteConfig.siteName }} &copy; {{ new Date().getFullYear() }} -
+    <a href="https://opensource.org/licenses/MIT">License</a>
   </footer>
 </template>
 
