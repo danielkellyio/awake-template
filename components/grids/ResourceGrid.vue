@@ -31,7 +31,12 @@ export default {
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },
     order: { type: String, default: 'DESC' },
-    category: { type: String, default: '' },
+    category: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
     exclude: { type: String, default: '' }
   },
   data() {
@@ -111,13 +116,25 @@ export default {
       }
     },
     resourceFilters(resource) {
-      if (this.exclude && this.category) {
+      if (this.exclude && this.category.length) {
+        if (Array.isArray(this.category)) {
+          return (
+            resource.category.some((cat) => {
+              return this.category.includes(cat)
+            }) && resource.slug !== this.exclude
+          )
+        }
         return (
           resource.category.includes(this.category) &&
           resource.slug !== this.exclude
         )
       }
-      if (this.category) {
+      if (this.category.length) {
+        if (Array.isArray(this.category)) {
+          return resource.category.some((cat) => {
+            return this.category.includes(cat)
+          })
+        }
         return resource.category.includes(this.category)
       }
       if (this.exclude) {

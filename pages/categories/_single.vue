@@ -6,7 +6,7 @@
       :image="$store.state.image"
     />
     <main-section theme="one-column">
-      <posts-grid :category="$store.state.slug" />
+      <posts-grid :category="$store.state.name" />
     </main-section>
   </div>
 </template>
