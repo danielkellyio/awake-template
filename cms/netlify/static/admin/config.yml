@@ -20,7 +20,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "categories"
     label: "Categories"
-    folder: "content/posts"
+    folder: "content/categories"
     create: true
     slug: "{{slug}}"
     fields:
