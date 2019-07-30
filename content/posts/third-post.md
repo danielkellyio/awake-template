@@ -4,7 +4,8 @@ subtitle: Yay!! One Cool Post on the Bloxt Theme
 author: Your Name Here
 date: '2019-07-03 11:59:59 -0800'
 featureImage: https://picsum.photos/1800/903
-category: category-2
+category:
+  - category-2
 ---
 
 # h1 Heading

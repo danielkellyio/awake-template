@@ -1,7 +1,9 @@
 ---
 title: Light CSS Footprint
 subtitle: Purge CSS Bundles Only the Required CSS
-category: category-3
+category:
+  - category-1
+  - category-3
 author: Daniel Kelly
 date: 2019-07-29T17:30:16.858Z
 featureImage: /uploads/purge-css-hero.jpg

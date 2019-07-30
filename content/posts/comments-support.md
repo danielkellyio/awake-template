@@ -1,7 +1,9 @@
 ---
 title: Comments Support
 subtitle: Add Comments to Posts With Disqus
-category: third-party-integrations
+category: 
+  - category-1
+  - category-3
 author: Daniel Kelly
 date: 2019-07-24T19:59:59.000Z
 featureImage: /uploads/disqus-hero.jpg
