@@ -12,9 +12,11 @@ export const modules = [
   '@nuxtjs/eslint-module',
   '@nuxtjs/style-resources',
   'nuxt-fontawesome',
-  'nuxt-responsive-loader',
-  '@nuxtjs/google-analytics'
+  'nuxt-responsive-loader'
 ]
+if (siteConfig.googleAnalytics.on && siteConfig.googleAnalytics.id) {
+  modules.push('@nuxtjs/google-analytics')
+}
 
 export const modulesSettings = {
   fontawesome: {
@@ -47,6 +49,6 @@ export const modulesSettings = {
     adapter: require('responsive-loader/sharp')
   },
   googleAnalytics: {
-    id: siteConfig.googleAnalytics.on ? siteConfig.googleAnalytics.id : null
+    id: siteConfig.googleAnalytics.id
   }
 }
