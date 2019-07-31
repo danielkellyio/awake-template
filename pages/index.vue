@@ -1,7 +1,10 @@
 <template>
   <div id="home-page" class="page-wrapper home-page">
     <site-hero :title="title" :subtitle="subtitle" :image="featureImage">
-      <button class="button is-primary">
+      <button
+        class="button is-primary"
+        @click="$eventBus.$emit('modal-triggered', 'newsletter-modal')"
+      >
         Subscribe To Newsletter
       </button>
     </site-hero>
@@ -13,6 +16,7 @@
         Nothing here
       </template>
     </main-section>
+    <news-letter-form-modal />
   </div>
 </template>
 
@@ -22,12 +26,14 @@ import { setPageData } from '../helper'
 import SiteHero from '~/components/SiteHero'
 import LatestPosts from '~/components/grids/PostsGrid'
 import MainSection from '~/components/MainSection'
+import NewsLetterFormModal from '~/components/NewsLetterFormModal'
 
 export default {
   name: 'HomePage',
   components: {
     SiteHero,
     LatestPosts,
+    NewsLetterFormModal,
     MainSection
   },
   computed: {

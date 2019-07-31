@@ -20,4 +20,40 @@
     transform:scaleX(1)
   }
 }
+@keyframes fadeInDown {
+  0%{
+    opacity:0;
+    transform: translateY(-50px);
+  }
+  100%{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOutUp {
+  0%{
+    opacity:1;
+    transform: translateY(0);
+  }
+  100%{
+    opacity:0;
+    transform: translateY(-50px);
+  }
+}
+@keyframes fadeIn {
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+@keyframes fadeOut {
+  0%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+  }
+}
 /* purgecss end ignore */

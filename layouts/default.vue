@@ -6,7 +6,7 @@
   >
     <site-nav />
     <nuxt />
-    <news-letter-form v-if="$siteConfig.newsletter.on" />
+    <news-letter-slideout v-if="$siteConfig.newsletter.on" />
     <site-footer></site-footer>
   </div>
 </template>
@@ -15,9 +15,9 @@
 import 'animate.css/animate.min.css'
 import SiteNav from '~/components/SiteNav'
 import SiteFooter from '~/components/SiteFooter'
-import NewsLetterForm from '~/components/NewsLetterForm'
+import NewsLetterSlideout from '~/components/NewsLetterSlideout'
 export default {
-  components: { SiteNav, SiteFooter, NewsLetterForm },
+  components: { SiteNav, SiteFooter, NewsLetterSlideout },
   transition: 'slide-fade',
   head() {
     return {
