@@ -1,6 +1,6 @@
 <template>
   <section :class="`hero is-medium hero-theme-${computedTheme}`">
-    <img
+    <opti-image
       class="hero-bg-img"
       :src="responsiveImage.src"
       :lazy="false"
