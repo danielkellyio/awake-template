@@ -6,7 +6,13 @@
   >
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
-        <img :src="$siteConfig.logo" :alt="$siteConfig.siteName" class="logo" />
+        <site-logo v-if="$siteConfig.logo === 'logo-component'" />
+        <img
+          v-else
+          :src="$siteConfig.logo"
+          :alt="$siteConfig.siteName"
+          class="logo"
+        />
       </nuxt-link>
       <hamburger-button @click="active = !active" />
     </div>
@@ -38,8 +44,9 @@
 <script>
 import SiteSearch from '~/components/SiteSearch'
 import HamburgerButton from '~/components/HamburgerButton'
+import SiteLogo from '~/components/SiteLogo'
 export default {
-  components: { SiteSearch, HamburgerButton },
+  components: { SiteSearch, HamburgerButton, SiteLogo },
   data() {
     return {
       active: false
@@ -48,6 +55,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.navbar-item img {
+  max-height: 2rem;
+}
 .site-search-wrapper {
   transform: translateX(5px);
   @media (max-width: 1023px) {

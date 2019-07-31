@@ -12,7 +12,7 @@ export default {
   siteName: 'Awake',
   tagline: 'A Nuxt.js Theme for Netlify CMS',
   featureImage: '/uploads/home-hero.jpg',
-  logo: '/logo.png',
+  logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
   mainMenu: [
     {
       name: 'About',
@@ -75,6 +75,7 @@ export default {
     imageDimensions: null, // See card.imageDimensions (can be unique for categories if set here)
     theme: null // See card.theme (can be unique for categories if set here)
   },
+
   // Posts
   posts: {
     on: true,
