@@ -11,6 +11,11 @@
 <script>
 import MainSection from '~/components/MainSection'
 export default {
+  head() {
+    return {
+      title: `Contact | ${this.$siteConfig.siteName}`
+    }
+  },
   components: { MainSection }
 }
 </script>

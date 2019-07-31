@@ -30,6 +30,11 @@ import NewsLetterFormModal from '~/components/NewsLetterFormModal'
 
 export default {
   name: 'HomePage',
+  head() {
+    return {
+      title: `Home | ${this.$siteConfig.siteName}`
+    }
+  },
   components: {
     SiteHero,
     LatestPosts,
