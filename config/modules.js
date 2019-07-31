@@ -1,4 +1,5 @@
 import URL from 'url-parse'
+import siteConfig from './_siteConfig'
 let url = false
 if (process.env.URL && process.argv[2] === 'generate') {
   url = new URL(process.env.URL)
@@ -11,7 +12,8 @@ export const modules = [
   '@nuxtjs/eslint-module',
   '@nuxtjs/style-resources',
   'nuxt-fontawesome',
-  'nuxt-responsive-loader'
+  'nuxt-responsive-loader',
+  '@nuxtjs/google-analytics'
 ]
 
 export const modulesSettings = {
@@ -43,5 +45,8 @@ export const modulesSettings = {
     placeholder: false, // no placeholder will be generated
     quality: 65, // images are compressed with medium quality
     adapter: require('responsive-loader/sharp')
+  },
+  googleAnalytics: {
+    id: siteConfig.googleAnalytics.on ? siteConfig.googleAnalytics.id : null
   }
 }
