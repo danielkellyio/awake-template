@@ -115,11 +115,11 @@ Right aligned columns
 
 ## Links
 
-[link text](http://dev.nodeca.com)
+[link text](https://danielkelly.io)
 
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+[link with title](https://danielkelly.io "title text!")
 
-Autoconverted link https://github.com/nodeca/pica
+Autoconverted link https://danielkelly.io
 
 ## Images
 
