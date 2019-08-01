@@ -11,8 +11,30 @@ You're publishing great content! Make sure people can get it easily right in the
 
 ## 1. Signup with Mailchimp
 
-If you don't already have a mailchimp account, head on over to [mailchimp.com](https://mailchimp.com) and sign up (don't worry they have free tiers that will give you an ample starting place)
+If you don't already have a mailchimp account, head on over to [mailchimp.com](https://mailchimp.com) and sign up (don't worry they have free tiers that will give you all you probably need).
 
-2. Create a New Campaign
+## 2. Create a New Campaign
 
-In the main navigation of the mailchimp dashboard you'll see
+Go to "Campaigns" in the main navigation of the Mailchimp dashboard and then click the "Create Campaign" button on the top right.
+
+## 3. Start Signup Form
+
+From the modal overlay that appears choose "Signup Form", then click "Begin" under "Embedded Form"
+
+![Mailchimp create signup form](/uploads/screen-shot-2019-08-01-at-1.03.08-pm.png)
+
+## 4. Get Form Action
+
+Under "Copy/paste onto your site" you'll see the markup  for the newsletter form. Just copy the form action value from the form
+
+![copy form action from mailchimp](/uploads/screen-shot-2019-08-01-at-1.05.09-pm.png)
+
+## 5. Add the Action to the Awake Site Configuration
+
+```
+// Can be the form action on a mail chimp form, a hubspot form,
+// or any other url you want to post the form data tomailchimp: {
+    on: true,
+    formAction:'enter url here'
+}
+```
