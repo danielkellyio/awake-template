@@ -33,6 +33,7 @@ export default {
           html = html.replace(image, optiImage)
         })
       }
+      html = html.replace(/<table>/g, '<table class="table is-striped">')
 
       return `<div class="content">${html}</div>`
     }

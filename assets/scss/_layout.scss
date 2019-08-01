@@ -35,4 +35,13 @@ pre {
 .home-page .under-subtitle {
   border-top: none !important;
 }
+
+blockquote{
+  border:1px solid #eee;
+  border-left: 4px solid $primary;
+  padding:10px;
+}
+dt {
+  font-weight: bold;
+}
 /* purgecss end ignore */

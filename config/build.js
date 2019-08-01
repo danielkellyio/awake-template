@@ -35,9 +35,16 @@ export default {
           'is-9by16',
           'nuxt__build_indicator',
           '__nuxt',
-          'svg'
+          'svg',
+          'table',
+          'td',
+          'th',
+          'tr',
+          'tbody',
+          'thead',
+          'tfoot'
         ],
-        whitelistPatterns: [/theme/g, /spinner-position/, /fa/]
+        whitelistPatterns: [/theme/g, /spinner-position/, /fa/, /table/g]
       })
     ]
   },
