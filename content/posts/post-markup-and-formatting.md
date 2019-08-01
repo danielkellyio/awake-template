@@ -7,6 +7,8 @@ author: Daniel Kelly
 date: 2019-07-04T03:02:00.000Z
 featureImage: /uploads/markup-hero.jpg
 ---
+Awake uses the awesome npm package [markdown-it ](https://github.com/markdown-it/markdown-it)by [Vitaly Puzrin](https://github.com/puzrin) to provide a wealth of markup options for your posts
+
 # h1 Heading
 
 ## h2 Heading
@@ -124,8 +126,6 @@ Autoconverted link https://danielkelly.io
 ## Images
 
 ![danielkelly.io](/uploads/logo.png)
-
-
 
 ## Subscript/SuperScript
 
