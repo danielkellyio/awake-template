@@ -7,7 +7,7 @@ class Post {
     this.pretty = 'Post'
     this.plural = 'Posts'
     this.axios = axios
-    this.editUrl = '/admin/#/collection/posts/entries'
+    this.editUrl = '/admin/#/collections/posts/entries'
   }
   getEditUrl(slug) {
     return `${this.editUrl}/${slug}`
