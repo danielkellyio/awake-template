@@ -24,18 +24,35 @@ export default {
         .use(require('markdown-it-sup'))
         .use(require('markdown-it-footnote'))
       let html = md.render(this.markdown)
-      const images = html.match(/<img(.*?)>/g)
-      if (images) {
-        images.forEach((image) => {
-          const optiImage = image
-            .replace('<img', '<opti-image')
-            .replace('>', '/>')
-          html = html.replace(image, optiImage)
-        })
-      }
+
+      html = this.useResponsiveImages(html)
       html = html.replace(/<table>/g, '<table class="table is-striped">')
 
       return `<div class="content">${html}</div>`
+    }
+  },
+  methods: {
+    useResponsiveImages(html) {
+      const images = html.match(/<img(.*?)>/g)
+      if (images) {
+        images.forEach((image) => {
+          // const generatedImage = require('~/assets')
+          const origImage = image
+            .match(/src="([^"]*)"/g)[0]
+            .replace('src="', '')
+            .replace('"', '')
+          const generatedImage = require(`~/assets${origImage}`)
+          const optiImage = image
+            .replace('<img', '<opti-image')
+            .replace('>', '/>')
+            .replace(
+              /src="([^"]*)"/g,
+              `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
+            )
+          html = html.replace(image, optiImage)
+        })
+      }
+      return html
     }
   }
 }
