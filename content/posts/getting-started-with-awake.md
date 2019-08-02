@@ -25,7 +25,14 @@ Deploy to Netlify Button Here
 
 # Configuration
 
-Site configuration is found in `/config/_siteConfig.js`. Here you can customize site settings such as the site name, layout, disqus and mailchimp setup, image sizes and more. 
+Site configuration is found in `/config/_siteConfig.js`. Here you can customize site settings such as the site name, layout, disqus and mailchimp setup, image sizes and more. Any of these can be setup to use environment variables if you so desire, in order to be able to configure them directly from the Netlify interface. See the setup for google analytics which already uses an environment variable as an example of this.
+
+```
+googleAnalytics: {
+    on: true,
+    id: process.env.GOOGLE_ANALYTICS_ID
+},
+```
 
 # Editing Content
 
