@@ -2,12 +2,12 @@
   <main class="section page-main-section">
     <div class="container">
       <div class="columns">
-        <div
+        <aside
           v-if="computedTheme === 'sidebar-left'"
-          class="column is-one-quarter"
+          class="column left-sidebar is-one-quarter"
         >
           <slot name="sidebar"></slot>
-        </div>
+        </aside>
         <div
           :class="{
             column: true,
@@ -20,12 +20,12 @@
         >
           <slot></slot>
         </div>
-        <div
+        <aside
           v-if="computedTheme === 'sidebar-right'"
-          class="column is-one-quarter"
+          class="column right-sidebar is-one-quarter"
         >
           <slot name="sidebar"></slot>
-        </div>
+        </aside>
       </div>
     </div>
   </main>
@@ -56,5 +56,14 @@ export default {
 }
 .hero + .page-main-section {
   margin-top: initial;
+}
+.is-one-quarter {
+  padding: 0 20px;
+  &.right-sidebar {
+    border-left: 1px solid #eee;
+  }
+  &.left-sidebar {
+    border-right: 1px solid #eee;
+  }
 }
 </style>
