@@ -17,7 +17,7 @@
           <markdown :markdown="$store.state.content" />
           <no-ssr>
             <div v-if="$cms.user.isLoggedIn()" class="edit-post">
-              <a :href="`${$cms.post.getEditUrl(slug)}`" class="button">
+              <a :href="`${$cms.post.getEditUrl(slug)}`" class="button" target="_blank">
                 Edit Post
               </a>
             </div>
