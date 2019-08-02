@@ -4,7 +4,7 @@ subtitle: Get Up and Running with Awake
 category:
   - About Awake
 author: Daniel Kelly
-date: 2019-07-23T19:59:59.000Z
+date: 2019-08-03T19:59:59.000Z
 featureImage: /uploads/getting-started-hero.jpg
 ---
 Awake is a Nuxt.js template for generating a beautifully robust static site with blog in as few steps as possible. 
