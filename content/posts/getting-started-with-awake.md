@@ -34,4 +34,4 @@ Posts and categories can be edited in Netlify CMS at \[your-site-url]/admin. At 
 
 # Local Development
 
-Since all content is store in the git repo with Netlify CMS, local development is a breeze. Simply install node, pull down the repo, and run `npm run dev`.
+Since all content is store in the git repo with Netlify CMS, local development is a breeze. Simply install node, pull down the repo, install the dependencies with `npm install`, and run `npm run dev`.
