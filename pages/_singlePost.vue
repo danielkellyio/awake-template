@@ -15,17 +15,15 @@
       <template v-slot:default>
         <div class="post-wrapper">
           <markdown :markdown="$store.state.content" />
-          <no-ssr>
-            <div v-if="$cms.user.isLoggedIn()" class="edit-post">
-              <a
-                :href="`${$cms.post.getEditUrl(slug)}`"
-                class="button"
-                target="_blank"
-              >
-                Edit Post
-              </a>
-            </div>
-          </no-ssr>
+          <div v-if="$cms.user.isLoggedIn()" class="edit-post">
+            <a
+              :href="`${$cms.post.getEditUrl(slug)}`"
+              class="button"
+              target="_blank"
+            >
+              Edit Post
+            </a>
+          </div>
           <div class="other-posts">
             <h6 class="subtitle is-size-4">
               Related Posts
