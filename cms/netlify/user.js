@@ -1,6 +1,9 @@
 class User {
   isLoggedIn() {
-    return !!window.netlifyIdentity.currentUser()
+    if (window) {
+      return !!window.netlifyIdentity.currentUser()
+    }
+    return false
   }
 }
 export default User
