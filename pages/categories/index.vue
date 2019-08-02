@@ -11,6 +11,11 @@ import SiteHero from '~/components/SiteHero'
 import MainSection from '~/components/MainSection'
 import AllCategories from '~/components/grids/CategoriesGrid'
 export default {
+  head() {
+    return {
+      title: `Categories | ${this.$siteConfig.siteName}`
+    }
+  },
   components: { SiteHero, AllCategories, MainSection }
 }
 </script>
