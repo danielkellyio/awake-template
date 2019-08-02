@@ -2,8 +2,7 @@
 title: Getting Started
 subtitle: Get Up and Running with Awake
 category:
-  - Category 1
-  - Category 3
+  - About Awake
 author: Daniel Kelly
 date: 2019-07-23T19:59:59.000Z
 featureImage: /uploads/getting-started-hero.jpg
