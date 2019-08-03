@@ -7,7 +7,7 @@ author: Daniel Kelly
 date: 2019-08-03T19:59:59.000Z
 featureImage: /uploads/getting-started-hero.jpg
 ---
-Awake is a Nuxt.js template for generating a beautifully robust static site with blog in as few steps as possible. 
+Awake is a Nuxt.js template for generating a beautifully robust static site with blog. 
 
 # Features
 
@@ -21,7 +21,7 @@ Awake is a Nuxt.js template for generating a beautifully robust static site with
 * Isolated Netlify CMS driver (with more CMS drivers planned for future) for easily migrating between various headless cms'
 * Images automatically resized for various screens and given srcsets
 
-Deploy to Netlify Button Here
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danielkellyio/awake-template)
 
 # Configuration
 
