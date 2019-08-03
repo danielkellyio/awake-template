@@ -41,14 +41,16 @@ export default {
             .match(/src="([^"]*)"/g)[0]
             .replace('src="', '')
             .replace('"', '')
-          const generatedImage = require(`~/assets${origImage}`)
+          let replace = `src="${origImage}" "`
+          if (origImage.startsWith('/')) {
+            const generatedImage = require(`~/assets${origImage}`)
+            replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
+          }
+
           const optiImage = image
             .replace('<img', '<opti-image')
             .replace('>', '/>')
-            .replace(
-              /src="([^"]*)"/g,
-              `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
-            )
+            .replace(/src="([^"]*)"/g, replace)
           html = html.replace(image, optiImage)
         })
       }
