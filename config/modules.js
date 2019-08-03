@@ -1,8 +1,12 @@
 import URL from 'url-parse'
 import siteConfig from './_siteConfig'
 let url = false
+let axiosSettings = {}
 if (process.env.URL && process.argv[2] === 'generate') {
   url = new URL(process.env.URL)
+  axiosSettings = {
+    baseURL: url
+  }
 }
 
 export const modules = [
@@ -33,11 +37,7 @@ export const modulesSettings = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    https: url ? url.protocol === 'https:' : null,
-    host: url ? url.hostname : null,
-    port: url ? url.port : null
-  },
+  axios: axiosSettings,
   responsiveLoader: {
     name: 'uploads/[hash:7]-[width].[ext]',
     min: 640, // minimum image width generated
