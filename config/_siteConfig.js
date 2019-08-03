@@ -4,7 +4,7 @@
  * netlify
  */
 import theCMS from '../cms/netlify/cms'
-console.log(process)
+
 /**
  * General Site configurations
  */
