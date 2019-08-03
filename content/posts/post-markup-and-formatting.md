@@ -125,7 +125,7 @@ Autoconverted link https://danielkelly.io
 
 ## Images
 
-![danielkelly.io](/uploads/logo.png)
+![cat](/uploads/cat-1045782_1920.jpg)
 
 ## Subscript/SuperScript
 
