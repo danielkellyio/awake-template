@@ -41,7 +41,7 @@ export default {
             .match(/src="([^"]*)"/g)[0]
             .replace('src="', '')
             .replace('"', '')
-          let replace = `src="${origImage}" "`
+          let replace = `src="${origImage}"`
           if (origImage.startsWith('/')) {
             const generatedImage = require(`~/assets${origImage}`)
             replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
