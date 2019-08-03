@@ -7,6 +7,7 @@ public_folder: "uploads" # The src attribute for uploaded media will begin with 
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
+    preview_path: {{slug}}
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., title.md
