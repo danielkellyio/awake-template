@@ -9,7 +9,7 @@ const generateCategoryApi = () => {
   const pages = siteConfig.categories.perPage
   const doneMessage = `{totalNumber} categories generated in categories API`
 
-  createAll(contentDir, allFile)
+  createAll(contentDir, allFile, apiDir)
     .then((all) => {
       const totalPages = createPagination(pages, all, `${apiDir}/categories`)
       createMeta({ totalPages: totalPages }, metaFile)

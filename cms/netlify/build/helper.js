@@ -34,12 +34,23 @@ export function createPagination(numPages, items, dir) {
   return paginated.length
 }
 export function createMeta(newMeta, file) {
-  const meta = require(file)
+  let meta = {}
+  if (fs.existsSync(file)) {
+    meta = require(file)
+  }
   const combined = Object.assign(meta, newMeta)
   const chunkWriteStream = fs.createWriteStream(file, 'UTF-8')
   chunkWriteStream.write(JSON.stringify(combined))
 }
-export function createAll(fromDir, toFile) {
+export function createAll(fromDir, toFile, apiDir) {
+  // Create api dir if doesn't exist
+  if (!fs.existsSync(apiDir)) {
+    fs.mkdirSync(apiDir)
+  }
+  // Create file if doesn't exist
+  if (!fs.existsSync(toFile)) {
+    fs.writeFileSync(toFile, '{}')
+  }
   return new Promise((resolve, reject) => {
     fs.readdir(fromDir, (err, files) => {
       if (err) reject(err)

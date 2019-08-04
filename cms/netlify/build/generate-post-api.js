@@ -9,7 +9,7 @@ const generatePostApi = () => {
   const pages = siteConfig.posts.perPage
   const doneMessage = `{totalNumber} posts generated in posts API`
 
-  createAll(contentDir, allFile)
+  createAll(contentDir, allFile, apiDir)
     .then((all) => {
       const totalPages = createPagination(pages, all, `${apiDir}/posts`)
       createMeta({ totalPages: totalPages }, metaFile)
