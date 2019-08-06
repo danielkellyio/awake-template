@@ -26,6 +26,7 @@ export default {
       let html = md.render(this.markdown)
 
       html = this.useResponsiveImages(html)
+      html = this.wrapTable(html)
       html = html.replace(/<table>/g, '<table class="table is-striped">')
 
       return `<div class="content">${html}</div>`
@@ -54,6 +55,11 @@ export default {
           html = html.replace(image, optiImage)
         })
       }
+      return html
+    },
+    wrapTable(html) {
+      html = html.replace(/<table/g, `<div class="table-wrapper"><table`)
+      html = html.replace(/<\/table>/g, `</table></div>"`)
       return html
     }
   }
