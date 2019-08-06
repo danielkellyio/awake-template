@@ -3,6 +3,7 @@
     id="newsletter-modal"
     :title="title"
     trigger-text="Subscribe To Newsletter"
+    class="newsletter-modal"
   >
     <news-letter-form />
   </modal-overlay>
@@ -21,3 +22,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.newsletter-modal {
+  .field.has-addons {
+    justify-content: center;
+  }
+}
+</style>

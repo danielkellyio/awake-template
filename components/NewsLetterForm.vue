@@ -6,8 +6,8 @@
       :action="formAction"
       @submit="$emit('submit', email)"
     >
-      <div class="field has-addons">
-        <p class="control has-icons-left has-icons-right">
+      <div class="field has-addons is-fullwidth">
+        <p class="control has-icons-left">
           <input
             v-model="email"
             class="input"

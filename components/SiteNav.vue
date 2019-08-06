@@ -64,4 +64,11 @@ export default {
     display: none;
   }
 }
+.navbar-burger {
+  height: auto;
+}
+
+.navbar-menu a {
+  display: block;
+}
 </style>
