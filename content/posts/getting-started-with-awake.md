@@ -48,4 +48,4 @@ Since all content is store in the git repo with Netlify CMS, local development i
 
 # Having Issues?
 
-If your having any issues feel free to reach out to me on twitter [@danielkelly.io](https://twitter.com/danielkelly_io) or report an issue in [github repo](https://github.com/danielkellyio/awake-template).
+If you're having any issues feel free to reach out to me on twitter [@danielkelly.io](https://twitter.com/danielkelly_io) or report an issue in [github repo](https://github.com/danielkellyio/awake-template).
