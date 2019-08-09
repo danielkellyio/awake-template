@@ -6,7 +6,7 @@
 export default {
   name: 'IntersectionObserver',
   mounted() {
-    const observer = new IntersectionObserver((e) => {
+    const observer = new window.IntersectionObserver((e) => {
       if (e[0].isIntersecting) {
         this.$emit('view')
         let times = 0
