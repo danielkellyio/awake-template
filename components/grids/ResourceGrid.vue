@@ -55,15 +55,20 @@ export default {
     }
   },
   created() {
-    this.$eventBus.$on('route-changed', () => this.reset())
+    this.$eventBus.$on('route-changed', this.reset)
+  },
+  destroyed() {
+    this.$eventBus.$off('route-changed', this.reset)
   },
   methods: {
     reset() {
+      console.log('resetting resource grid')
       this.resourceController.reset()
       this.page = 0
       this.allLoaded = false
       this.firstPageLoaded = false
       this.loading = false
+      this.resources = []
     },
     loadMore() {
       if (this.loading) {
@@ -111,7 +116,6 @@ export default {
         )
         return resources
       } catch (err) {
-        console.log('hwat', err)
         return []
       }
     },
