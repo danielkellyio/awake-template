@@ -26,6 +26,7 @@
     "gray-matter": "^4.0.2",
     "highlight.js": "^9.15.8",
     "html-loader": "^0.5.5",
+    "intersection-observer": "^0.7.0",
     "lodash": "^4.17.14",
     "markdown-it": "^8.4.2",
     "markdown-it-deflist": "^2.0.3",

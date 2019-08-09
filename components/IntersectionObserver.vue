@@ -3,6 +3,8 @@
 </template>
 
 <script>
+require('intersection-observer')
+
 export default {
   name: 'IntersectionObserver',
   mounted() {
