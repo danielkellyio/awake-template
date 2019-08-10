@@ -34,4 +34,3 @@ There are 2 simple wrappers built around the `ResourceGrid` for easily displayin
 
 <--! etc -->
 ```
-(Note grids must be imported into page/component to use)
