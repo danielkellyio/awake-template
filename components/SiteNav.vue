@@ -30,9 +30,14 @@
           class="navbar-item"
           @click="active = false"
         >
-          <nuxt-link :to="item.link">
+          <component
+            :is="item.link.startsWith('http') ? 'a' : 'nuxt-link'"
+            :href="item.link"
+            :to="item.link"
+            :target="item.target ? item.target : '_self'"
+          >
             {{ item.name }}
-          </nuxt-link>
+          </component>
         </li>
         <li class="navbar-item site-search-wrapper">
           <site-search />
