@@ -32,6 +32,7 @@
 </template>
 <script>
 export default {
+  name: 'MainSection',
   props: {
     oneColumnConstrained: { type: Boolean, default: false },
     theme: { type: String, default: '' }

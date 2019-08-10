@@ -23,6 +23,7 @@
 <script>
 import NewsLetterForm from '~/components/NewsLetterForm'
 export default {
+  name: 'NewsLetterSlideOut',
   components: { NewsLetterForm },
   data() {
     return {

@@ -44,9 +44,9 @@
 <script>
 import SiteSearch from '~/components/SiteSearch'
 import HamburgerButton from '~/components/HamburgerButton'
-import SiteLogo from '~/components/SiteLogo'
 export default {
-  components: { SiteSearch, HamburgerButton, SiteLogo },
+  name: 'SiteNav',
+  components: { SiteSearch, HamburgerButton },
   data() {
     return {
       active: false

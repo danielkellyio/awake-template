@@ -23,6 +23,7 @@ import { isString } from 'lodash'
 import PresentationalGrid from './PresentationalGrid'
 
 export default {
+  name: 'ResourceGrid',
   components: { PresentationalGrid },
   props: {
     // eslint-disable-next-line vue/require-prop-types

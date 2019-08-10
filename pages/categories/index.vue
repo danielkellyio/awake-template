@@ -2,20 +2,16 @@
   <div id="categories-page" class="page-wrapper categories-page">
     <site-hero title="Categories" image="https://picsum.photos/1800/1801" />
     <main-section theme="one-column">
-      <all-categories />
+      <categories-grid />
     </main-section>
   </div>
 </template>
 <script>
-import SiteHero from '~/components/SiteHero'
-import MainSection from '~/components/MainSection'
-import AllCategories from '~/components/grids/CategoriesGrid'
 export default {
   head() {
     return {
       title: `Categories | ${this.$siteConfig.siteName}`
     }
-  },
-  components: { SiteHero, AllCategories, MainSection }
+  }
 }
 </script>

@@ -27,6 +27,7 @@
 </template>
 <script>
 export default {
+  name: 'SiteHero',
   props: {
     title: { type: String, default: '' },
     subtitle: { type: String, default: '' },

@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import ResourceGrid from './ResourceGrid'
 import PostCard from '~/components/cards/PostCard'
 export default {
-  components: { ResourceGrid, PostCard },
+  name: 'PostsGrid',
+  components: { PostCard },
   props: {
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },

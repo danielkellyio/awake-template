@@ -10,7 +10,8 @@
     </site-hero>
     <main-section theme="one-column">
       <template v-slot:default>
-        <latest-posts />
+        <!-- All Posts -->
+        <posts-grid />
       </template>
       <template v-slot:sidebar>
         Nothing here
@@ -23,9 +24,6 @@
 <script>
 import { mapState } from 'vuex'
 import { setPageData } from '../helper'
-import SiteHero from '~/components/SiteHero'
-import LatestPosts from '~/components/grids/PostsGrid'
-import MainSection from '~/components/MainSection'
 import NewsLetterFormModal from '~/components/NewsLetterFormModal'
 
 export default {
@@ -36,10 +34,7 @@ export default {
     }
   },
   components: {
-    SiteHero,
-    LatestPosts,
-    NewsLetterFormModal,
-    MainSection
+    NewsLetterFormModal
   },
   computed: {
     ...mapState(['title', 'subtitle', 'featureImage'])

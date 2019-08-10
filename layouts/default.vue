@@ -13,11 +13,7 @@
 
 <script>
 import 'animate.css/animate.min.css'
-import SiteNav from '~/components/SiteNav'
-import SiteFooter from '~/components/SiteFooter'
-import NewsLetterSlideOut from '~/components/NewsLetterSlideOut'
 export default {
-  components: { SiteNav, SiteFooter, NewsLetterSlideOut },
   transition: 'slide-fade',
   head() {
     return {

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'FooterVue'
+  name: 'SiteFooter'
 }
 </script>
 

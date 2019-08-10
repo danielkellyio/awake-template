@@ -52,22 +52,20 @@
         <h3 class="subtitle is-4">
           Latest Posts
         </h3>
-        <latest-posts :per-row="1" :number="2" />
+        <!-- Latest Posts -->
+        <posts-grid :per-row="1" :number="2" />
       </template>
     </main-section>
   </div>
 </template>
 <script>
-import MainSection from '~/components/MainSection'
 import ContactForm from '~/components/ContactForm'
-import SiteHero from '~/components/SiteHero'
-import LatestPosts from '~/components/grids/PostsGrid'
 export default {
   head() {
     return {
       title: `Contact | ${this.$siteConfig.siteName}`
     }
   },
-  components: { MainSection, ContactForm, SiteHero, LatestPosts }
+  components: { ContactForm }
 }
 </script>

@@ -20,10 +20,7 @@
 
 <script>
 import { range } from 'lodash'
-import IntersectionObserver from '~/components/IntersectionObserver'
-import LoadingSpinner from '~/components/LoadingSpinner'
 export default {
-  components: { IntersectionObserver, LoadingSpinner },
   props: {
     items: {
       type: Array,

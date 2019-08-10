@@ -21,6 +21,7 @@
 </template>
 <script>
 export default {
+  name: 'SiteLogo',
   data() {
     return {
       frames: 5,

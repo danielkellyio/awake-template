@@ -16,11 +16,10 @@
 </template>
 
 <script>
-import ResourceGrid from './ResourceGrid'
 import CategoryCard from '~/components/cards/CategoryCard'
 export default {
   name: 'CategoriesGrid',
-  components: { ResourceGrid, CategoryCard },
+  components: { CategoryCard },
   props: {
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },

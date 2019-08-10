@@ -89,15 +89,12 @@
         <h3 class="subtitle is-4">
           Latest Posts
         </h3>
-        <latest-posts :per-row="1" :number="2" />
+        <posts-grid :per-row="1" :number="2" />
       </template>
     </main-section>
   </div>
 </template>
 <script>
-import SiteHero from '~/components/SiteHero'
-import MainSection from '~/components/MainSection'
-import LatestPosts from '~/components/grids/PostsGrid'
 import QuoteCard from '~/components/cards/QuoteCard'
 export default {
   head() {
@@ -105,6 +102,6 @@ export default {
       title: `About | ${this.$siteConfig.siteName}`
     }
   },
-  components: { MainSection, SiteHero, LatestPosts, QuoteCard }
+  components: { QuoteCard }
 }
 </script>

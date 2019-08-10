@@ -19,7 +19,8 @@
             <h6 class="subtitle is-size-4">
               Related Posts
             </h6>
-            <related-posts :number="3" :category="category" :exclude="slug" />
+            <!-- Related Posts -->
+            <posts-grid :number="3" :category="category" :exclude="slug" />
           </div>
           <disqus-comments :identifier="$route.params.singlePost" />
         </div>
@@ -33,21 +34,13 @@
 <script>
 import { mapState } from 'vuex'
 import { setPageData, getFormattedDate } from '../helper'
-import SiteHero from '~/components/SiteHero'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RelatedPosts from '~/components/grids/PostsGrid'
 import PostSidebar from '~/components/PostSidebar'
-import MainSection from '~/components/MainSection'
-import DisqusComments from '~/components/DisqusComments'
 export default {
   components: {
-    SiteHero,
     Markdown,
-    RelatedPosts,
-    PostSidebar,
-    MainSection,
-    DisqusComments
+    PostSidebar
   },
   computed: {
     ...mapState([

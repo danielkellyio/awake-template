@@ -7,6 +7,7 @@
     />
     <main-section theme="sidebar-right">
       <template v-slot:default>
+        <!-- Posts in Category -->
         <posts-grid :category="[$store.state.name]" :per-row="2" />
       </template>
       <template v-slot:sidebar>
@@ -32,11 +33,7 @@
 </template>
 <script>
 import { setPageData } from '../../helper'
-import SiteHero from '~/components/SiteHero'
-import PostsGrid from '~/components/grids/PostsGrid'
-import MainSection from '~/components/MainSection'
 export default {
-  components: { PostsGrid, SiteHero, MainSection },
   data() {
     return {
       allCats: []

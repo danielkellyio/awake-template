@@ -30,9 +30,8 @@
   </div>
 </template>
 <script>
-import IntersectionObserver from '~/components/IntersectionObserver'
 export default {
-  components: { IntersectionObserver },
+  name: 'DisqusComments',
   props: {
     identifier: { type: String, required: true }
   },
