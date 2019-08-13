@@ -41,7 +41,7 @@ export const getByNumberMixin = {
             false
           )
           numbered = numbered.concat(more)
-        } catch {
+        } catch (err) {
           return numbered
         }
       }
