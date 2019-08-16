@@ -10,7 +10,7 @@
     "before-build": "node -r esm ./build-tools/beforeBuild.js",
     "after-build": "node -r esm ./build-tools/afterBuild.js",
     "dev": "npm run before-build && nuxt -o && npm run after-build",
-    "build": "npm run before-build && nuxt build && npm run after-build",
+    "build": "npm run generate",
     "start": "nuxt start",
     "generate": "npm run before-build && nuxt generate && npm run after-build"
   },

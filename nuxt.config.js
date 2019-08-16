@@ -19,7 +19,8 @@ export default {
    */
   head: head,
   generate: {
-    routes: otherRoutes.concat(getDynamicPaths(routeMap))
+    routes: otherRoutes.concat(getDynamicPaths(routeMap)),
+    dir: 'public'
   },
   /*
    ** Global CSS
