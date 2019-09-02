@@ -1,0 +1,6 @@
+---
+name: Bootstrapped Startup
+image: https://source.unsplash.com/1800x1801/?developer
+---
+
+About Ruby on Rails, especially Rails 6.
