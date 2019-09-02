@@ -1,6 +1,6 @@
 ---
 name: Bootstrapped Startup
-image: https://source.unsplash.com/1800x1801/?developer
+image: https://source.unsplash.com/1800x1801/?business
 ---
 
-About Ruby on Rails, especially Rails 6.
+About building a self-funded startup.

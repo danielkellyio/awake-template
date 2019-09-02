@@ -1,6 +1,6 @@
 ---
 name: Lambda Functions
-image: https://source.unsplash.com/1800x1801/?developer
+image: https://source.unsplash.com/1800x1801/?whiteboard
 ---
 
-Building and running Lambda Functions on Netlify, AWS, Google and Azure.
+Building. testing and deploying Lambda Functions on Netlify, AWS, Google and Azure.
