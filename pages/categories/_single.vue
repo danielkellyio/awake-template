@@ -17,7 +17,7 @@
         <div class="panel">
           <nuxt-link
             v-for="cat in allCats"
-            :key="cat"
+            :key="cat.slug"
             :to="`/categories/${cat.slug}`"
             :class="{
               'panel-block': true,
