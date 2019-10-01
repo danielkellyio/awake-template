@@ -26,6 +26,7 @@ collections:
     folder: "content/categories"
     create: true
     slug: "{{slug}}"
+    identifier_field: name
     fields:
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
