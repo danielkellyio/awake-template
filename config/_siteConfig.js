@@ -37,7 +37,7 @@ export default {
     },
     {
       name: 'Awake+ Premium',
-      link: 'http://awake-premium-lp.danielkelly.io/',
+      link: 'https://awake-premium-lp.netlify.com/',
       target: '_blank'
     }
   ],
