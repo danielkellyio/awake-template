@@ -46,6 +46,10 @@ export default {
     author: {
       type: String,
       default: ''
+    },
+    short: {
+      type: String,
+      default: ''
     }
   },
   computed: {
