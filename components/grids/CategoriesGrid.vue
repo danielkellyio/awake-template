@@ -7,7 +7,7 @@
     <template v-slot:default="{ item }">
       <category-card
         :title="item.name"
-        :link="`/categories/${item.slug}`"
+        :link="item.slug ? `/categories/${item.slug}` : ''"
         :image="item.image"
         :description="item.description"
       />
