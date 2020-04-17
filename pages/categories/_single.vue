@@ -41,6 +41,7 @@ export default {
   },
   head() {
     return {
+      title: `${this.$store.state.name} | ${this.$siteConfig.siteName}`,
       meta: [
         {
           hid: 'og:title',
