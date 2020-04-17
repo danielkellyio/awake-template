@@ -63,7 +63,16 @@ import ContactForm from '~/components/ContactForm'
 export default {
   head() {
     return {
-      title: `Contact | ${this.$siteConfig.siteName}`
+      title: `Contact | ${this.$siteConfig.siteName}`,
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            (process.env.URL ? process.env.URL : '') +
+            require(`~/assets/uploads/contact-hero.jpg`)
+        }
+      ]
     }
   },
   components: { ContactForm }

@@ -39,6 +39,17 @@ export default {
       allCats: []
     }
   },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$store.state.image
+        }
+      ]
+    }
+  },
   fetch({ store, params }) {
     setPageData(store, { resource: 'category', slug: params.single })
   },

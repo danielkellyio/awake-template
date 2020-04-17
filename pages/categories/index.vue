@@ -10,7 +10,14 @@
 export default {
   head() {
     return {
-      title: `Categories | ${this.$siteConfig.siteName}`
+      title: `Categories | ${this.$siteConfig.siteName}`,
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `https://picsum.photos/1800/1801`
+        }
+      ]
     }
   }
 }
