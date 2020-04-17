@@ -43,9 +43,24 @@ export default {
     return {
       meta: [
         {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$store.state.name
+        },
+        {
           hid: 'og:image',
           property: 'og:image',
           content: this.$store.state.image
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$store.state.content
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$store.state.content
         }
       ]
     }
