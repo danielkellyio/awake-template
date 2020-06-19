@@ -16,7 +16,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: "name", valueField: "name", multiple: true}
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", searchFields: ["name"], valueField: "name", multiple: true}
       - {label: "Author", name: "author", widget: "string", default: "Daniel Kelly"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "featureImage", widget: "image"}
