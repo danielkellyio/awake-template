@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { isString } from 'lodash'
+import isString from 'lodash.isstring'
 import PresentationalGrid from './PresentationalGrid'
 
 export default {

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import rimraf from 'rimraf'
-import { chunk } from 'lodash'
+import chunk from 'lodash.chunk'
 import matter from 'gray-matter'
 import { flattenResource } from '../helper'
 
