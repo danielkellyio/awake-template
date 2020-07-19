@@ -42,7 +42,7 @@ export default {
       if (this.$siteConfig.newsletter.mailchimp.on) {
         return this.$siteConfig.newsletter.mailchimp.formAction
       }
-      return this.$siteConfig.newsletter.other.formAction
+      return this.$siteConfig.newsletter.custom.formAction
     }
   }
 }
