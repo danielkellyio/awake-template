@@ -35,6 +35,7 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
+    "markdown-it-video": "^0.6.3",
     "md5": "^2.2.1",
     "ncp": "^2.0.0",
     "netlify-cms": "^2.9.5",

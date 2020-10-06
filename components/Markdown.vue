@@ -19,6 +19,7 @@ export default {
         linkify: true,
         typographer: true
       })
+        .use(require('markdown-it-video'))
         .use(require('markdown-it-deflist'))
         .use(require('markdown-it-sub'))
         .use(require('markdown-it-sup'))
