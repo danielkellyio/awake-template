@@ -37,22 +37,31 @@ export default {
       const images = html.match(/<img(.*?)>/g)
       if (images) {
         images.forEach((image) => {
-          // const generatedImage = require('~/assets')
           const origImage = image
             .match(/src="([^"]*)"/g)[0]
             .replace('src="', '')
             .replace('"', '')
           let replace = `src="${origImage}"`
-          if (origImage.startsWith('/')) {
-            const generatedImage = require(`~/assets${origImage}`)
-            replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
-          }
 
-          const optiImage = image
-            .replace('<img', '<opti-image')
-            .replace('>', '/>')
-            .replace(/src="([^"]*)"/g, replace)
-          html = html.replace(image, optiImage)
+          const generatedImage = require(`~/assets${origImage}`)
+          if (origImage.endsWith('.gif')) {
+            if (origImage.startsWith('/')) {
+              replace = `src="${generatedImage}"`
+            }
+
+            const gifImage = image.replace(/src="([^"]*)"/g, replace)
+            html = html.replace(image, gifImage)
+          } else {
+            if (origImage.startsWith('/')) {
+              replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
+            }
+
+            const optiImage = image
+              .replace('<img', '<opti-image')
+              .replace('>', '/>')
+              .replace(/src="([^"]*)"/g, replace)
+            html = html.replace(image, optiImage)
+          }
         })
       }
       return html
