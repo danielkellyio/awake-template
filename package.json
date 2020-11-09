@@ -68,7 +68,7 @@
     "gray-matter-loader": "0.0.10",
     "node-sass": "^4.13.1",
     "nodemon": "^1.18.9",
-    "nuxt-responsive-loader": "^1.0.3",
+    "nuxt-responsive-loader": "^2.0.1",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
