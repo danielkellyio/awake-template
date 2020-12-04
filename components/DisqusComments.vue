@@ -14,7 +14,7 @@
     <vue-disqus
       v-if="
         $siteConfig.disqus.siteShortName &&
-          (displayed || $siteConfig.disqus.loadingStrategy === 'onload')
+        (displayed || $siteConfig.disqus.loadingStrategy === 'onload')
       "
       :shortname="$siteConfig.disqus.siteShortName"
       :identifier="identifier"
@@ -33,12 +33,12 @@
 export default {
   name: 'DisqusComments',
   props: {
-    identifier: { type: String, required: true }
+    identifier: { type: String, required: true },
   },
   data() {
     return {
-      displayed: false
+      displayed: false,
     }
-  }
+  },
 }
 </script>

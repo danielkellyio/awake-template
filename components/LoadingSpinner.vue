@@ -8,8 +8,8 @@
 export default {
   name: 'LoadingSpinner',
   props: {
-    position: { type: String, default: 'relative' }
-  }
+    position: { type: String, default: 'relative' },
+  },
 }
 </script>
 

@@ -22,5 +22,5 @@ export default {
   beforeUpdate() {},
   updated() {},
   beforeDestroy() {},
-  destroy() {}
+  destroy() {},
 }

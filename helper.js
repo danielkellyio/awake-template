@@ -1,10 +1,10 @@
 export const setPageData = (store, { resource, slug }) => {
   if (process.browser) {
     setTimeout(() => {
-      store.dispatch('set', { resource: resource, slug: slug })
+      store.dispatch('set', { resource, slug })
     }, 350)
   } else {
-    store.dispatch('set', { resource: resource, slug: slug })
+    store.dispatch('set', { resource, slug })
   }
 }
 
@@ -25,7 +25,7 @@ export const getFormattedDate = (date) => {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ]
   const dateObj = new Date(date)
   return `${

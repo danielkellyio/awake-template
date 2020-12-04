@@ -20,7 +20,7 @@
     <div
       :class="{
         'navbar-menu': true,
-        'is-active': active
+        'is-active': active,
       }"
     >
       <ul class="navbar-end">
@@ -54,9 +54,9 @@ export default {
   components: { SiteSearch, HamburgerButton },
   data() {
     return {
-      active: false
+      active: false,
     }
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>

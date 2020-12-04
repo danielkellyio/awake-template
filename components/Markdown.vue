@@ -11,13 +11,13 @@ export default {
   components: { VRuntimeTemplate },
   props: {
     tag: { type: String, default: 'article' },
-    markdown: { type: String, required: true }
+    markdown: { type: String, required: true },
   },
   computed: {
     content() {
       const md = new MarkdownIt({
         linkify: true,
-        typographer: true
+        typographer: true,
       })
         .use(require('markdown-it-deflist'))
         .use(require('markdown-it-sub'))
@@ -30,7 +30,7 @@ export default {
       html = html.replace(/<table>/g, '<table class="table is-striped">')
 
       return `<div class="content">${html}</div>`
-    }
+    },
   },
   methods: {
     useResponsiveImages(html) {
@@ -42,15 +42,14 @@ export default {
             .replace('src="', '')
             .replace('"', '')
           let replace = `src="${origImage}"`
+          const generatedImage =
+            origImage.startsWith('http') || origImage.endsWith('.gif')
+              ? origImage
+              : require(`~/assets${origImage}`)
 
-          const generatedImage = require(`~/assets${origImage}`)
-          if (origImage.endsWith('.gif')) {
-            if (origImage.startsWith('/')) {
-              replace = `src="${generatedImage}"`
-            }
-
-            const gifImage = image.replace(/src="([^"]*)"/g, replace)
-            html = html.replace(image, gifImage)
+          if (typeof generatedImage === 'string') {
+            if (origImage.startsWith('/')) replace = `src="${generatedImage}"`
+            html = html.replace(image, image.replace(/src="([^"]*)"/g, replace))
           } else {
             if (origImage.startsWith('/')) {
               replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
@@ -70,8 +69,8 @@ export default {
       html = html.replace(/<table/g, `<div class="table-wrapper"><table`)
       html = html.replace(/<\/table>/g, `</table></div>"`)
       return html
-    }
-  }
+    },
+  },
 }
 </script>
 

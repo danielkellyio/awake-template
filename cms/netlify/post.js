@@ -9,6 +9,7 @@ class Post {
     this.axios = axios
     this.editUrl = '/admin/#/collections/posts/entries'
   }
+
   getEditUrl(slug) {
     return `${this.editUrl}/${slug}`
   }

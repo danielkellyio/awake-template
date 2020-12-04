@@ -5,9 +5,7 @@
         “Always code as if the guy who ends up maintaining your code will be a
         violent psychopath who knows where you live.”
       </p>
-      <p class="subtitle">
-        ~ Martin Golding
-      </p>
+      <p class="subtitle">~ Martin Golding</p>
     </div>
     <footer class="card-footer">
       <div class="card-footer-item">

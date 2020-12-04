@@ -3,14 +3,14 @@
     {{ $siteConfig.siteName }} &copy; {{ new Date().getFullYear() }} - All
     Rights Reserved
     <br />
-    Made with <span style="color: #e25555;">&#9829;</span> with Nuxt.js and
+    Made with <span style="color: #e25555">&#9829;</span> with Nuxt.js and
     Netlify
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'SiteFooter'
+  name: 'SiteFooter',
 }
 </script>
 

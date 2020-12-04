@@ -5,27 +5,27 @@ const build = {
   extend(config, ctx) {
     config.module.rules.push({
       test: /\.md$/,
-      use: [{ loader: 'gray-matter-loader' }]
+      use: [{ loader: 'gray-matter-loader' }],
     })
     config.resolve.alias.vue = 'vue/dist/vue.common'
-  }
+  },
 }
 if (process.env.NODE_ENV === 'production') {
   build.analyze = true
   build.postcss = {
     preset: {
       features: {
-        customProperties: false
-      }
+        customProperties: false,
+      },
     },
     plugins: [
       purgecss({
         content: [
           './pages/**/*.vue',
           './layouts/**/*.vue',
-          './components/**/*.vue'
+          './components/**/*.vue',
         ],
-        css: css,
+        css,
         whitelist: [
           'html',
           'body',
@@ -52,11 +52,11 @@ if (process.env.NODE_ENV === 'production') {
           'tr',
           'tbody',
           'thead',
-          'tfoot'
+          'tfoot',
         ],
-        whitelistPatterns: [/theme/g, /spinner-position/, /fa/, /table/g]
-      })
-    ]
+        whitelistPatterns: [/theme/g, /spinner-position/, /fa/, /table/g],
+      }),
+    ],
   }
 }
 

@@ -32,7 +32,7 @@ export default {
         bounding.bottom <=
           (window.innerHeight || document.documentElement.clientHeight)
       )
-    }
-  }
+    },
+  },
 }
 </script>

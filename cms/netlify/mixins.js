@@ -9,7 +9,7 @@ export const getOneMixin = {
   getOne(slug) {
     const resource = require(`~/content/${this.slugPlural}/${slug}.md`).default
     return flattenResource(resource)
-  }
+  },
 }
 
 /**
@@ -27,6 +27,7 @@ export const getByNumberMixin = {
       this.reset()
     }
     this.gottenPage++
+    // eslint-disable-next-line
     try {
       const resources = await this.getByPage(this.gottenPage)
       const filtered = resources.filter(filter)
@@ -49,7 +50,7 @@ export const getByNumberMixin = {
     } catch (err) {
       throw err
     }
-  }
+  },
 }
 
 /**
@@ -64,6 +65,7 @@ export const getByPageMixin = {
         return resource
       }
     }
+    // eslint-disable-next-line
     try {
       let categories = await this.axios.$get(
         `api/${this.slugPlural}/page-${page}.json`
@@ -76,7 +78,7 @@ export const getByPageMixin = {
   },
   reset() {
     this.gottenPage = 0
-  }
+  },
 }
 
 /**
@@ -87,7 +89,7 @@ export const getAllMixin = {
   async getAll() {
     const resources = await this.axios.$get(`api/${this.slugPlural}.json`)
     return flattenResource(resources)
-  }
+  },
 }
 
 /**

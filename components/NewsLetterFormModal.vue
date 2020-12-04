@@ -18,8 +18,8 @@ export default {
       return (
         this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

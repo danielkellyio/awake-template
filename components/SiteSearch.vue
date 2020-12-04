@@ -4,7 +4,7 @@
       'search-wrapper': true,
       active: active,
       transitioning: transitioning,
-      inactive: !active && !transitioning
+      inactive: !active && !transitioning,
     }"
   >
     <span class="search-bar">
@@ -13,7 +13,7 @@
         v-model="query"
         autocomplete="off"
         :class="{
-          input: true
+          input: true,
         }"
         type="search"
         @keyup.enter="search"
@@ -62,7 +62,7 @@ export default {
       matches: false,
       haystack: [],
       query: '',
-      lastQuery: ''
+      lastQuery: '',
     }
   },
   methods: {
@@ -90,12 +90,10 @@ export default {
         ? this.haystack
         : await this.$axios.$get('/api/posts.json')
       const matches = posts.filter((match) => {
-        return (
-          match.content
-            .toLowerCase()
-            .replace(/#|_|-|~|>|\*|!|\+|`|\||\[|\]|_|:/g, '')
-            .indexOf(this.query.toLowerCase()) > -1
-        )
+        return match.content
+          .toLowerCase()
+          .replace(/#|_|-|~|>|\*|!|\+|`|\||\[|\]|_|:/g, '')
+          .includes(this.query.toLowerCase())
       })
 
       this.matches = matches.map((match) => {
@@ -123,8 +121,8 @@ export default {
           .trim() +
         append
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

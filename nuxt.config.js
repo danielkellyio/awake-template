@@ -17,27 +17,27 @@ export default {
   /*
    ** Headers of the page
    */
-  head: head,
+  head,
   generate: {
-    routes: otherRoutes.concat(getDynamicPaths(routeMap))
+    routes: otherRoutes.concat(getDynamicPaths(routeMap)),
   },
   /*
    ** Global CSS
    */
-  css: css,
+  css,
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: plugins,
+  plugins,
   /*
    ** Nuxt.js modules
    */
-  modules: modules,
+  modules,
   ...modulesSettings,
   /*
    ** Build configuration
    */
-  build: build
+  build,
 }
 
 /**

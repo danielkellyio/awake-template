@@ -1,10 +1,8 @@
 <template>
   <article
-    :class="
-      `subscribe-form-wrapper message is-dark subtle-box-shadow ${
-        active ? 'active' : ''
-      }`
-    "
+    :class="`subscribe-form-wrapper message is-dark subtle-box-shadow ${
+      active ? 'active' : ''
+    }`"
   >
     <div class="message-header">
       <font-awesome-icon
@@ -27,7 +25,7 @@ export default {
   components: { NewsLetterForm },
   data() {
     return {
-      active: true
+      active: true,
     }
   },
   computed: {
@@ -35,13 +33,13 @@ export default {
       return (
         this.$siteConfig.newsletter.heading || 'Subscribe to Our Newsletter'
       )
-    }
+    },
   },
   methods: {
     toggle() {
       this.active = !this.active
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

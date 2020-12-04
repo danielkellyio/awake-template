@@ -4,7 +4,7 @@
     :resource="$cms.category"
     :theme="$siteConfig.categories.theme || $siteConfig.cards.theme || null"
   >
-    <template v-slot:default="{ item }">
+    <template #default="{ item }">
       <category-card
         :title="item.name"
         :link="item.slug ? `/categories/${item.slug}` : ''"
@@ -24,7 +24,7 @@ export default {
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },
     order: { type: String, default: 'DESC' },
-    exclude: { type: String, default: '' }
-  }
+    exclude: { type: String, default: '' },
+  },
 }
 </script>

@@ -6,14 +6,12 @@
       :image="$store.state.image"
     />
     <main-section theme="sidebar-right">
-      <template v-slot:default>
+      <template #default>
         <!-- Posts in Category -->
         <posts-grid :category="[$store.state.name]" :per-row="2" />
       </template>
-      <template v-slot:sidebar>
-        <h3 class="subtitle">
-          All Categories
-        </h3>
+      <template #sidebar>
+        <h3 class="subtitle">All Categories</h3>
         <div class="panel">
           <nuxt-link
             v-for="cat in allCats"
@@ -21,7 +19,7 @@
             :to="`/categories/${cat.slug}`"
             :class="{
               'panel-block': true,
-              'is-active': cat.slug === $route.params.single
+              'is-active': cat.slug === $route.params.single,
             }"
           >
             {{ cat.name }}
@@ -36,7 +34,7 @@ import { setPageData } from '../../helper'
 export default {
   data() {
     return {
-      allCats: []
+      allCats: [],
     }
   },
   fetch({ store, params }) {
@@ -44,6 +42,6 @@ export default {
   },
   async created() {
     this.allCats = await this.$cms.category.getAll()
-  }
+  },
 }
 </script>

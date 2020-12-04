@@ -6,12 +6,12 @@ export const state = () => ({
   featureImage: '',
   content: '',
   author: '',
-  date: ''
+  date: '',
 })
 export const mutations = {
   set(state, data) {
     state = Object.assign(state, data)
-  }
+  },
 }
 export const actions = {
   nuxtServerInit(store, context) {
@@ -23,18 +23,18 @@ export const actions = {
     } else {
       const theResource = isString(resource) ? this.$cms[resource] : resource
       const data = Object.assign(theResource.getOne(slug), {
-        pageType: theResource.slug
+        pageType: theResource.slug,
       })
       data.slug = slug
       commit('set', data)
     }
-  }
+  },
 }
 
 function setOtherPageData(commit, siteConfig) {
   commit('set', {
     title: siteConfig.siteName,
     subtitle: siteConfig.tagline,
-    featureImage: siteConfig.featureImage
+    featureImage: siteConfig.featureImage,
   })
 }

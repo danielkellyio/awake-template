@@ -4,7 +4,7 @@
     :resource="$cms.post"
     :theme="$siteConfig.posts.theme || $siteConfig.cards.theme || null"
   >
-    <template v-slot:default="{ item }">
+    <template #default="{ item }">
       <post-card
         :title="item.title"
         :link="item.slug ? `/${item.slug}` : ''"
@@ -29,9 +29,9 @@ export default {
       type: Array,
       default() {
         return []
-      }
+      },
     },
-    exclude: { type: String, default: '' }
-  }
+    exclude: { type: String, default: '' },
+  },
 }
 </script>

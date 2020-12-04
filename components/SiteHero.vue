@@ -33,7 +33,7 @@ export default {
     subtitle: { type: String, default: '' },
     image: { type: String, default: '' },
     color: { type: String, default: '#469af0' },
-    theme: { type: String, default: '' }
+    theme: { type: String, default: '' },
   },
   computed: {
     responsiveImage() {
@@ -47,8 +47,8 @@ export default {
         return this.$siteConfig.hero.theme
       }
       return this.theme || 'mist'
-    }
-  }
+    },
+  },
 }
 </script>
 

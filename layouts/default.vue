@@ -1,8 +1,6 @@
 <template>
   <div
-    :class="
-      `site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`
-    "
+    :class="`site-layout-width-${$siteConfig.layout.width} posts-theme-${$siteConfig.posts.theme}`"
   >
     <site-nav />
     <nuxt />
@@ -15,6 +13,22 @@
 import 'animate.css/animate.min.css'
 export default {
   transition: 'slide-fade',
+  data() {
+    return {
+      items: [
+        {
+          title: 'Home',
+          icon: 'home',
+          to: { name: 'index' },
+        },
+        {
+          title: 'Inspire',
+          icon: 'lightbulb',
+          to: { name: 'inspire' },
+        },
+      ],
+    }
+  },
   head() {
     return {
       title: `${this.$store.state.title} | ${this.$siteConfig.siteName}`,
@@ -22,17 +36,17 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.$store.state.subtitle
+          content: this.$store.state.subtitle,
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.$store.state.subtitle
+          content: this.$store.state.subtitle,
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.$store.state.title
+          content: this.$store.state.title,
         },
         {
           hid: 'og:image',
@@ -40,46 +54,30 @@ export default {
           content: this.$store.state.featureImage
             ? (process.env.URL ? process.env.URL : '') +
               require(`~/assets${this.$store.state.featureImage}`)
-            : ''
+            : '',
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: this.url
+          content: this.url,
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `summary_large_image`
+          content: `summary_large_image`,
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: this.$siteConfig.siteName
-        }
-      ]
-    }
-  },
-  data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
+          content: this.$siteConfig.siteName,
         },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
+      ],
     }
   },
   watch: {
     $route(to, from) {
       this.$eventBus.$emit('route-changed', this.$route)
-    }
+    },
   },
   mounted() {
     this.$cms.lifeCycleHooks.mounted()
@@ -104,6 +102,6 @@ export default {
   },
   destroy() {
     this.$cms.lifeCycleHooks.destroy()
-  }
+  },
 }
 </script>

@@ -10,13 +10,11 @@
       </button>
     </site-hero>
     <main-section theme="one-column">
-      <template v-slot:default>
+      <template #default>
         <!-- All Posts -->
         <posts-grid />
       </template>
-      <template v-slot:sidebar>
-        Nothing here
-      </template>
+      <template #sidebar> Nothing here </template>
     </main-section>
     <news-letter-form-modal />
   </div>
@@ -29,20 +27,20 @@ import NewsLetterFormModal from '~/components/NewsLetterFormModal'
 
 export default {
   name: 'HomePage',
-  head() {
-    return {
-      title: `Home | ${this.$siteConfig.siteName}`
-    }
-  },
   components: {
-    NewsLetterFormModal
-  },
-  computed: {
-    ...mapState(['title', 'subtitle', 'featureImage'])
+    NewsLetterFormModal,
   },
   fetch({ store, params }) {
     setPageData(store, { slug: 'home' })
-  }
+  },
+  head() {
+    return {
+      title: `Home | ${this.$siteConfig.siteName}`,
+    }
+  },
+  computed: {
+    ...mapState(['title', 'subtitle', 'featureImage']),
+  },
 }
 </script>
 

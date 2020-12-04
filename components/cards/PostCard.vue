@@ -5,8 +5,8 @@
     :link="link"
     :image-dimensions="
       $siteConfig.posts.imageDimensions ||
-        $siteConfig.cards.imageDimensions ||
-        null
+      $siteConfig.cards.imageDimensions ||
+      null
     "
   >
     <span
@@ -29,29 +29,29 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     image: {
       type: String,
-      default: ''
+      default: '',
     },
     link: {
       type: String,
-      default: ''
+      default: '',
     },
     date: {
       type: String,
-      default: ''
+      default: '',
     },
     author: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     datePretty() {
       return getFormattedDate(this.date)
-    }
-  }
+    },
+  },
 }
 </script>

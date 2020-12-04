@@ -3,7 +3,7 @@
     <div
       :class="{
         'logo-inner': true,
-        blink: blinking
+        blink: blinking,
       }"
     >
       <img
@@ -26,7 +26,7 @@ export default {
     return {
       frames: 5,
       currentFrame: 1,
-      blinking: true
+      blinking: true,
     }
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
       const rand = Math.ceil(Math.random() * 10)
       this.blinking = rand % 2
     }, 1000)
-  }
+  },
 }
 </script>
 <style lang="scss">

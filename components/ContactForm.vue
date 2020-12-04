@@ -50,9 +50,7 @@
       </div>
     </div>
     <div class="control">
-      <button class="button is-primary">
-        Contact Us
-      </button>
+      <button class="button is-primary">Contact Us</button>
     </div>
   </form>
 </template>

@@ -20,12 +20,10 @@
         <div class="media-content">
           <nuxt-link :to="link">
             <h3
-              :class="
-                `title
+              :class="`title
                 is-5
                 has-text-weight-light
-                ${title ? '' : 'empty-content-placeholder'}`
-              "
+                ${title ? '' : 'empty-content-placeholder'}`"
             >
               {{ title }}
             </h3>
@@ -33,7 +31,7 @@
               :class="{
                 subtitle: true,
                 'is-6': true,
-                'empty-content-placeholder': !$slots.default
+                'empty-content-placeholder': !$slots.default,
               }"
             >
               <slot></slot>
@@ -51,7 +49,7 @@ export default {
     title: { type: String, default: '' },
     image: { type: String, default: '' },
     link: { type: String, default: '' },
-    imageDimensions: { type: String, default: imageDimensionDefault }
+    imageDimensions: { type: String, default: imageDimensionDefault },
   },
   computed: {
     imageRatioClass() {
@@ -72,8 +70,8 @@ export default {
         return require(`~/assets${this.image}`)
       }
       return { src: this.image, srcSet: '' }
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped lang="scss">

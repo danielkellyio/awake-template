@@ -11,7 +11,7 @@
       :per-row="perRow"
       @atEnd="loadMore()"
     >
-      <template v-slot:default="{ item }">
+      <template #default="{ item }">
         <slot :item="item"></slot>
       </template>
     </presentational-grid>
@@ -36,9 +36,9 @@ export default {
       type: Array,
       default() {
         return []
-      }
+      },
     },
-    exclude: { type: String, default: '' }
+    exclude: { type: String, default: '' },
   },
   data() {
     return {
@@ -47,13 +47,13 @@ export default {
       resources: [],
       page: 0,
       allPostsLoaded: false,
-      loading: false
+      loading: false,
     }
   },
   computed: {
     resourceController() {
       return isString(this.resource) ? this.$cms[this.resource] : this.resource
-    }
+    },
   },
   created() {
     this.$eventBus.$on('route-changed', this.reset)
@@ -63,7 +63,6 @@ export default {
   },
   methods: {
     reset() {
-      console.log('resetting resource grid')
       this.resourceController.reset()
       this.page = 0
       this.allLoaded = false
@@ -146,7 +145,7 @@ export default {
         return resource.slug !== this.exclude
       }
       return resource
-    }
-  }
+    },
+  },
 }
 </script>
