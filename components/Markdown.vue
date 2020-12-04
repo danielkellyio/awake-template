@@ -42,15 +42,14 @@ export default {
             .replace('src="', '')
             .replace('"', '')
           let replace = `src="${origImage}"`
+          const generatedImage =
+            origImage.startsWith('http') || origImage.endsWith('.gif')
+              ? origImage
+              : require(`~/assets${origImage}`)
 
-          const generatedImage = require(`~/assets${origImage}`)
-          if (origImage.endsWith('.gif')) {
-            if (origImage.startsWith('/')) {
-              replace = `src="${generatedImage}"`
-            }
-
-            const gifImage = image.replace(/src="([^"]*)"/g, replace)
-            html = html.replace(image, gifImage)
+          if (typeof generatedImage === 'string') {
+            if (origImage.startsWith('/')) replace = `src="${generatedImage}"`
+            html = html.replace(image, image.replace(/src="([^"]*)"/g, replace))
           } else {
             if (origImage.startsWith('/')) {
               replace = `src="${generatedImage.src}" srcset="${generatedImage.srcSet}"`
