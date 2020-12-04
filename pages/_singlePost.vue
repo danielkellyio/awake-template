@@ -40,8 +40,11 @@ export default {
     Markdown,
     PostSidebar,
   },
-  fetch({ store, params }) {
-    setPageData(store, { resource: 'post', slug: params.singlePost })
+  async middleware({ store, params }) {
+    return await setPageData(store, {
+      resource: 'post',
+      slug: params.singlePost,
+    })
   },
   computed: {
     ...mapState([

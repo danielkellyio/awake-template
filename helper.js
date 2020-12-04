@@ -1,11 +1,15 @@
 export const setPageData = (store, { resource, slug }) => {
-  if (process.browser) {
-    setTimeout(() => {
+  return new Promise((resolve) => {
+    if (process.browser) {
+      setTimeout(() => {
+        store.dispatch('set', { resource, slug })
+        resolve()
+      }, 200)
+    } else {
       store.dispatch('set', { resource, slug })
-    }, 350)
-  } else {
-    store.dispatch('set', { resource, slug })
-  }
+      resolve()
+    }
+  })
 }
 
 export const fullUrl = () => {
@@ -31,4 +35,13 @@ export const getFormattedDate = (date) => {
   return `${
     months[dateObj.getMonth()]
   } ${dateObj.getDate()}, ${dateObj.getFullYear()}`
+}
+
+/**
+ * Weird hacky thing to make page transitions work properly
+ * https://github.com/nuxt/nuxt.js/issues/4132
+ * @param f
+ */
+export const commitTimeout = (f) => {
+  process.client ? setTimeout(() => f(), 20) : f()
 }

@@ -1,4 +1,5 @@
 import isString from 'lodash.isstring'
+import { commitTimeout } from '~/helper'
 export const state = () => ({
   pageType: '',
   title: '',
@@ -17,7 +18,7 @@ export const actions = {
   nuxtServerInit(store, context) {
     this.$cms = context.store.$cms
   },
-  set({ commit }, { resource, slug }) {
+  async set({ commit }, { resource, slug }) {
     if (!resource) {
       setOtherPageData(commit, this.$siteConfig)
     } else {
@@ -26,7 +27,8 @@ export const actions = {
         pageType: theResource.slug,
       })
       data.slug = slug
-      commit('set', data)
+      await commitTimeout(() => commit('set', data))
+      return data
     }
   },
 }

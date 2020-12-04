@@ -32,13 +32,16 @@
 <script>
 import { setPageData } from '../../helper'
 export default {
+  async middleware({ store, params }) {
+    return await setPageData(store, {
+      resource: 'category',
+      slug: params.single,
+    })
+  },
   data() {
     return {
       allCats: [],
     }
-  },
-  async fetch({ store, params }) {
-    await setPageData(store, { resource: 'category', slug: params.single })
   },
   async created() {
     this.allCats = await this.$cms.category.getAll()
