@@ -3,7 +3,12 @@ import siteConfig from './_siteConfig'
 let url = false
 let axiosSettings = {}
 if (process.env.URL && process.argv[2] === 'generate') {
-  url = new URL(process.env.URL)
+  if (process.env.BRANCH !== 'master' && process.env.DEPLOY_URL) {
+    url = new URL(process.env.DEPLOY_URL)
+  } else {
+    url = new URL(process.env.URL)
+  }
+
   axiosSettings = {
     baseURL: url,
   }
