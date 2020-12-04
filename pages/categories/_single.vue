@@ -37,8 +37,8 @@ export default {
       allCats: [],
     }
   },
-  fetch({ store, params }) {
-    setPageData(store, { resource: 'category', slug: params.single })
+  async fetch({ store, params }) {
+    await setPageData(store, { resource: 'category', slug: params.single })
   },
   async created() {
     this.allCats = await this.$cms.category.getAll()
