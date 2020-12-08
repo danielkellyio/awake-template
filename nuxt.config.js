@@ -8,7 +8,6 @@ import css from './config/css'
 import { routeMap, otherRoutes } from './config/generate'
 
 export default {
-  mode: 'universal',
   /*
    ** Customize the progress-bar color
    */
@@ -17,27 +16,27 @@ export default {
   /*
    ** Headers of the page
    */
-  head: head,
+  head,
   generate: {
     routes: otherRoutes.concat(getDynamicPaths(routeMap))
   },
   /*
    ** Global CSS
    */
-  css: css,
+  css,
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: plugins,
+  plugins,
   /*
    ** Nuxt.js modules
    */
-  modules: modules,
+  modules,
   ...modulesSettings,
   /*
    ** Build configuration
    */
-  build: build
+  build
 }
 
 /**

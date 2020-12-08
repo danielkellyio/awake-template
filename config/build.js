@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
           './layouts/**/*.vue',
           './components/**/*.vue'
         ],
-        css: css,
+        css,
         whitelist: [
           'html',
           'body',

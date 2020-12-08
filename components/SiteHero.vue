@@ -1,10 +1,10 @@
 <template>
   <section :class="`hero is-medium hero-theme-${computedTheme}`">
     <img
-      class="hero-bg-img"
       :src="responsiveImage.src"
       :lazy="false"
       :srcset="responsiveImage.srcSet"
+      class="hero-bg-img"
     />
     <div class="hero-body">
       <div class="container">

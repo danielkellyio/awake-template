@@ -12,21 +12,21 @@
         <p class="modal-card-title">
           {{ title }}
         </p>
-        <button class="delete" aria-label="close" @click="close()"></button>
+        <button @click="close()" class="delete" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
         <slot></slot>
       </section>
       <footer v-if="footer" class="modal-card-foot">
-        <button class="button is-success" @click="$emit('confirm')">
+        <button @click="$emit('confirm')" class="button is-success">
           {{ confirmText }}
         </button>
         <button
-          class="button"
           @click="
             close()
             $emit('cancel')
           "
+          class="button"
         >
           Cancel
         </button>
@@ -50,8 +50,10 @@ export default {
     }
   },
   created() {
-    this.$eventBus.$on(`modal-triggered`, (id) => {
-      if (id === this.id) this.active = true
+    this.$eventBus.$on('modal-triggered', (id) => {
+      if (id === this.id) {
+        this.active = true
+      }
     })
   },
   methods: {

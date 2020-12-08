@@ -12,7 +12,6 @@ if (process.env.URL && process.argv[2] === 'generate') {
 export const modules = [
   // Doc: https://axios.nuxtjs.org/usage
   '@nuxtjs/axios',
-  '@nuxtjs/eslint-module',
   '@nuxtjs/style-resources',
   'nuxt-fontawesome',
   'nuxt-responsive-loader'

@@ -10,8 +10,8 @@
       <font-awesome-icon
         :icon="active ? 'times' : 'envelope'"
         :aria-label="active ? 'close' : 'open'"
-        class="close"
         @click="toggle()"
+        class="close"
       />
       <p>{{ header }}</p>
     </div>

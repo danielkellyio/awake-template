@@ -13,8 +13,12 @@ export default {
         this.$emit('view')
         let times = 0
         const interval = setInterval(() => {
-          if (this.stillInViewport()) this.$emit('view')
-          if (times === 6) clearInterval(interval)
+          if (this.stillInViewport()) {
+            this.$emit('view')
+          }
+          if (times === 6) {
+            clearInterval(interval)
+          }
           times++
         }, 3000)
       }

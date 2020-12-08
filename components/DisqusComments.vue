@@ -2,8 +2,8 @@
   <div v-if="$siteConfig.disqus.on" class="comments-wrapper section">
     <a
       v-if="$siteConfig.disqus.loadingStrategy === 'button' && !displayed"
-      class="button is-fullwidth is-outlined is-large"
       @click="displayed = true"
+      class="button is-fullwidth is-outlined is-large"
     >
       Load Comments
     </a>

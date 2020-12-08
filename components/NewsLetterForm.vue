@@ -1,10 +1,10 @@
 <template>
   <div>
     <form
-      target="_blank"
-      method="post"
       :action="formAction"
       @submit="$emit('submit', email)"
+      target="_blank"
+      method="post"
     >
       <div class="field has-addons is-fullwidth">
         <p class="control has-icons-left">

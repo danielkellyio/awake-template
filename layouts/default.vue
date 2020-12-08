@@ -50,7 +50,7 @@ export default {
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `summary_large_image`
+          content: 'summary_large_image'
         },
         {
           hid: 'og:site_name',

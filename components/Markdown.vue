@@ -1,5 +1,5 @@
 <template>
-  <v-runtime-template class="content" :template="content"></v-runtime-template>
+  <v-runtime-template :template="content" class="content"></v-runtime-template>
 </template>
 
 <script>
@@ -48,7 +48,9 @@ export default {
               : require(`~/assets${origImage}`)
 
           if (typeof generatedImage === 'string') {
-            if (origImage.startsWith('/')) replace = `src="${generatedImage}"`
+            if (origImage.startsWith('/')) {
+              replace = `src="${generatedImage}"`
+            }
             html = html.replace(image, image.replace(/src="([^"]*)"/g, replace))
           } else {
             if (origImage.startsWith('/')) {
@@ -66,8 +68,8 @@ export default {
       return html
     },
     wrapTable(html) {
-      html = html.replace(/<table/g, `<div class="table-wrapper"><table`)
-      html = html.replace(/<\/table>/g, `</table></div>"`)
+      html = html.replace(/<table/g, '<div class="table-wrapper"><table')
+      html = html.replace(/<\/table>/g, '</table></div>"')
       return html
     }
   }
