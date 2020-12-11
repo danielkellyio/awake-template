@@ -11,7 +11,7 @@ const build = {
   }
 }
 if (process.env.NODE_ENV === 'production') {
-  build.analyze = true
+  // build.analyze = true
   build.postcss = {
     preset: {
       features: {
