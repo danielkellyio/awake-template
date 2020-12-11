@@ -8,7 +8,7 @@ import css from './config/css'
 import { routeMap, otherRoutes } from './config/generate'
 
 export default {
-  mode: 'universal',
+  target: 'static',
   /*
    ** Customize the progress-bar color
    */
