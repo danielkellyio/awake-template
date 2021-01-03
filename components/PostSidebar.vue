@@ -1,6 +1,6 @@
 <template>
   <div class="post-sidebar box">
-    Sidear Here
+    Sidebar Here
   </div>
 </template>
 <script>
