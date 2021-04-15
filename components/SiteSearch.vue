@@ -43,7 +43,7 @@
       </ul>
     </span>
 
-    <label for="search-input">
+    <label v-if="query == ''" for="search-input">
       <font-awesome-icon
         icon="search"
         class="search-icon"
