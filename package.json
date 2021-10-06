@@ -44,7 +44,7 @@
     "opti-image": "^0.10.0",
     "react": "^16.8.6",
     "showdown": "^1.9.1",
-    "url-parse": "^1.4.7",
+    "url-parse": "^1.5.2",
     "v-runtime-template": "^1.10.0",
     "vue-disqus": "^3.0.5"
   },
