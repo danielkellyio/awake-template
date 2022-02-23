@@ -9,7 +9,7 @@ import theCMS from '../cms/netlify/cms'
  * General Site configurations
  */
 export default {
-  siteName: 'Awake',
+  siteName: 'Light Aircraft Avionics',
   tagline: 'A Nuxt.js Theme for Netlify CMS',
   featureImage: '/uploads/home-hero.jpg',
   logo: 'logo-component', // 'logo-component', // or '/logo.svg' for regular image
@@ -19,15 +19,15 @@ export default {
   },
   mainMenu: [
     {
-      name: 'About',
+      name: 'Service',
       link: '/about'
     },
     {
-      name: 'Contact',
+      name: 'Locations',
       link: '/contact'
     },
     {
-      name: 'Categories',
+      name: 'Parts',
       link: '/categories'
     },
     {
